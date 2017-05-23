@@ -50,7 +50,7 @@ interface Personnel {
 	void supprimerEnseigant(in Enseignant e);
 
 
-	void modifierEnserignant(in Enseignant e, in Enseignant newEnseigant);
+	void modifierEnseignant(in Enseignant e, in Enseignant newEnseigant);
 
 	void modifierEtudiant(in Etudiant e, in Etudiant newEtudiant);
 

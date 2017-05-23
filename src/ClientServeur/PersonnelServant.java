@@ -26,12 +26,7 @@ class PersonnelServant extends PersonnelPOA {
     	orb.shutdown(false);
     }
 
-	@Override
-	public void creePersonne(PersonInfo p) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void creerEnseignant(Enseignant e) {
 		// TODO Auto-generated method stub
@@ -81,7 +76,7 @@ class PersonnelServant extends PersonnelPOA {
 	}
 
 	@Override
-	public void modifierEnserignant(Enseignant e, Enseignant newEnseigant) {
+	public void modifierEnseignant(Enseignant e, Enseignant newEnseigant) {
 		// TODO Auto-generated method stub
 		
 	}
