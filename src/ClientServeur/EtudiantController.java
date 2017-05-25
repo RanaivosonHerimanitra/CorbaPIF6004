@@ -2,7 +2,11 @@ package ClientServeur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
@@ -53,10 +57,16 @@ public class EtudiantController {
 		 
 		PreparedStatement statement = conn.prepareStatement(sql);
 		 
-		int rowsUpdated = statement.executeUpdate();
-		if (rowsUpdated > 0) {
-		    System.out.println("An existing student was updated successfully!");
+		int rowsDeleted = statement.executeUpdate();
+		if (rowsDeleted > 0) {
+		    System.out.println("An existing student was deleted successfully!");
 		}
 		
+	}
+	
+	public ResultSet getStudents() throws SQLException{
+		String sql = "SELECT * FROM etudiant";
+		Statement stmt = conn.createStatement();
+		return stmt.executeQuery(sql);		
 	}
 }
