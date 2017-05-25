@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
@@ -65,10 +66,16 @@ public class EtudiantController {
 		
 	}
 	
-	public ResultSet getStudents() throws SQLException{
+	public ArrayList<Etudiant> getStudents() throws SQLException{
 		String sql = "SELECT * FROM etudiant";
 		Statement stmt = conn.createStatement();
-		return stmt.executeQuery(sql);		
+		ResultSet rs= stmt.executeQuery(sql);
+		ArrayList<Etudiant> ListEtudiant = new ArrayList<Etudiant>();
+		
+		while (rs.next()){
+		    ListEtudiant.add(new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getInt("matricule_et")));
+		}
+		return ListEtudiant;
 	}
 	
 	public Etudiant getStudent(String nom) throws SQLException{

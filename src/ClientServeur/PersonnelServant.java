@@ -61,7 +61,12 @@ class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public Etudiant chercherEtudiant(String nom) {
-		// TODO Auto-generated method stub
+		try {
+			return etudiantController.getStudent(nom);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -78,14 +83,35 @@ class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public Etudiant[] AfficherEtudiants() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Etudiant> ListEtudiants = null;
+		Etudiant[] tabEtudiants = null;
+		
+		try {
+			ListEtudiants = etudiantController.getStudents();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		if (ListEtudiants!=null){
+			tabEtudiants = new Etudiant[ListEtudiants.size()];
+			ListEtudiants.toArray(tabEtudiants);
+
+			for(Etudiant e : tabEtudiants)
+			    System.out.println(e.p.nom);
+		}
+		
+		return tabEtudiants;
 	}
 
 	@Override
 	public void supprimerEtudiant(Etudiant e) {
-		// TODO Auto-generated method stub
-		
+		try {
+			etudiantController.delete(e);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	@Override
