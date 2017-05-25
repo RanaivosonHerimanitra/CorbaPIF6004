@@ -10,6 +10,7 @@ import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
+import PersonnelAPP.PersonInfo;
 
 public class EtudiantController {
 	private Connection conn;
@@ -68,5 +69,13 @@ public class EtudiantController {
 		String sql = "SELECT * FROM etudiant";
 		Statement stmt = conn.createStatement();
 		return stmt.executeQuery(sql);		
+	}
+	
+	public Etudiant getStudent(String nom) throws SQLException{
+		String sql = "SELECT * FROM etudiant WHERE nom_et="+nom;
+		Statement stmt = conn.createStatement();
+		ResultSet rs= stmt.executeQuery(sql);	
+		if (rs==null) return null;
+		return new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getInt("matricule_et"));
 	}
 }
