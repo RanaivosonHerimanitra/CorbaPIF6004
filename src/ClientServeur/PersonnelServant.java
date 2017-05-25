@@ -1,4 +1,5 @@
 package ClientServeur;
+import java.sql.SQLException;
 import java.util.Dictionary;
 import java.util.HashMap;
 
@@ -14,7 +15,13 @@ import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
 
 class PersonnelServant extends PersonnelPOA {
-    
+	EnseignantController enseignantController;
+	
+	public PersonnelServant() {
+		
+		enseignantController = new EnseignantController();
+	}
+
 	//Code ORB par défaut
 	private ORB orb;
 
@@ -29,8 +36,8 @@ class PersonnelServant extends PersonnelPOA {
 	
 	@Override
 	public void creerEnseignant(Enseignant e) {
-		// TODO Auto-generated method stub
-		
+	    
+		//enseignantController.insertion(e);
 	}
 
 	@Override
