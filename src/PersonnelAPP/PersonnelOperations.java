@@ -22,8 +22,8 @@ public interface PersonnelOperations
   PersonnelAPP.Enseignant[] AfficherEnseigants ();
   PersonnelAPP.Etudiant[] AfficherEtudiants ();
   void supprimerEtudiant (PersonnelAPP.Etudiant e);
-  void supprimerEnseigant (PersonnelAPP.Enseignant e);
-  void modifierEnseignant (PersonnelAPP.Enseignant e, PersonnelAPP.Enseignant newEnseigant);
+  void supprimerEnseigant (PersonnelAPP.Enseignant e) throws SQLException;
+  void modifierEnseignant (PersonnelAPP.Enseignant e, PersonnelAPP.Enseignant newEnseigant) throws SQLException;
   void modifierEtudiant (PersonnelAPP.Etudiant e, PersonnelAPP.Etudiant newEtudiant);
 
   //*/
