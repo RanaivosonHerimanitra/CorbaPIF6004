@@ -125,7 +125,12 @@ public abstract class PersonnelPOA extends org.omg.PortableServer.Servant
        {
          PersonnelAPP.Enseignant e = PersonnelAPP.EnseignantHelper.read (in);
          PersonnelAPP.Enseignant newEnseigant = PersonnelAPP.EnseignantHelper.read (in);
-         this.modifierEnseignant (e, newEnseigant);
+         try {
+			this.modifierEnseignant (e, newEnseigant);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
          out = $rh.createReply();
          break;
        }
