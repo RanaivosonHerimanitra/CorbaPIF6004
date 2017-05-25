@@ -71,7 +71,7 @@ class PersonnelServant extends PersonnelPOA {
 	}
 
 	@Override
-	public Enseignant[] AfficherEnseigants() {
+	public Enseignant[] AfficherEnseigants() throws SQLException {
 		List<Enseignant> ListEnseignant = enseignantController.getEnseignant();
 		Enseignant[] tabEnseignant = new Enseignant[ListEnseignant.size()];
 		tabEnseignant = ListEnseignant.toArray(tabEnseignant);

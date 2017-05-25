@@ -90,7 +90,12 @@ public abstract class PersonnelPOA extends org.omg.PortableServer.Servant
        case 4:  // PersonnelAPP/Personnel/AfficherEnseigants
        {
          PersonnelAPP.Enseignant $result[] = null;
-         $result = this.AfficherEnseigants ();
+         try {
+			$result = this.AfficherEnseigants ();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
          out = $rh.createReply();
          PersonnelAPP.EnseignantsHelper.write (out, $result);
          break;
