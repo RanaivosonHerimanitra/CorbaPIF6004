@@ -16,12 +16,10 @@ public final class Enseignant implements org.omg.CORBA.portable.IDLEntity
   public PersonnelAPP.PersonInfo p = null;
   public int tel = (int)0;
   public int post = (int)0;
-  //public ConnectionDB c;
-  //public Connection conn ;
+  
   public Enseignant ()
   {
-  //  c = new ConnectionDB();
-  //  conn = c.getConnection();
+  
   } 
 
   public Enseignant (PersonnelAPP.PersonInfo _p, int _tel, int _post)

@@ -35,9 +35,9 @@ class PersonnelServant extends PersonnelPOA {
 
 	
 	@Override
-	public void creerEnseignant(Enseignant e) {
+	public void creerEnseignant(Enseignant e) throws SQLException {
 	    
-		//enseignantController.insertion(e);
+		enseignantController.insertion(e);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package PersonnelAPP;
 
+import java.sql.SQLException;
 
 /**
 * PersonnelAPP/PersonnelOperations.java .
@@ -14,7 +15,7 @@ public interface PersonnelOperations
 {
 
   //*
-  void creerEnseignant (PersonnelAPP.Enseignant e);
+  void creerEnseignant (PersonnelAPP.Enseignant e) throws SQLException;
   void creerEtudiant (PersonnelAPP.Etudiant e);
   PersonnelAPP.Enseignant chercherEnseignant (String nom);
   PersonnelAPP.Etudiant chercherEtudiant (String nom);

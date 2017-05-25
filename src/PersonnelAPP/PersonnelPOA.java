@@ -1,5 +1,6 @@
 package PersonnelAPP;
 
+import java.sql.SQLException;
 
 /**
 * PersonnelAPP/PersonnelPOA.java .
@@ -48,7 +49,12 @@ public abstract class PersonnelPOA extends org.omg.PortableServer.Servant
        case 0:  // PersonnelAPP/Personnel/creerEnseignant
        {
          PersonnelAPP.Enseignant e = PersonnelAPP.EnseignantHelper.read (in);
-         this.creerEnseignant (e);
+         try {
+			this.creerEnseignant (e);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
          out = $rh.createReply();
          break;
        }
