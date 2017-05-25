@@ -83,8 +83,8 @@ class PersonnelServant extends PersonnelPOA {
 	}
 
 	@Override
-	public void modifierEnseignant(Enseignant e, Enseignant newEnseigant) {
-		// TODO Auto-generated method stub
+	public void modifierEnseignant(Enseignant e, Enseignant newEnseignant) throws SQLException {
+		enseignantController.update(e, newEnseignant);
 		
 	}
 
