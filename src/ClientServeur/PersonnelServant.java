@@ -16,10 +16,11 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
 
 class PersonnelServant extends PersonnelPOA {
 	EnseignantController enseignantController;
+	EtudiantController etudiantController;
 	
 	public PersonnelServant() {
-		
 		enseignantController = new EnseignantController();
+		etudiantController = new EtudiantController();
 	}
 
 	//Code ORB par défaut
@@ -42,7 +43,11 @@ class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public void creerEtudiant(Etudiant e) {
-		// TODO Auto-generated method stub
+		try {
+			etudiantController.insertion(e);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		
 	}
 
