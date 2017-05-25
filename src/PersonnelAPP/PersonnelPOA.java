@@ -116,7 +116,12 @@ public abstract class PersonnelPOA extends org.omg.PortableServer.Servant
        case 7:  // PersonnelAPP/Personnel/supprimerEnseigant
        {
          PersonnelAPP.Enseignant e = PersonnelAPP.EnseignantHelper.read (in);
-         this.supprimerEnseigant (e);
+         try {
+			this.supprimerEnseigant (e);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
          out = $rh.createReply();
          break;
        }

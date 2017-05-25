@@ -46,5 +46,17 @@ public class EnseignantController {
 		    System.out.println("An existing user was updated successfully!");
 		}
 	}
+	public void delete(Enseignant e) throws SQLException 
+	{
+		String sql = "DELETE FROM enseignant WHERE nom_ens=?";
+		 
+		PreparedStatement statement = conn.prepareStatement(sql);
+		statement.setString(1, e.p.nom);
+		 
+		int rowsDeleted = statement.executeUpdate();
+		if (rowsDeleted > 0) {
+		    System.out.println("A user was deleted successfully!");
+		}
+	}
 
 }

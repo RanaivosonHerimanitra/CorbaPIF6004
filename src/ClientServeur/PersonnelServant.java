@@ -77,8 +77,8 @@ class PersonnelServant extends PersonnelPOA {
 	}
 
 	@Override
-	public void supprimerEnseigant(Enseignant e) {
-		// TODO Auto-generated method stub
+	public void supprimerEnseigant(Enseignant e) throws SQLException {
+		enseignantController.delete(e);
 		
 	}
 
