@@ -1,7 +1,9 @@
 package ClientServeur;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.List;
 
 import PersonnelAPP.*;         
 
@@ -65,8 +67,13 @@ class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public Enseignant[] AfficherEnseigants() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Enseignant> ListEnseignant = enseignantController.getEnseignant();
+		Enseignant[] tabEnseignant = new Enseignant[ListEnseignant.size()];
+		tabEnseignant = ListEnseignant.toArray(tabEnseignant);
+
+		for(Enseignant s : tabEnseignant)
+		    System.out.println(s.p.nom);
+		return tabEnseignant;
 	}
 
 	@Override

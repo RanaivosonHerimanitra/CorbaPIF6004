@@ -2,7 +2,11 @@ package ClientServeur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import PersonnelAPP.Enseignant;
 
@@ -11,6 +15,31 @@ public class EnseignantController {
 	
 	public EnseignantController()  {
 		conn = ConnectionDB.getConnection();
+	}
+	public ArrayList<Enseignant> getEnseignant() throws SQLException 
+	{
+		String sql = "SELECT * FROM enseignant";	
+		ArrayList<Enseignant> ListEnseignant = new ArrayList<Enseignant>();
+		
+		Statement statement = conn.createStatement();
+		ResultSet result = statement.executeQuery(sql);
+		while (result.next()){
+		    String nom = result.getString("nom_ens");
+		    String prenom = result.getString("prenom_ens");
+		    String domaine = result.getString("domaine_act_ens");
+		    int tel_bureau = result.getInt("tel_bureau");
+		    int numero_poste = result.getInt("numero_poste");
+		    String courriel_ens = result.getString("courriel_ens");
+		    Enseignant e = new Enseignant() ;
+		    e.p.nom=nom;
+			e.p.prenom=prenom;
+			e.p.domain=domaine;
+			e.tel=tel_bureau;
+			e.post=numero_poste;
+			e.p.mail=courriel_ens;
+		    ListEnseignant.add(e);
+		}
+		return ListEnseignant;
 	}
 	public void insertion(Enseignant e) throws SQLException {
 		String sql = "INSERT INTO enseignant (nom_ens, prenom_ens, domaine_act_ens, tel_bureau, numero_poste, courriel_ens) VALUES (?, ?, ?, ?,?,?)";
