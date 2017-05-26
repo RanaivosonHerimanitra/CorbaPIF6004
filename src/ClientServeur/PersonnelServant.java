@@ -128,8 +128,12 @@ class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public void modifierEtudiant(Etudiant e, Etudiant newEtudiant) {
-		// TODO Auto-generated method stub
-		
+		try {
+			etudiantController.update(e, newEtudiant);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
 	}
 
 

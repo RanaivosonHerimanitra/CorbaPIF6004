@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PersonnelAPP.Enseignant;
+import PersonnelAPP.PersonInfo;
 
 public class EnseignantController {
 	private Connection conn;
@@ -30,13 +31,13 @@ public class EnseignantController {
 		    int tel_bureau = result.getInt("tel_bureau");
 		    int numero_poste = result.getInt("numero_poste");
 		    String courriel_ens = result.getString("courriel_ens");
-		    Enseignant e = new Enseignant() ;
-		    e.p.nom=nom;
-			e.p.prenom=prenom;
-			e.p.domain=domaine;
-			e.tel=tel_bureau;
-			e.post=numero_poste;
-			e.p.mail=courriel_ens;
+		    Enseignant e = new Enseignant(new PersonInfo(nom,prenom,courriel_ens,domaine),tel_bureau,numero_poste) ;
+		    //e.p.nom=nom;
+		    //e.p.prenom=prenom;
+		    //e.p.domain=domaine;
+		    //e.tel=tel_bureau;
+		    //e.post=numero_poste;
+		    //e.p.mail=courriel_ens;
 		    ListEnseignant.add(e);
 		}
 		return ListEnseignant;
