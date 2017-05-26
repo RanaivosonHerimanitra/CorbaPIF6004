@@ -7,7 +7,7 @@ import PersonnelAPP.PersonInfo;
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
-
+		/*
 		EnseignantController ec = new EnseignantController();
 		Enseignant e1 = new Enseignant(new PersonInfo("Jean yves","Beliveau","jyvesbeliveau@uqtr.ca","developpement web"), 81952815,2101);
 	
@@ -20,11 +20,31 @@ public class Main {
 		// Test de la selection enseignant
 		
 		// TODO Auto-generated method stub
-		PersonnelServant perso=new PersonnelServant();
-		//Etudiant e= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),45);
-		//perso.creerEtudiant(e); OK
-		perso.chercherEtudiant("moudache");
 		
+		//Tests Etudiant Conntroller
+		//*/
+		
+		/*
+		PersonnelServant perso=new PersonnelServant();
+		
+		//*	Tester l`ajout
+			Etudiant e= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),45);
+			//perso.creerEtudiant(e); OK
+		//*/
+
+		/* Chercher un etudiant
+		perso.chercherEtudiant("moudache");
+		//*/
+		
+		/* Afficher les etudiants
+		perso.AfficherEtudiants();
+		//*/
+		
+		/*Suppression d etudiant
+		 perso.supprimerEtudiant(e);	 
+		//*/
+		
+		//*/
 	}
 
 }

@@ -55,15 +55,14 @@ public class EtudiantController {
 	}
 	
 	public void delete(Etudiant e) throws SQLException{
-		String sql = "DELETE FROM etudiant WHERE nom_ens="+e.p.nom;
-		 
+		String sql = "DELETE FROM etudiant WHERE nom_et=?";
 		PreparedStatement statement = conn.prepareStatement(sql);
+		statement.setString(1, e.p.nom);
 		 
 		int rowsDeleted = statement.executeUpdate();
 		if (rowsDeleted > 0) {
-		    System.out.println("An existing student was deleted successfully!");
+		    System.out.println("A user was deleted successfully!");
 		}
-		
 	}
 	
 	public ArrayList<Etudiant> getStudents() throws SQLException{
