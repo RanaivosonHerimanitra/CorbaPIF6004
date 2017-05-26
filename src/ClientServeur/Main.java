@@ -24,12 +24,12 @@ public class Main {
 		//Tests Etudiant Conntroller
 		//*/
 		
-		/*
+		//*
 		PersonnelServant perso=new PersonnelServant();
 		
 		//*	Tester l`ajout
 			Etudiant e= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),45);
-			//perso.creerEtudiant(e); OK
+			//perso.creerEtudiant(e); 
 		//*/
 
 		/* Chercher un etudiant
@@ -42,6 +42,12 @@ public class Main {
 		
 		/*Suppression d etudiant
 		 perso.supprimerEtudiant(e);	 
+		//*/
+		
+		//* Update Etudiant
+			Etudiant newEtudiant= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),50);
+			perso.modifierEtudiant(e, newEtudiant);
+		 
 		//*/
 		
 		//*/
