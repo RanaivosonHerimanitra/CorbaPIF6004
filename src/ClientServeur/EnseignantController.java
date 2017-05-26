@@ -78,7 +78,6 @@ public class EnseignantController {
 	public void delete(Enseignant e) throws SQLException 
 	{
 		String sql = "DELETE FROM enseignant WHERE nom_ens=?";
-		 
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, e.p.nom);
 		 
