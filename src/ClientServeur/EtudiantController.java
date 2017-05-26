@@ -79,10 +79,17 @@ public class EtudiantController {
 	}
 	
 	public Etudiant getStudent(String nom) throws SQLException{
-		String sql = "SELECT * FROM etudiant WHERE nom_et="+nom;
-		Statement stmt = conn.createStatement();
-		ResultSet rs= stmt.executeQuery(sql);	
-		if (rs==null) return null;
-		return new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getInt("matricule_et"));
+		String sql = "SELECT * FROM etudiant WHERE nom_et=?";
+		 
+		PreparedStatement statement = conn.prepareStatement(sql);
+		statement.setString(1, nom);
+		 
+		ResultSet result= statement.executeQuery();
+		while (result.next()){
+		    Etudiant e = new Etudiant(new PersonInfo(result.getString("nom_et"), result.getString("prenom_et"), result.getString("courriel_et"),result.getString("domaine_act_et")), result.getInt("matricule_et"));
+			System.out.println(e.p.nom+" is found");
+			return e;
+		}
+		return null;
 	}
 }
