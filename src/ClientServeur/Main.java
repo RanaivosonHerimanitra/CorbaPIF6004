@@ -20,10 +20,10 @@ public class Main {
 		//ec.delete(e1);
 		
 		// Test de la selection enseignant ok 26 mai
-		// ArrayList<Enseignant> ListEnseignant= ec.getEnseignant();
-		// for ( Enseignant ens: ListEnseignant ) {
-		// 	System.out.println(ens.p.nom + ' ' + ens.p.prenom + ' ' + ens.p.domain + ' ' + ens.tel + ' ' + ens.post + ' ' + ens.p.mail);
-		// }
+		ArrayList<Enseignant> ListEnseignant= ec.getEnseignant();
+		 for ( Enseignant ens: ListEnseignant ) {
+		 	System.out.println(ens.p.nom + ' ' + ens.p.prenom + ' ' + ens.p.domain + ' ' + ens.tel + ' ' + ens.post + ' ' + ens.p.mail);
+		 }
 		
 		// Test de la selection d'enseigant par son nom: 26mai ok
 		 //ec.selectEnseignant("boucif");
