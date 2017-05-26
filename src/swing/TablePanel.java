@@ -1,0 +1,29 @@
+package swing;
+
+import java.awt.BorderLayout;
+import java.util.List;
+
+import javax.swing.JPanel;
+import javax.swing.JTable;
+
+import PersonnelAPP.Enseignant;
+
+public class TablePanel extends JPanel{
+	
+	private JTable table;
+	private PersonnelTableModel tableModel;
+	
+	public TablePanel(){
+		tableModel = new PersonnelTableModel();
+		table = new JTable(tableModel);
+		setLayout(new BorderLayout());
+		add(table,BorderLayout.CENTER);
+		
+	}
+	public void setData(List<Enseignant>db) {
+		tableModel.setData(db);
+	}
+	public void refresh(){
+		tableModel.fireTableDataChanged();
+	}
+}
