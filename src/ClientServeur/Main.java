@@ -12,9 +12,10 @@ public class Main {
 		Enseignant e1 = new Enseignant(new PersonInfo("Jean yves","Beliveau","jyvesbeliveau@uqtr.ca","developpement web"), 81952815,2101);
 	
 		//Test de l insertion enseignant ok 26mai
-		ec.insertion(e1);
+		//ec.insertion(e1);
 		
-		// Test de la suppression enseigant
+		// Test de la suppression enseigant ok 26 mai
+		ec.delete(e1);
 		
 		// Test de la selection enseignant
 		
