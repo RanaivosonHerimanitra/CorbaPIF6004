@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import PersonnelAPP.Enseignant;
+import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
 public class EnseignantController {
@@ -40,6 +41,22 @@ public class EnseignantController {
 		    ListEnseignant.add(e);
 		}
 		return ListEnseignant;
+	}
+	public Enseignant selectEnseignant(String nom) throws SQLException{
+		String sql = "SELECT * FROM enseignant WHERE nom_ens=?";
+		Enseignant e = null;
+		PreparedStatement statement = conn.prepareStatement(sql);
+		statement.setString(1, nom);
+		 
+		ResultSet result= statement.executeQuery();
+		while ( result.next() ) {
+			if (result.getString("nom_ens").equals(nom)){
+				 e = new Enseignant(new PersonInfo(result.getString("nom_ens"),result.getString("prenom_ens"),result.getString("courriel_ens"),result.getString("domaine_act_ens")),result.getInt("tel_bureau"),result.getInt("numero_poste")) ;
+				 System.out.println(e.p.nom+" is found");
+			}
+		}
+		return e;
+		//return null;
 	}
 	public void insertion(Enseignant e) throws SQLException {
 		String sql = "INSERT INTO enseignant (nom_ens, prenom_ens, domaine_act_ens, tel_bureau, numero_poste, courriel_ens) VALUES (?, ?, ?, ?,?,?)";

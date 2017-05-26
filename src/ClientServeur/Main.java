@@ -9,7 +9,7 @@ import PersonnelAPP.PersonInfo;
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
-		/*
+		
 		EnseignantController ec = new EnseignantController();
 		Enseignant e1 = new Enseignant(new PersonInfo("Jean yves","Beliveau","jyvesbeliveau@uqtr.ca","developpement web"), 81952815,2101);
 	
@@ -21,10 +21,12 @@ public class Main {
 		
 		// Test de la selection enseignant ok 26 mai
 		ArrayList<Enseignant> ListEnseignant= ec.getEnseignant();
-		for ( Enseignant ens: ListEnseignant ) {
-			System.out.println(ens.p.nom + ' ' + ens.p.prenom + ' ' + ens.p.domain + ' ' + ens.tel + ' ' + ens.post + ' ' + ens.p.mail);
-		}
+		 for ( Enseignant ens: ListEnseignant ) {
+		 	System.out.println(ens.p.nom + ' ' + ens.p.prenom + ' ' + ens.p.domain + ' ' + ens.tel + ' ' + ens.post + ' ' + ens.p.mail);
+		 }
 		
+		// Test de la selection d'enseigant par son nom: 26mai ok
+		 //ec.selectEnseignant("boucif");
 		
 
 		//PersonnelServant perso=new PersonnelServant();

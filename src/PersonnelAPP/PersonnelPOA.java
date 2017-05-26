@@ -71,7 +71,12 @@ public abstract class PersonnelPOA extends org.omg.PortableServer.Servant
        {
          String nom = in.read_string ();
          PersonnelAPP.Enseignant $result = null;
-         $result = this.chercherEnseignant (nom);
+         try {
+			$result = this.chercherEnseignant (nom);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
          out = $rh.createReply();
          PersonnelAPP.EnseignantHelper.write (out, $result);
          break;

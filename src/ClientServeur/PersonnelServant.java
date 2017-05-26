@@ -54,9 +54,8 @@ class PersonnelServant extends PersonnelPOA {
 	}
 
 	@Override
-	public Enseignant chercherEnseignant(String nom) {
-		// TODO Auto-generated method stub
-		return null;
+	public Enseignant chercherEnseignant(String nom) throws SQLException {
+		return enseignantController.selectEnseignant(nom);
 	}
 
 	@Override

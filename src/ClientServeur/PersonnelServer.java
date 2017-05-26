@@ -3,17 +3,25 @@ package ClientServeur;
 import PersonnelAPP.*;
 import ClientServeur.*;
 import org.omg.CosNaming.*; 
-import org.omg.CosNaming.NamingContextPackage.*; 
+import org.omg.CosNaming.NamingContextPackage.*;
+
+import java.util.Properties;
+
 import org.omg.CORBA.*;     
 import org.omg.PortableServer.*;   
 import org.omg.PortableServer.POA;
+
 
 public class PersonnelServer 
 {
     public static void main(String args[]) 
     {
 	try { 
-	    ORB orb = ORB.init(args, null); 
+		Properties props = new Properties();
+        props.put("org.omg.CORBA.ORBInitialPort", "1000");
+        props.put("org.omg.CORBA.ORBInitialHost", "192.168.0.187");
+        ORB orb = ORB.init(args, props);
+	   // ORB orb = ORB.init(args, null); 
 
 	    POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));  
 	    rootpoa.the_POAManager().activate(); 
@@ -28,7 +36,7 @@ public class PersonnelServer
 		           orb.resolve_initial_references("NameService");
 	    NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
-	    String name = "Banque";
+	    String name = "Personnel";
 	    NameComponent path[] = ncRef.to_name(name);
 	    ncRef.rebind(path, personnelHref);
 

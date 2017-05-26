@@ -17,7 +17,7 @@ public interface PersonnelOperations
   //*
   void creerEnseignant (PersonnelAPP.Enseignant e) throws SQLException;
   void creerEtudiant (PersonnelAPP.Etudiant e);
-  PersonnelAPP.Enseignant chercherEnseignant (String nom);
+  PersonnelAPP.Enseignant chercherEnseignant (String nom) throws SQLException;
   PersonnelAPP.Etudiant chercherEtudiant (String nom);
   PersonnelAPP.Enseignant[] AfficherEnseigants () throws SQLException;
   PersonnelAPP.Etudiant[] AfficherEtudiants ();
