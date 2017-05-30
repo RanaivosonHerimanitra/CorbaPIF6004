@@ -99,7 +99,7 @@ public class Login {
 				}
 			}
 		});
-		btnConnexion.setBounds(134, 165, 89, 23);
+		btnConnexion.setBounds(134, 165, 124, 20);
 		frame.getContentPane().add(btnConnexion);
 	}
 }
