@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -70,12 +71,18 @@ public class FormPanel extends JPanel{
 				String prenom = prenomField.getText();
 				String courriel = courrielField.getText();
 				String domaine = domaineField.getText();
-				String phone = phoneField.getText();
-				String poste = posteField.getText();
+				System.out.println(phoneField.getText());
+				int phone = Integer.parseInt(phoneField.getText());
+				int poste = Integer.parseInt(posteField.getText());
 				
 				FormEvent ev = new FormEvent(this,nom,prenom,courriel,domaine,phone,poste);
 				if(formListener !=null){
-					formListener.formEventOccured(ev);
+					try {
+						formListener.formEventOccured(ev);
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 			

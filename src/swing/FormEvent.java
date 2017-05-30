@@ -8,22 +8,22 @@ public class FormEvent extends EventObject{
 	private String prenom;
 	private String courriel;
 	private String domaine;
-	private String phone;
-	private String poste;
+	private int phone;
+	private int poste;
 	
 	public FormEvent(Object source) {
 		super(source);
 		
 	}
 	
-	public FormEvent(Object source,String nom,String prenom,String courriel,String domaine,String phone,String poste) {
+	public FormEvent(Object source,String nom,String prenom,String courriel,String domaine,int phone2,int poste2) {
 		super(source);
 		this.nom=nom;
 		this.prenom=prenom;
 		this.courriel=courriel;
 		this.domaine=domaine;
-		this.phone=phone;
-		this.poste=poste;
+		this.phone=phone2;
+		this.poste=poste2;
 	}
 	
 	public String getNom() {
@@ -66,22 +66,22 @@ public class FormEvent extends EventObject{
 	}
 
 
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
 
 
-	public void setPhone(String phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 
 
-	public String getPoste() {
+	public int getPoste() {
 		return poste;
 	}
 
 
-	public void setPoste(String poste) {
+	public void setPoste(int poste) {
 		this.poste = poste;
 	}
 

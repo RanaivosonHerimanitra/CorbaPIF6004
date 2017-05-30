@@ -56,7 +56,7 @@ public class MainFrame extends JFrame{
 		});
 		
 		formPanel.setFormListener(new FormListener(){
-			public void formEventOccured(FormEvent e){
+			public void formEventOccured(FormEvent e) throws SQLException{
 				controller.addEnseignant(e);
 				tablePanel.refresh();
 				//textPanel.appendText(nom + ": " + prenom +": " + courriel +": " + domaine +": " +phone +": " +poste +"\n");

@@ -1,7 +1,8 @@
 package swing;
 
+import java.sql.SQLException;
 import java.util.EventListener;
 
 public interface FormListener extends EventListener{
-	public void formEventOccured(FormEvent e);
+	public void formEventOccured(FormEvent e) throws SQLException;
 }

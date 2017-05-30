@@ -16,7 +16,7 @@ import org.omg.PortableServer.*;
 import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
 
-class PersonnelServant extends PersonnelPOA {
+public class PersonnelServant extends PersonnelPOA {
 	EnseignantController enseignantController;
 	EtudiantController etudiantController;
 	
