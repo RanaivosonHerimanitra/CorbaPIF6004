@@ -187,4 +187,12 @@ public class FormPanelEtudiant extends JPanel {
 			this.formListener =listener;
 		}
 		
+		public void clearfileds(){
+			nomField.setText("");
+			prenomField.setText("");
+			courrielField.setText("");
+			domaineField.setText("");
+			matriculeField.setText("");
+		}
+		
 }

@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 
-import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -57,8 +56,10 @@ public class FrameEtudiant extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				JOptionPane.showMessageDialog(tablePanelEtudiant, "Un etudiant vient d'être ajouté");
 				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 				tablePanelEtudiant.refresh();
+				formEtudiant.clearfileds();
 
 			}
 		});
