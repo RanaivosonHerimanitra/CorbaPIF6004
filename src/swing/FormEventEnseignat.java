@@ -9,14 +9,14 @@ public class FormEventEnseignat extends EventObject{
 	private String courriel;
 	private String domaine;
 	private long phone;
-	private Long poste;
+	private long poste;
 	
 	public FormEventEnseignat(Object source) {
 		super(source);
 		
 	}
 	
-	public FormEventEnseignat(Object source,String nom,String prenom,String courriel,String domaine,long phone2,Long poste2) {
+	public FormEventEnseignat(Object source,String nom,String prenom,String courriel,String domaine,long phone2,long poste2) {
 		super(source);
 		this.nom=nom;
 		this.prenom=prenom;
@@ -66,7 +66,7 @@ public class FormEventEnseignat extends EventObject{
 	}
 
 
-	public Long getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
@@ -76,12 +76,12 @@ public class FormEventEnseignat extends EventObject{
 	}
 
 
-	public Long getPoste() {
+	public long getPoste() {
 		return poste;
 	}
 
 
-	public void setPoste(Long poste) {
+	public void setPoste(long poste) {
 		this.poste = poste;
 	}
 

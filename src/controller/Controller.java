@@ -33,8 +33,8 @@ public class Controller {
 		String prenom = ev.getPrenom();
 		String courriel = ev.getCourriel();
 		String domaine = ev.getDomaine();
-		Long phone = ev.getPhone();
-		Long poste = ev.getPoste();
+		long phone = ev.getPhone();
+		long poste = ev.getPoste();
 		
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		
