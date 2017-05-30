@@ -7,6 +7,11 @@ Let's get old with CORBA for distributed application.
 
 Build a CRUD distributed application using Corba, Java and Swing
 
+## Requirements:
+ * Corba installed from eclipse( http://eclipsecorba.sourceforge.net/#Installation )
+ 
+ * jdk1.8 or below
+ 
 ## Generate stub:
 
 on the cli, go to source directory(src) of the project then:
@@ -15,8 +20,8 @@ on the cli, go to source directory(src) of the project then:
 
 
 
-## Start server using (you may use any port number ) :
+## Starting the server:
 
-Go to the bin folder of your jdk  then:
+Go to the bin folder of your `jdk` installation then (you may use any port number ):
 
  `$ start orbd -ORBInitialPort 1000`
