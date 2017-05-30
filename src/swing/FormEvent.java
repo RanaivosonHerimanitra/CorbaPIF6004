@@ -11,6 +11,11 @@ public class FormEvent extends EventObject{
 	private String phone;
 	private String poste;
 	
+	public FormEvent(Object source) {
+		super(source);
+		
+	}
+	
 	public FormEvent(Object source,String nom,String prenom,String courriel,String domaine,String phone,String poste) {
 		super(source);
 		this.nom=nom;
@@ -20,10 +25,7 @@ public class FormEvent extends EventObject{
 		this.phone=phone;
 		this.poste=poste;
 	}
-	public FormEvent(Object source) {
-		super(source);
-		
-	}
+	
 	public String getNom() {
 		return nom;
 	}

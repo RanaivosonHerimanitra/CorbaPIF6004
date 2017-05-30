@@ -8,16 +8,20 @@ import PersonnelAPP.Enseignant;
 
 public class PersonnelTableModel extends AbstractTableModel {
 	private List<Enseignant> db;
+	public String[] colNames={"ID","Nom","Prenom","Domaine","Mail","Poste","Téléphone"};
 	public PersonnelTableModel (){
 		
 	}
-	
+	@Override
+	public String getColumnName(int column){
+		return colNames[column];
+	}
 	public void setData(List<Enseignant> db){
 		this.db=db;
 	}
 	@Override
 	public int getColumnCount() {
-		return 4;
+		return 6;
 	}
 
 	@Override

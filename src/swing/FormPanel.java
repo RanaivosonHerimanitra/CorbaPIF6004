@@ -41,7 +41,6 @@ public class FormPanel extends JPanel{
 		dim.width=250;
 		setPreferredSize(dim);
 		
-		
 		nomLabel = new JLabel("Nom: ");
 		prenomLabel = new JLabel("Prenom: ");
 		courrielLabel = new JLabel("Courriel: ");
@@ -64,10 +63,33 @@ public class FormPanel extends JPanel{
 		insertBtn.setMnemonic(KeyEvent.VK_0);
 		nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 		nomLabel.setLabelFor(nomField);
+		
+		insertBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				String nom= nomField.getText();
+				String prenom = prenomField.getText();
+				String courriel = courrielField.getText();
+				String domaine = domaineField.getText();
+				String phone = phoneField.getText();
+				String poste = posteField.getText();
+				
+				FormEvent ev = new FormEvent(this,nom,prenom,courriel,domaine,phone,poste);
+				if(formListener !=null){
+					formListener.formEventOccured(ev);
+				}
+			}
+			
+		});
+		
 		Border innerBorder = BorderFactory.createTitledBorder("Enseignant");
 		Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 		
+		layoutComponents();
+		
+	}
+
+	public void layoutComponents() {
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		
@@ -176,23 +198,6 @@ public class FormPanel extends JPanel{
 		gc.anchor = GridBagConstraints.CENTER;
 		add(deleteBtn,gc);
 		
-		insertBtn.addActionListener(new ActionListener(){
-
-			public void actionPerformed(ActionEvent e) {
-				String nom= nomField.getText();
-				String prenom = prenomField.getText();
-				String courriel = courrielField.getText();
-				String domaine = domaineField.getText();
-				String phone = phoneField.getText();
-				String poste = posteField.getText();
-				
-				FormEvent ev = new FormEvent(this,nom,prenom,courriel,domaine,phone,poste);
-				if(formListener !=null){
-					formListener.formEventOccured(ev);
-				}
-			}
-			
-		});
 		/*gc.gridy =6;
 		gc.gridx =2;
 		gc.insets = new Insets(0,0,0,0);
