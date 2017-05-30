@@ -71,7 +71,7 @@ public class FrameEtudiant extends JFrame {
 
 		add(tablePanelEtudiant,BorderLayout.CENTER);
 
-		setMinimumSize(new Dimension(500,400));
+		setMinimumSize(new Dimension(1000,400));
 		setSize(600,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
