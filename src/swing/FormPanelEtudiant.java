@@ -72,12 +72,7 @@ public class FormPanelEtudiant extends JPanel {
 					FormEventEtudiant ev = new FormEventEtudiant(this,nom,prenom,courriel,domaine,matricule);
 					if(formListener !=null){
 						System.out.println("formListner");
-						try {
-							formListener.formEventOccuredAddEtudiant(ev);
-						} catch (SQLException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+						formListener.formEventOccuredAddEtudiant(ev);
 					}
 					else
 						System.out.println("No event");
