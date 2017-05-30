@@ -3,19 +3,19 @@ package swing;
 import java.util.EventObject;
 
 public class FormEventEnseignat extends EventObject{
-	
+
 	private String nom;
 	private String prenom;
 	private String courriel;
 	private String domaine;
 	private long phone;
 	private long poste;
-	
+
 	public FormEventEnseignat(Object source) {
 		super(source);
-		
+
 	}
-	
+
 	public FormEventEnseignat(Object source,String nom,String prenom,String courriel,String domaine,long phone2,long poste2) {
 		super(source);
 		this.nom=nom;
@@ -25,7 +25,7 @@ public class FormEventEnseignat extends EventObject{
 		this.phone=phone2;
 		this.poste=poste2;
 	}
-	
+
 	public String getNom() {
 		return nom;
 	}
@@ -86,6 +86,6 @@ public class FormEventEnseignat extends EventObject{
 	}
 
 
-	
+
 
 }

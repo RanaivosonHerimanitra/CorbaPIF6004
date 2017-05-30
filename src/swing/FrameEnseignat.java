@@ -27,7 +27,7 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import controller.Controller;
-import ClientServeur.EnseignantController;
+
 //modif
 public class FrameEnseignat extends JFrame{
 	private TextPanel textPanel;
@@ -35,20 +35,20 @@ public class FrameEnseignat extends JFrame{
 	private FormPanelEnseignant formPanel;
 	private TablePanel tablePanel;
 	private Toolbar toolbar;
-	
+
 	private Controller controller;
 	public FrameEnseignat() throws SQLException{
 		super("Infos Enseignant");
-		
+
 		setLayout(new BorderLayout());
-		
+
 		textPanel = new TextPanel();
 		formPanel = new FormPanelEnseignant();
 		tablePanel = new TablePanel();
 		toolbar = new Toolbar();
-		
+
 		controller = new Controller();
-		
+
 		tablePanel.setData(controller.getProfesseurs());
 		setJMenuBar(createMenuBar());
 		toolbar.setStringListener(new StringListener(){
@@ -62,18 +62,19 @@ public class FrameEnseignat extends JFrame{
 		formPanel.setFormListener(new FormListener(){
 			public void formEventOccured(FormEventEnseignat e) throws SQLException{
 				controller.addEnseignant(e);
+				JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
 				tablePanel.setData(controller.getProfesseurs());
 				tablePanel.refresh();
-				
+				formPanel.clearfileds();	
 			}
 		});
-		
-	
+
+
 		add(formPanel,BorderLayout.WEST);
 		add(toolbar,BorderLayout.NORTH);
-		
+
 		add(tablePanel,BorderLayout.CENTER);
-		
+
 		setMinimumSize(new Dimension(1000,400));
 		setSize(600,500);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -82,44 +83,44 @@ public class FrameEnseignat extends JFrame{
 	//Menu Bar
 	private JMenuBar createMenuBar(){
 		JMenuBar menuBar = new JMenuBar();
-		
+
 		JMenu fileMenu = new JMenu("File");
 		JMenuItem exitItem = new JMenuItem("Exit");
 		fileMenu.add(exitItem);
-		
+
 		JMenu windowMenu = new JMenu("Window");
 		JMenu showMenu = new JMenu("Show");
-		
+
 		JCheckBoxMenuItem showFormItem = new JCheckBoxMenuItem("Formulaire Professeur");
 		showFormItem.setSelected(true);
-		
+
 		showMenu.add(showFormItem);
 		windowMenu.add(showMenu);
-		
+
 		menuBar.add(fileMenu);
 		menuBar.add(windowMenu);
-		
+
 		showFormItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ev) {
-JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) ev.getSource();
-				
+				JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) ev.getSource();
+
 				formPanel.setVisible(menuItem.isSelected());
 			}
 		});
 		fileMenu.setMnemonic(KeyEvent.VK_F);
 		exitItem.setMnemonic(KeyEvent.VK_X);
-		
+
 		exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));
-		
+
 		exitItem.addActionListener(new ActionListener(){
-			
+
 			public void actionPerformed(ActionEvent arg0) {
 				int action = JOptionPane.showConfirmDialog(FrameEnseignat.this, 
 						"Désirez-vous quitter l'application?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				if (action == JOptionPane.OK_OPTION){
 					System.exit(0);
 				}
-				
+
 			}
 		});
 		return menuBar;
