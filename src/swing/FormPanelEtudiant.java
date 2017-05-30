@@ -69,9 +69,12 @@ public class FormPanelEtudiant extends JPanel {
 					String domaine = domaineField.getText();
 					String matricule = matriculeField.getText();
 					
-					//FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
+					FormEventEtudiant ev = new FormEventEtudiant(this,nom,prenom,courriel,domaine,matricule);
 					if(formListener !=null){
+						System.out.println("formListner");
+						formListener.formEventOccuredAddEtudiant(ev);
 					}
+						
 				}
 				
 			});

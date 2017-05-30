@@ -36,13 +36,11 @@ PersonnelServant personnelServant ;
 	    
 	    
 	    
-		/*System.out.println(nom);
+		System.out.println(nom);
 		System.out.println(prenom);
 		System.out.println(courriel);
 		System.out.println(domaine);
-		System.out.println(phone);
 		
-		System.out.println(poste);*/
 		personnelServant.creerEtudiant(etudiant);;
 		//db.addEnseignant(enseignant);
 	}

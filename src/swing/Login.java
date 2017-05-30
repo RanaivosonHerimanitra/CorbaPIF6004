@@ -83,18 +83,12 @@ public class Login {
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(userField.getText().equals(login) && passwordField.getText().equals(pass)){
-					try {
-						FrameEnseignat mf= new FrameEnseignat();
-						FrameEtudiant fe = new FrameEtudiant();
-						frame.setVisible(false);
-						mf.setVisible(true);
-						fe.setVisible(true);
-						initialiser();
-						
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					//FrameEnseignat mf= new FrameEnseignat();
+					FrameEtudiant fe = new FrameEtudiant();
+					frame.setVisible(false);
+					//mf.setVisible(true);
+					fe.setVisible(true);
+					initialiser();
 				}
 			}
 		});
