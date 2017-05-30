@@ -28,8 +28,8 @@ public class EnseignantController {
 		    String nom = result.getString("nom_ens");
 		    String prenom = result.getString("prenom_ens");
 		    String domaine = result.getString("domaine_act_ens");
-		    long tel_bureau = result.getInt("tel_bureau");
-		    long numero_poste = result.getInt("numero_poste");
+		    long tel_bureau = result.getLong("tel_bureau");
+		    long numero_poste = result.getLong("numero_poste");
 		    String courriel_ens = result.getString("courriel_ens");
 		    Enseignant e = new Enseignant(new PersonInfo(nom,prenom,courriel_ens,domaine),tel_bureau,numero_poste) ;
 		    //e.p.nom=nom;
