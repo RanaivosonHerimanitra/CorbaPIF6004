@@ -28,22 +28,15 @@ PersonnelServant personnelServant ;
 		String domaine = ev.getDomaine();
 		String matricule = ev.getMatricule();
 		
-
-		
 		Etudiant etudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
 		
 	
-	    
-	    
-	    
-		/*System.out.println(nom);
+		System.out.println(nom);
 		System.out.println(prenom);
 		System.out.println(courriel);
 		System.out.println(domaine);
-		System.out.println(phone);
 		
-		System.out.println(poste);*/
-		personnelServant.creerEtudiant(etudiant);;
+		personnelServant.creerEtudiant(etudiant);
 		//db.addEnseignant(enseignant);
 	}
 }

@@ -1,3 +1,6 @@
+/*
+ * classe pour les credentials de la connection a la base de donnees mysql
+ */
 package ClientServeur;
 
 import java.sql.DriverManager;
@@ -30,23 +33,7 @@ public class ConnectionDB {
 		
 	}
 	
-	/*Hery
-	public Connection getConnection()
-	{
-		try 
-		{
-			conn = DriverManager.getConnection(url, user, pwd);
-			if (conn != null) 
-			{
-				System.out.println("Connected");
-			}
-			return conn;
-	    } 
-		catch (SQLException ex) { ex.printStackTrace(); return null; }
-   
 	
-    }
-    */
 	
 	public void closeConnection() throws SQLException
 	{

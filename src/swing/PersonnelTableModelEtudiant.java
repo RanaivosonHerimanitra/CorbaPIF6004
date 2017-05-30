@@ -1,8 +1,6 @@
 package swing;
 
 import javax.swing.table.AbstractTableModel;
-
-import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 
 public class PersonnelTableModelEtudiant extends AbstractTableModel {

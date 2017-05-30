@@ -83,12 +83,19 @@ public class Login {
 			public void actionPerformed(ActionEvent arg0) {
 				if(userField.getText().equals(login) && passwordField.getText().equals(pass)){
 					//FrameEnseignat mf= new FrameEnseignat();
+<<<<<<< HEAD
 					//FrameEtudiant fe = new FrameEtudiant();
 					Menu a = new Menu();
 					a.setVisible(true);
 					frame.setVisible(false);
 					//mf.setVisible(true);
 					//fe.setVisible(true);
+=======
+					FrameEtudiant fe = new FrameEtudiant();
+					frame.setVisible(false);
+					//mf.setVisible(true);
+					fe.setVisible(true);
+>>>>>>> master
 					initialiser();
 				}
 			}
