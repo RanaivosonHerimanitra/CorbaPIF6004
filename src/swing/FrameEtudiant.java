@@ -22,7 +22,6 @@ import controller.ControllerEtudiant;
 public class FrameEtudiant extends JFrame {
 	private TextPanel textPanel;
 	private JButton btn;
-	private FormPanelEnseignant formPanel;
 	private FormPanelEtudiant formEtudiant;
 	private TablePanelEtudiant tablePanelEtudiant;
 	private Toolbar toolbar;
@@ -34,7 +33,6 @@ public class FrameEtudiant extends JFrame {
 		setLayout(new BorderLayout());
 
 		textPanel = new TextPanel();
-		formPanel = new FormPanelEnseignant();
 		tablePanelEtudiant = new TablePanelEtudiant();
 		formEtudiant = new FormPanelEtudiant();
 		toolbar = new Toolbar();
@@ -51,8 +49,10 @@ public class FrameEtudiant extends JFrame {
 		/*
 		 * update each time a Prof is added on db
 		 */
-		formPanel.setFormListener(new FormListener(){
-			public void formEventOccuredAddEtudiant(FormEventEtudiant e){
+		formEtudiant.setFormListener(new FormListenerEtudiant() {
+			
+			@Override
+			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
 				try {
 					controllerEtudiant.addEtudiant(e);
 				} catch (SQLException e1) {
@@ -61,13 +61,6 @@ public class FrameEtudiant extends JFrame {
 				}
 				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 				tablePanelEtudiant.refresh();
-
-			}
-
-			@Override
-			public void formEventOccured(FormEventEnseignat e)
-					throws SQLException {
-				// TODO Auto-generated method stub
 
 			}
 		});
@@ -107,7 +100,7 @@ public class FrameEtudiant extends JFrame {
 			public void actionPerformed(ActionEvent ev) {
 				JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) ev.getSource();
 
-				formPanel.setVisible(menuItem.isSelected());
+				formEtudiant.setVisible(menuItem.isSelected());
 			}
 		});
 		fileMenu.setMnemonic(KeyEvent.VK_F);

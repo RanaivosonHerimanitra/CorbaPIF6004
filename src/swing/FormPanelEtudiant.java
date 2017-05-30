@@ -35,7 +35,7 @@ public class FormPanelEtudiant extends JPanel {
 		private JButton insertBtn;
 		private JButton deleteBtn;
 		
-		private FormListener formListener;
+		private FormListenerEtudiant formListener;
 		
 		public FormPanelEtudiant(){
 			Dimension dim = getPreferredSize();
@@ -74,10 +74,11 @@ public class FormPanelEtudiant extends JPanel {
 						System.out.println("formListner");
 						formListener.formEventOccuredAddEtudiant(ev);
 					}
-						
-				}
-				
+					else
+						System.out.println("No event");
+				}	
 			});
+			
 			Border innerBorder = BorderFactory.createTitledBorder("Etudiant");
 			Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 			setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
@@ -181,7 +182,8 @@ public class FormPanelEtudiant extends JPanel {
 			add(deleteBtn,gc);
 			
 		}
-		public void setFormListener(FormListener listener){
+		
+		public void setFormListener(FormListenerEtudiant listener){
 			this.formListener =listener;
 		}
 		
