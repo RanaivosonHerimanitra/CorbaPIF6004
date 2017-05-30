@@ -11,8 +11,8 @@ struct PersonInfo
 struct Enseignant
 {
 	PersonInfo p;
-	long tel;
-	long post;
+	unsigned long long tel;
+	unsigned long long post;
 };
 
 struct Etudiant

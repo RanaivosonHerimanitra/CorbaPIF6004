@@ -72,8 +72,8 @@ public class FormPanelEnseignant extends JPanel{
 				String courriel = courrielField.getText();
 				String domaine = domaineField.getText();
 				System.out.println(phoneField.getText());
-				int phone = Integer.parseInt(phoneField.getText().trim());
-				int poste = Integer.parseInt(posteField.getText().trim());
+				long phone = Long.parseLong(phoneField.getText().trim());
+				Long poste = Long.parseLong(posteField.getText().trim());
 				
 				FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
 				if(formListener !=null){
