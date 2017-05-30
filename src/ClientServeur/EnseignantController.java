@@ -1,3 +1,6 @@
+/*
+ * contains all crud method for Enseignant
+ */
 package ClientServeur;
 
 import java.sql.Connection;
@@ -31,12 +34,7 @@ public class EnseignantController {
 		    long numero_poste = result.getLong("numero_poste");
 		    String courriel_ens = result.getString("courriel_ens");
 		    Enseignant e = new Enseignant(new PersonInfo(nom,prenom,courriel_ens,domaine),tel_bureau,numero_poste) ;
-		    //e.p.nom=nom;
-		    //e.p.prenom=prenom;
-		    //e.p.domain=domaine;
-		    //e.tel=tel_bureau;
-		    //e.post=numero_poste;
-		    //e.p.mail=courriel_ens;
+		
 		    ListEnseignant.add(e);
 		}
 		return ListEnseignant;

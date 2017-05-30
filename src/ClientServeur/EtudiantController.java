@@ -1,5 +1,7 @@
+/*
+ * contains all crud method for Etudiant
+ */
 package ClientServeur;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
