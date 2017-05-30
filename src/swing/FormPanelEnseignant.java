@@ -215,6 +215,15 @@ public class FormPanelEnseignant extends JPanel{
 	public void setFormListener(FormListener listener){
 		this.formListener =listener;
 	}
+	
+	public void clearfileds(){
+		nomField.setText("");
+		prenomField.setText("");
+		courrielField.setText("");
+		domaineField.setText("");
+		phoneField.setText("");
+		posteField.setText("");
+	}
 
 	
 	
