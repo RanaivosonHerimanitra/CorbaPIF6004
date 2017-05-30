@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.sun.java.swing.plaf.windows.resources.windows;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
@@ -82,6 +85,7 @@ public class Login {
 				if(userField.getText().equals(login) && passwordField.getText().equals(pass)){
 					try {
 						MainFrame mf= new MainFrame();
+						frame.setVisible(false);
 						mf.setVisible(true);
 						initialiser();
 						
