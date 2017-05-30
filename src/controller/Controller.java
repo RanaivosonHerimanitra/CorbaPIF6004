@@ -5,6 +5,7 @@ import java.util.List;
 
 import ClientServeur.EnseignantController;
 import ClientServeur.EtudiantController;
+import ClientServeur.PersonnelServant;
 import model.Database;
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.PersonInfo;
@@ -21,7 +22,7 @@ public class Controller {
 //		etudiantController = new EtudiantController();
 //		
 //	}
-	PersonnelOperations PersonnelServant ;
+	PersonnelServant personnelServant ;
 
 	Database db =new Database();
 	public List<Enseignant> getProfesseur(){
@@ -48,7 +49,7 @@ public class Controller {
 		System.out.println(domaine);
 		System.out.println(phone);
 		System.out.println(poste);
-		PersonnelServant.creerEnseignant(enseignant);
+		personnelServant.creerEnseignant(enseignant);
 		//db.addEnseignant(enseignant);
 	}
 }
