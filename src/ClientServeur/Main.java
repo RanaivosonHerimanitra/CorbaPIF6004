@@ -43,9 +43,9 @@ public class Main {
 		        System.out.println("Obtained a handle on server object: " + personnelImpl);
 		        personnelImpl.AfficherEtudiants();
 		        
-		        PersonnelServant perso=new PersonnelServant();
-				Etudiant e= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),"45");
-				perso.creerEtudiant(e); 
+		       // PersonnelServant perso=new PersonnelServant();
+				//Etudiant e= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),"45");
+				//perso.creerEtudiant(e); 
 				
 		        //personnelImpl.shutdown();
 
