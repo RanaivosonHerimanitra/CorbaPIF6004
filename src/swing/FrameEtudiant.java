@@ -47,7 +47,7 @@ public class FrameEtudiant extends JFrame {
 		 * update each time a Prof is added on db
 		 */
 		formEtudiant.setFormListener(new FormListenerEtudiant() {
-			
+
 			@Override
 			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
 				try {

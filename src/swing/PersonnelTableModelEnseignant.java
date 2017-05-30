@@ -1,7 +1,5 @@
 package swing;
 
-import java.util.List;
-
 import javax.swing.table.AbstractTableModel;
 
 import PersonnelAPP.Enseignant;
