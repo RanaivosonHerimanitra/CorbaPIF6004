@@ -21,11 +21,15 @@ public class Controller {
 	public Controller(){
 		personnelServant = new PersonnelServant();
 	}
-
-
-	Database db =new Database();
-	public List<Enseignant> getProfesseur(){
-		return db.getProfesseur();
+	
+	public Enseignant[] getProfesseurs(){
+		try {
+			return personnelServant.AfficherEnseigants();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 		
 	}
 	public void addEnseignant(FormEventEnseignat ev) throws SQLException {

@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 import PersonnelAPP.Enseignant;
 
 public class PersonnelTableModelEnseignant extends AbstractTableModel {
-	private List<Enseignant> db;
+	private Enseignant[] db;
 	public String[] colNames={"ID","Nom","Prenom","Domaine","Mail","Poste","Téléphone"};
 	public PersonnelTableModelEnseignant (){
 		
@@ -16,8 +16,8 @@ public class PersonnelTableModelEnseignant extends AbstractTableModel {
 	public String getColumnName(int column){
 		return colNames[column];
 	}
-	public void setData(List<Enseignant> db){
-		this.db=db;
+	public void setData(Enseignant[] enseignants){
+		this.db = enseignants;
 	}
 	@Override
 	public int getColumnCount() {
@@ -27,12 +27,12 @@ public class PersonnelTableModelEnseignant extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		
-		return db.size();
+		return db.length;
 	}
 
 	@Override
 	public Object getValueAt(int row , int col) {
-		Enseignant enseignant =db.get(row);
+		Enseignant enseignant =db[row];
 		
 		switch(col){
 		case 0:

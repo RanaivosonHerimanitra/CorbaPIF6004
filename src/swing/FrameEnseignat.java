@@ -47,7 +47,7 @@ public class FrameEnseignat extends JFrame{
 		
 		controller = new Controller();
 		
-		tablePanel.setData(controller.getProfesseur());
+		tablePanel.setData(controller.getProfesseurs());
 		setJMenuBar(createMenuBar());
 		toolbar.setStringListener(new StringListener(){
 			public void textEmitted(String text){

@@ -22,8 +22,8 @@ public class TablePanel extends JPanel{
 		
 	}
 	
-	public void setData(List<Enseignant>db) {
-		tableModel.setData(db);
+	public void setData(Enseignant[] enseignants) {
+		tableModel.setData(enseignants);
 	}
 	public void refresh(){
 		tableModel.fireTableDataChanged();
