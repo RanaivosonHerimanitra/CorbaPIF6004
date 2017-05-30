@@ -12,7 +12,9 @@ import java.sql.SQLException;
 
 
 
-
+/*
+ * A class to display Enseignant
+ */
 
 
 import javax.swing.JButton;
@@ -33,7 +35,7 @@ public class FrameEnseignat extends JFrame{
 	private FormPanelEnseignant formPanel;
 	private TablePanel tablePanel;
 	private Toolbar toolbar;
-	//private EnseignantController controller;
+	
 	private Controller controller;
 	public FrameEnseignat() throws SQLException{
 		super("Infos Enseignant");
@@ -54,20 +56,22 @@ public class FrameEnseignat extends JFrame{
 				textPanel.appendText(text);
 			}
 		});
-		
+		/*
+		 * update each time a Prof is added on db
+		 */
 		formPanel.setFormListener(new FormListener(){
 			public void formEventOccured(FormEventEnseignat e) throws SQLException{
 				controller.addEnseignant(e);
 				tablePanel.setData(controller.getProfesseurs());
 				tablePanel.refresh();
-				//textPanel.appendText(nom + ": " + prenom +": " + courriel +": " + domaine +": " +phone +": " +poste +"\n");
+				
 			}
 		});
 		
-		//tablePanel.setData(controller.getProfesseur());
+	
 		add(formPanel,BorderLayout.WEST);
 		add(toolbar,BorderLayout.NORTH);
-		//add(textPanel,BorderLayout.CENTER);
+		
 		add(tablePanel,BorderLayout.CENTER);
 		
 		setMinimumSize(new Dimension(500,400));
