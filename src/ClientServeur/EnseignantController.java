@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import PersonnelAPP.Enseignant;
-import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
 public class EnseignantController {

@@ -1,16 +1,9 @@
 package controller;
 
 import java.sql.SQLException;
-import java.util.List;
-
-import ClientServeur.EnseignantController;
-import ClientServeur.EtudiantController;
 import ClientServeur.PersonnelServant;
-import model.Database;
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.PersonInfo;
-import PersonnelAPP.Personnel;
-import PersonnelAPP.PersonnelOperations;
 import swing.FormEventEnseignat;
 
 public class Controller {

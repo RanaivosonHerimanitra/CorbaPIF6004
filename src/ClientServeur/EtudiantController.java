@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
-import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 

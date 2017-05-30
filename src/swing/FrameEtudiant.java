@@ -16,12 +16,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import controller.Controller;
 import controller.ControllerEtudiant;
 
 public class FrameEtudiant extends JFrame {
 	private TextPanel textPanel;
-	private JButton btn;
 	private FormPanelEtudiant formEtudiant;
 	private TablePanelEtudiant tablePanelEtudiant;
 	private Toolbar toolbar;

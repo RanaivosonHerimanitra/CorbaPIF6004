@@ -2,10 +2,8 @@ package controller;
 
 import java.sql.SQLException;
 
-import swing.FormEventEnseignat;
 import swing.FormEventEtudiant;
 import ClientServeur.PersonnelServant;
-import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
