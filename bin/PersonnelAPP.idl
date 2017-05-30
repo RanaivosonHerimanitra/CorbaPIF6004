@@ -18,7 +18,7 @@ struct Enseignant
 struct Etudiant
 {
 	PersonInfo p;
-	long matricul;
+	string matricul;
 };
 
 //*
