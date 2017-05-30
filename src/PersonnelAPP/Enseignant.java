@@ -11,27 +11,21 @@ package PersonnelAPP;
 public final class Enseignant implements org.omg.CORBA.portable.IDLEntity
 {
   public PersonnelAPP.PersonInfo p = null;
-<<<<<<< HEAD
   public long tel = (int)0;
   public long post = (int)0;
-=======
-  public long tel = (long)0;
-  public long post = (long)0;
->>>>>>> 400e482557bf0291d96aaec1d6d3af279e38cee4
+
 
   public Enseignant ()
   {
   } // ctor
 
-<<<<<<< HEAD
-  public Enseignant (PersonnelAPP.PersonInfo _p, long phone, long poste)
-=======
+
   public Enseignant (PersonnelAPP.PersonInfo _p, long _tel, long _post)
->>>>>>> 400e482557bf0291d96aaec1d6d3af279e38cee4
+
   {
     p = _p;
-    tel = phone;
-    post = poste;
+    tel = _tel;
+    post = _post;
   } // ctor
 
 } // class Enseignant
