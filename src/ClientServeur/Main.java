@@ -42,6 +42,11 @@ public class Main {
 
 		        System.out.println("Obtained a handle on server object: " + personnelImpl);
 		        personnelImpl.AfficherEtudiants();
+		        
+		        PersonnelServant perso=new PersonnelServant();
+				Etudiant e= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),"45");
+				perso.creerEtudiant(e); 
+				
 		        //personnelImpl.shutdown();
 
 		        } catch (Exception e) {
@@ -75,13 +80,11 @@ public class Main {
 		//Tests Etudiant Conntroller
 		//*/
 		
-		//*
-		PersonnelServant perso=new PersonnelServant();
 		
-		//*	Tester l`ajout
-			Etudiant e= new Etudiant(new PersonInfo("moudache","salim","m@s","info"),45);
-			//perso.creerEtudiant(e); 
-		//*/
+		
+	
+		//	Tester l`ajout
+			//*/
 
 		/* Chercher un etudiant
 		perso.chercherEtudiant("moudache");

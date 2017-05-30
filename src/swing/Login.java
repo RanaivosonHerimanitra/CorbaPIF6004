@@ -84,7 +84,7 @@ public class Login {
 			public void actionPerformed(ActionEvent arg0) {
 				if(userField.getText().equals(login) && passwordField.getText().equals(pass)){
 					try {
-						MainFrame mf= new MainFrame();
+						FrameEnseignat mf= new FrameEnseignat();
 						frame.setVisible(false);
 						mf.setVisible(true);
 						initialiser();

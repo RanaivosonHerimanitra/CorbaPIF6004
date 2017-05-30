@@ -12,10 +12,10 @@ import PersonnelAPP.Enseignant;
 public class TablePanel extends JPanel{
 	
 	private JTable table;
-	private PersonnelTableModel tableModel;
+	private PersonnelTableModelEnseignant tableModel;
 	
 	public TablePanel(){
-		tableModel = new PersonnelTableModel();
+		tableModel = new PersonnelTableModelEnseignant();
 		table = new JTable(tableModel);
 		setLayout(new BorderLayout());
 		add(new JScrollPane(table),BorderLayout.CENTER);

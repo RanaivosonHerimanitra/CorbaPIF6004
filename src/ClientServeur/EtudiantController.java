@@ -25,7 +25,7 @@ public class EtudiantController {
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, e.p.nom);
 		statement.setString(2, e.p.prenom);
-		statement.setLong(3, e.matricul);
+		statement.setString(3, e.matricul);
 		statement.setString(4, e.p.mail);
 		statement.setString(5, e.p.domain);
 		
@@ -41,7 +41,7 @@ public class EtudiantController {
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, modifE.p.nom);
 		statement.setString(2, modifE.p.prenom);
-		statement.setLong(3, modifE.matricul);
+		statement.setString(3, modifE.matricul);
 		statement.setString(4, modifE.p.mail);
 		statement.setString(5, modifE.p.domain);
 		statement.setString(6, oldE.p.nom);
@@ -71,7 +71,7 @@ public class EtudiantController {
 		ArrayList<Etudiant> ListEtudiant = new ArrayList<Etudiant>();
 		
 		while (rs.next()){
-		    ListEtudiant.add(new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getInt("matricule_et")));
+		    ListEtudiant.add(new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getString("matricule_et")));
 		}
 		return ListEtudiant;
 	}
@@ -84,7 +84,7 @@ public class EtudiantController {
 		 
 		ResultSet result= statement.executeQuery();
 		while (result.next()){
-		    Etudiant e = new Etudiant(new PersonInfo(result.getString("nom_et"), result.getString("prenom_et"), result.getString("courriel_et"),result.getString("domaine_act_et")), result.getInt("matricule_et"));
+		    Etudiant e = new Etudiant(new PersonInfo(result.getString("nom_et"), result.getString("prenom_et"), result.getString("courriel_et"),result.getString("domaine_act_et")), result.getString("matricule_et"));
 			System.out.println(e.p.nom+" is found");
 			return e;
 		}
