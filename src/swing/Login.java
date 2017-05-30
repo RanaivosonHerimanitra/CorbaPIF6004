@@ -22,7 +22,6 @@ public class Login {
 	private JPasswordField passwordField;
 	private final String login="admin";
 	private final String pass="admin";
-
 	//Methode initialiser
 	public void initialiser(){
 		userField.setText("");
@@ -59,7 +58,7 @@ public class Login {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel userLabel = new JLabel("Nom Utilisateur:");
@@ -84,10 +83,18 @@ public class Login {
 			public void actionPerformed(ActionEvent arg0) {
 				if(userField.getText().equals(login) && passwordField.getText().equals(pass)){
 					//FrameEnseignat mf= new FrameEnseignat();
-					FrameEtudiant fe = new FrameEtudiant();
+
+					//FrameEtudiant fe = new FrameEtudiant();
+					Menu a = new Menu();
+					a.setVisible(true);
 					frame.setVisible(false);
 					//mf.setVisible(true);
-					fe.setVisible(true);
+					//fe.setVisible(true);
+					//FrameEtudiant fe = new FrameEtudiant();
+					frame.setVisible(false);
+					//mf.setVisible(true);
+					//fe.setVisible(true);
+
 					initialiser();
 				}
 			}

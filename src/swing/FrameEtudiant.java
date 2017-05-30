@@ -73,7 +73,7 @@ public class FrameEtudiant extends JFrame {
 
 		setMinimumSize(new Dimension(1000,400));
 		setSize(600,500);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setVisible(true);
 	}
 	//Menu Bar
