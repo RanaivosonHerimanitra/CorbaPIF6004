@@ -6,10 +6,10 @@ import javax.swing.table.AbstractTableModel;
 
 import PersonnelAPP.Enseignant;
 
-public class PersonnelTableModel extends AbstractTableModel {
+public class PersonnelTableModelEnseignant extends AbstractTableModel {
 	private List<Enseignant> db;
 	public String[] colNames={"ID","Nom","Prenom","Domaine","Mail","Poste","Téléphone"};
-	public PersonnelTableModel (){
+	public PersonnelTableModelEnseignant (){
 		
 	}
 	@Override

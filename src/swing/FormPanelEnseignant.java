@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
-public class FormPanel extends JPanel{
+public class FormPanelEnseignant extends JPanel{
 	//JLabel
 	private JLabel nomLabel;
 	private JLabel prenomLabel;
@@ -37,7 +37,7 @@ public class FormPanel extends JPanel{
 	
 	private FormListener formListener;
 	
-	public FormPanel(){
+	public FormPanelEnseignant(){
 		Dimension dim = getPreferredSize();
 		dim.width=250;
 		setPreferredSize(dim);
@@ -75,7 +75,7 @@ public class FormPanel extends JPanel{
 				int phone = Integer.parseInt(phoneField.getText());
 				int poste = Integer.parseInt(posteField.getText());
 				
-				FormEvent ev = new FormEvent(this,nom,prenom,courriel,domaine,phone,poste);
+				FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
 				if(formListener !=null){
 					try {
 						formListener.formEventOccured(ev);

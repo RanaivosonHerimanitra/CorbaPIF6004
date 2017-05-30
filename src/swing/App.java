@@ -11,7 +11,7 @@ public class App {
 			//@Override
 			public void run(){
 				try {
-					new MainFrame();
+					new FrameEnseignat();
 					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

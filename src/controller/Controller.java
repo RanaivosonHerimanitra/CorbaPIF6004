@@ -5,12 +5,13 @@ import java.util.List;
 
 import ClientServeur.EnseignantController;
 import ClientServeur.EtudiantController;
+import ClientServeur.PersonnelServant;
 import model.Database;
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.PersonInfo;
 import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelOperations;
-import swing.FormEvent;
+import swing.FormEventEnseignat;
 
 public class Controller {
 //	EnseignantController enseignantController;
@@ -21,14 +22,18 @@ public class Controller {
 //		etudiantController = new EtudiantController();
 //		
 //	}
-	PersonnelOperations PersonnelServant ;
+	PersonnelServant personnelServant ;
+	
+	public Controller(){
+		personnelServant = new PersonnelServant();
+	}
 
 	Database db =new Database();
 	public List<Enseignant> getProfesseur(){
 		return db.getProfesseur();
 		
 	}
-	public void addEnseignant(FormEvent ev) throws SQLException {
+	public void addEnseignant(FormEventEnseignat ev) throws SQLException {
 		String nom = ev.getNom();
 		String prenom = ev.getPrenom();
 		String courriel = ev.getCourriel();
@@ -48,7 +53,7 @@ public class Controller {
 		System.out.println(domaine);
 		System.out.println(phone);
 		System.out.println(poste);
-		PersonnelServant.creerEnseignant(enseignant);
+		personnelServant.creerEnseignant(enseignant);
 		//db.addEnseignant(enseignant);
 	}
 }

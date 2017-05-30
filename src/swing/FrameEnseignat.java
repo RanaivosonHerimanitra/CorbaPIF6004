@@ -27,21 +27,21 @@ import javax.swing.KeyStroke;
 import controller.Controller;
 import ClientServeur.EnseignantController;
 //modif
-public class MainFrame extends JFrame{
+public class FrameEnseignat extends JFrame{
 	private TextPanel textPanel;
 	private JButton btn;
-	private FormPanel formPanel;
+	private FormPanelEnseignant formPanel;
 	private TablePanel tablePanel;
 	private Toolbar toolbar;
 	//private EnseignantController controller;
 	private Controller controller;
-	public MainFrame() throws SQLException{
+	public FrameEnseignat() throws SQLException{
 		super("Infos Enseignant");
 		
 		setLayout(new BorderLayout());
 		
 		textPanel = new TextPanel();
-		formPanel = new FormPanel();
+		formPanel = new FormPanelEnseignant();
 		tablePanel = new TablePanel();
 		toolbar = new Toolbar();
 		
@@ -56,7 +56,7 @@ public class MainFrame extends JFrame{
 		});
 		
 		formPanel.setFormListener(new FormListener(){
-			public void formEventOccured(FormEvent e) throws SQLException{
+			public void formEventOccured(FormEventEnseignat e) throws SQLException{
 				controller.addEnseignant(e);
 				tablePanel.refresh();
 				//textPanel.appendText(nom + ": " + prenom +": " + courriel +": " + domaine +": " +phone +": " +poste +"\n");
@@ -109,7 +109,7 @@ JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) ev.getSource();
 		exitItem.addActionListener(new ActionListener(){
 			
 			public void actionPerformed(ActionEvent arg0) {
-				int action = JOptionPane.showConfirmDialog(MainFrame.this, 
+				int action = JOptionPane.showConfirmDialog(FrameEnseignat.this, 
 						"Désirez-vous quitter l'application?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				if (action == JOptionPane.OK_OPTION){
 					System.exit(0);

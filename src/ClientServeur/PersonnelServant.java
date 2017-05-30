@@ -39,7 +39,7 @@ public class PersonnelServant extends PersonnelPOA {
 	
 	@Override
 	public void creerEnseignant(Enseignant e) throws SQLException {
-	    
+	    System.out.println("Servant: "+e.p.nom);
 		enseignantController.insertion(e);
 	}
 

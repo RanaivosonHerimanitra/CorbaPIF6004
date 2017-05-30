@@ -68,7 +68,7 @@ public class EnseignantController {
 		statement.setLong(4, e.tel);
 		statement.setLong(5, e.post);
 		statement.setString(6, e.p.mail);
-		
+		System.out.println(statement);
 		int rowsInserted = statement.executeUpdate();
 		if (rowsInserted > 0) {
 		    System.out.println("A new user was inserted successfully!");
