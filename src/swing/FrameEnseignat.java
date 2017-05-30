@@ -66,6 +66,12 @@ public class FrameEnseignat extends JFrame{
 				tablePanel.refresh();
 				
 			}
+
+			@Override
+			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		
 	

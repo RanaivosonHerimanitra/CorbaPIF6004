@@ -85,8 +85,10 @@ public class Login {
 				if(userField.getText().equals(login) && passwordField.getText().equals(pass)){
 					try {
 						FrameEnseignat mf= new FrameEnseignat();
+						FrameEtudiant fe = new FrameEtudiant();
 						frame.setVisible(false);
 						mf.setVisible(true);
+						fe.setVisible(true);
 						initialiser();
 						
 					} catch (SQLException e) {
