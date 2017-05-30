@@ -23,18 +23,20 @@ public class FrameEtudiant extends JFrame {
 	private TextPanel textPanel;
 	private JButton btn;
 	private FormPanelEnseignant formPanel;
+	private FormPanelEtudiant formEtudiant;
 	private TablePanelEtudiant tablePanelEtudiant;
 	private Toolbar toolbar;
 
 	private ControllerEtudiant controllerEtudiant;
 	public FrameEtudiant(){
-		super("Infos Enseignant");
+		super("Infos Etudiant");
 
 		setLayout(new BorderLayout());
 
 		textPanel = new TextPanel();
 		formPanel = new FormPanelEnseignant();
 		tablePanelEtudiant = new TablePanelEtudiant();
+		formEtudiant = new FormPanelEtudiant();
 		toolbar = new Toolbar();
 
 		controllerEtudiant = new ControllerEtudiant();
@@ -71,7 +73,7 @@ public class FrameEtudiant extends JFrame {
 		});
 
 
-		add(formPanel,BorderLayout.WEST);
+		add(formEtudiant,BorderLayout.WEST);
 		add(toolbar,BorderLayout.NORTH);
 
 		add(tablePanelEtudiant,BorderLayout.CENTER);
