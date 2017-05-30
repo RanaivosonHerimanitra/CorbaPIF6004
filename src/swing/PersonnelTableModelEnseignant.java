@@ -8,7 +8,7 @@ import PersonnelAPP.Enseignant;
 
 public class PersonnelTableModelEnseignant extends AbstractTableModel {
 	private Enseignant[] db;
-	public String[] colNames={"ID","Nom","Prenom","Domaine","Mail","Poste","Téléphone"};
+	public String[] colNames={"Nom","Prenom","Domaine","Mail","Poste","Téléphone"};
 	public PersonnelTableModelEnseignant (){
 		
 	}
@@ -21,7 +21,7 @@ public class PersonnelTableModelEnseignant extends AbstractTableModel {
 	}
 	@Override
 	public int getColumnCount() {
-		return 7;
+		return 6;
 	}
 
 	@Override
