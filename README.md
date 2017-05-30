@@ -5,7 +5,7 @@ Let's get old with CORBA for distributed application.
 
 ## Goal:
 
-Build a CRUD distributed application using Corba, Java and Swing
+Build a CRUD distributed application (Professor and Student) using Corba, Java and Swing
 
 ## Requirements:
  * Corba installed from eclipse( http://eclipsecorba.sourceforge.net/#Installation )
