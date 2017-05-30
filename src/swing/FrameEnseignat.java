@@ -58,6 +58,7 @@ public class FrameEnseignat extends JFrame{
 		formPanel.setFormListener(new FormListener(){
 			public void formEventOccured(FormEventEnseignat e) throws SQLException{
 				controller.addEnseignant(e);
+				tablePanel.setData(controller.getProfesseurs());
 				tablePanel.refresh();
 				//textPanel.appendText(nom + ": " + prenom +": " + courriel +": " + domaine +": " +phone +": " +poste +"\n");
 			}
