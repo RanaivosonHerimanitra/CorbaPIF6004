@@ -68,13 +68,7 @@ public class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public Etudiant chercherEtudiant(String nom , String prenom) {
-		try {
-			return etudiantController.getStudent(nom, prenom);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+		return etudiantController.getStudent(nom, prenom);
 	}
 
 	@Override

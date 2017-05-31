@@ -60,8 +60,8 @@ public class ControllerEtudiant {
 		String courriel = ev.getCourriel();
 		String domaine = ev.getDomaine();
 		String matricule = ev.getMatricule();
-		/*
-		if(personnelImpl.chercherEtudiant(nom, prenom)!=null){
+		//*
+		if(!personnelImpl.chercherEtudiant(nom, prenom).p.nom.equals("")){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette etudiant existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
 			return false;
