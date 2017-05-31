@@ -61,11 +61,12 @@ public class FrameEnseignat extends JFrame{
 		 */
 		formPanel.setFormListener(new FormListener(){
 			public void formEventOccured(FormEventEnseignat e) throws SQLException{
-				controller.addEnseignant(e);
-				JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
-				tablePanel.setData(controller.getProfesseurs());
-				tablePanel.refresh();
-				formPanel.clearfileds();	
+				if (controller.addEnseignant(e)){
+					JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
+					tablePanel.setData(controller.getProfesseurs());
+					tablePanel.refresh();
+					formPanel.clearfileds();
+				}
 			}
 		});
 

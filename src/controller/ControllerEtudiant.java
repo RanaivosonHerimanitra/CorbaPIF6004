@@ -54,7 +54,7 @@ public class ControllerEtudiant {
 
 	}
 
-	public void addEtudiant(FormEventEtudiant ev) throws SQLException {
+	public boolean addEtudiant(FormEventEtudiant ev) throws SQLException {
 		String nom = ev.getNom();
 		String prenom = ev.getPrenom();
 		String courriel = ev.getCourriel();
@@ -64,10 +64,11 @@ public class ControllerEtudiant {
 		if(personnelImpl.chercherEtudiant(nom, prenom)!=null){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette etudiant existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
-			return;
+			return false;
 		}
 		
 		Etudiant etudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
 		personnelImpl.creerEtudiant(etudiant);
+		return true;
 	}
 }
