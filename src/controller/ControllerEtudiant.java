@@ -3,6 +3,9 @@ package controller;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
@@ -39,6 +42,8 @@ public class ControllerEtudiant {
 			//personnelImpl.shutdown();
 
 		} catch (Exception e) {
+			JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+					"Inane error",JOptionPane.ERROR_MESSAGE);
 			System.out.println("ERROR : " + e) ;
 			e.printStackTrace(System.out);
 		}
@@ -48,15 +53,22 @@ public class ControllerEtudiant {
 		return personnelImpl.AfficherEtudiants();
 
 	}
-	
-	public void addEtudiant(FormEventEtudiant ev) throws SQLException {
+
+	public boolean addEtudiant(FormEventEtudiant ev) throws SQLException {
 		String nom = ev.getNom();
 		String prenom = ev.getPrenom();
 		String courriel = ev.getCourriel();
 		String domaine = ev.getDomaine();
 		String matricule = ev.getMatricule();
-
+		/*
+		if(personnelImpl.chercherEtudiant(nom, prenom)!=null){
+			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette etudiant existe déja!",
+					"Inane warning",JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
+		//*/
 		Etudiant etudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
 		personnelImpl.creerEtudiant(etudiant);
+		return true;
 	}
 }

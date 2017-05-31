@@ -76,11 +76,12 @@ public class EtudiantController {
 		return ListEtudiant;
 	}
 	
-	public Etudiant getStudent(String nom) throws SQLException{
-		String sql = "SELECT * FROM etudiant WHERE nom_et=?";
+	public Etudiant getStudent(String nom, String prenom) throws SQLException{
+		String sql = "SELECT * FROM etudiant WHERE nom_et=? AND prenom_et=?";
 		 
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, nom);
+		statement.setString(2, prenom);
 		 
 		ResultSet result= statement.executeQuery();
 		while (result.next()){

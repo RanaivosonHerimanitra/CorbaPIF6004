@@ -34,37 +34,37 @@ public class FormPanelEnseignant extends JPanel{
 	//JButton
 	private JButton insertBtn;
 	private JButton deleteBtn;
-	
+
 	private FormListener formListener;
-	
+
 	public FormPanelEnseignant(){
 		Dimension dim = getPreferredSize();
 		dim.width=250;
 		setPreferredSize(dim);
-		
+
 		nomLabel = new JLabel("Nom: ");
 		prenomLabel = new JLabel("Prenom: ");
 		courrielLabel = new JLabel("Courriel: ");
 		domaineLabel = new JLabel("Domaine d'activité: ");
 		phoneLabel = new JLabel("Téléphone: ");
 		posteLabel = new JLabel("Numéro de poste: ");
-		
+
 		nomField = new JTextField(10);
 		prenomField = new JTextField(10);
 		courrielField = new JTextField(10);
 		domaineField = new JTextField(10);
 		phoneField = new JTextField(10);
 		posteField = new JTextField(10);
-		
+
 		insertBtn = new JButton("Insérer");
 		deleteBtn = new JButton("Supprimer");
 		//searchBtn = new JButton("Rechercheer");
 		//displayBtn = new JButton("Afficher");
-		
+
 		insertBtn.setMnemonic(KeyEvent.VK_0);
 		nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 		nomLabel.setLabelFor(nomField);
-		
+
 		insertBtn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				String nom= nomField.getText();
@@ -74,56 +74,56 @@ public class FormPanelEnseignant extends JPanel{
 				System.out.println(phoneField.getText());
 				long phone = Long.parseLong(phoneField.getText().trim());
 				long poste = Long.parseLong(posteField.getText().trim());
-				
+
 				FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
 				if(formListener !=null)
 				{
 					try 
 					{
 						//input checking validation :
-						if (InputValidationErrorDialog.isEmailValid(courriel) & InputValidationErrorDialog.isPhoneNumberValid(String.valueOf(phone)) )
-						{
-							formListener.formEventOccured(ev);
-						}
-						
+						if (InputValidationErrorDialog.isEmailValid(courriel)& 
+								InputValidationErrorDialog.isPhoneNumberValid(String.valueOf(phone))& 
+									InputValidationErrorDialog.isPostValid(String.valueOf(poste)))
+										formListener.formEventOccured(ev);
+
 					} catch (SQLException e1) {
-						
+
 						e1.printStackTrace();
 					}
 				}
 			}
-			
+
 		});
-		
+
 		Border innerBorder = BorderFactory.createTitledBorder("Enseignant");
 		Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
-		
+
 		layoutComponents();
-		
+
 	}
 
 	public void layoutComponents() {
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
-		
+
 		//positionnement premiere ligne
 		gc.weightx =1;
 		gc.weighty = 0.1;
-		
+
 		gc.gridx =0;
 		gc.gridy =0;
 		gc.fill = GridBagConstraints.NONE;
 		gc.anchor = GridBagConstraints.LINE_END;
 		gc.insets = new Insets(0,0,0,5);
 		add(nomLabel,gc);
-		
+
 		gc.gridx =1;
 		gc.gridy =0;
 		gc.insets = new Insets(0,0,0,0);
 		gc.anchor = GridBagConstraints.LINE_START;
 		add(nomField,gc);
-		
+
 		//positionnement deuxieme ligne
 		gc.weightx =1;
 		gc.weighty = 0.1;
@@ -132,71 +132,71 @@ public class FormPanelEnseignant extends JPanel{
 		gc.insets = new Insets(0,0,0,5);
 		gc.anchor = GridBagConstraints.LINE_END;
 		add(prenomLabel,gc);
-		
+
 		gc.gridx =1;
 		gc.gridy =1;
 		gc.insets = new Insets(0,0,0,0);
 		gc.anchor = GridBagConstraints.LINE_START;
 		add(prenomField,gc);
 		//troisieme ligne
-		
-				gc.weightx =1;
-				gc.weighty =0.1;
-				gc.gridx = 0;
-				gc.gridy = 2;
-				gc.insets = new Insets(0,0,0,5);
-				gc.anchor = GridBagConstraints.LINE_END;
-				add(courrielLabel,gc);
-				
-				gc.gridx =1;
-				gc.gridy =2;
-				gc.insets = new Insets(0,0,0,0);
-				gc.anchor = GridBagConstraints.LINE_START;
-				add(courrielField,gc);
-		
+
+		gc.weightx =1;
+		gc.weighty =0.1;
+		gc.gridx = 0;
+		gc.gridy = 2;
+		gc.insets = new Insets(0,0,0,5);
+		gc.anchor = GridBagConstraints.LINE_END;
+		add(courrielLabel,gc);
+
+		gc.gridx =1;
+		gc.gridy =2;
+		gc.insets = new Insets(0,0,0,0);
+		gc.anchor = GridBagConstraints.LINE_START;
+		add(courrielField,gc);
+
 		//quatrieme ligne
-				gc.weightx =1;
-				gc.weighty =0.1;
-				gc.gridx = 0;
-				gc.gridy = 3;
-				gc.insets = new Insets(0,0,0,5);
-				gc.anchor = GridBagConstraints.LINE_END;
-				add(domaineLabel,gc);
-				
-				gc.gridx =1;
-				gc.gridy =3;
-				gc.insets = new Insets(0,0,0,0);
-				gc.anchor = GridBagConstraints.LINE_START;
-				add(domaineField,gc);
+		gc.weightx =1;
+		gc.weighty =0.1;
+		gc.gridx = 0;
+		gc.gridy = 3;
+		gc.insets = new Insets(0,0,0,5);
+		gc.anchor = GridBagConstraints.LINE_END;
+		add(domaineLabel,gc);
+
+		gc.gridx =1;
+		gc.gridy =3;
+		gc.insets = new Insets(0,0,0,0);
+		gc.anchor = GridBagConstraints.LINE_START;
+		add(domaineField,gc);
 		//cinquieme ligne
-				gc.weightx =1;
-				gc.weighty =0.1;
-				gc.gridx = 0;
-				gc.gridy = 4;
-				gc.insets = new Insets(0,0,0,5);
-				gc.anchor = GridBagConstraints.LINE_END;
-				add(phoneLabel,gc);
-				
-				gc.gridx =1;
-				gc.gridy =4;
-				gc.insets = new Insets(0,0,0,0);
-				gc.anchor = GridBagConstraints.LINE_START;
-				add(phoneField,gc);
-		
+		gc.weightx =1;
+		gc.weighty =0.1;
+		gc.gridx = 0;
+		gc.gridy = 4;
+		gc.insets = new Insets(0,0,0,5);
+		gc.anchor = GridBagConstraints.LINE_END;
+		add(phoneLabel,gc);
+
+		gc.gridx =1;
+		gc.gridy =4;
+		gc.insets = new Insets(0,0,0,0);
+		gc.anchor = GridBagConstraints.LINE_START;
+		add(phoneField,gc);
+
 		//sixieme ligne
-				gc.weightx =1;
-				gc.weighty =0.1;
-				gc.gridx = 0;
-				gc.gridy = 5;
-				gc.insets = new Insets(0,0,0,5);
-				gc.anchor = GridBagConstraints.LINE_END;
-				add(posteLabel,gc);
-				
-				gc.gridx =1;
-				gc.gridy =5;
-				gc.insets = new Insets(0,0,0,0);
-				gc.anchor = GridBagConstraints.LINE_START;
-				add(posteField,gc);
+		gc.weightx =1;
+		gc.weighty =0.1;
+		gc.gridx = 0;
+		gc.gridy = 5;
+		gc.insets = new Insets(0,0,0,5);
+		gc.anchor = GridBagConstraints.LINE_END;
+		add(posteLabel,gc);
+
+		gc.gridx =1;
+		gc.gridy =5;
+		gc.insets = new Insets(0,0,0,0);
+		gc.anchor = GridBagConstraints.LINE_START;
+		add(posteField,gc);
 		//derniere ligne
 		gc.weightx = 1;
 		gc.weighty = 2.0;
@@ -205,13 +205,13 @@ public class FormPanelEnseignant extends JPanel{
 		gc.insets = new Insets(0,0,0,5);
 		gc.anchor = GridBagConstraints.LINE_END;
 		add(insertBtn,gc);
-		
+
 		gc.gridy =6;
 		gc.gridx =1;
 		gc.insets = new Insets(0,0,0,0);
 		gc.anchor = GridBagConstraints.CENTER;
 		add(deleteBtn,gc);
-		
+
 		/*gc.gridy =6;
 		gc.gridx =2;
 		gc.insets = new Insets(0,0,0,0);
@@ -222,7 +222,7 @@ public class FormPanelEnseignant extends JPanel{
 	public void setFormListener(FormListener listener){
 		this.formListener =listener;
 	}
-	
+
 	public void clearfileds(){
 		nomField.setText("");
 		prenomField.setText("");
@@ -232,6 +232,6 @@ public class FormPanelEnseignant extends JPanel{
 		posteField.setText("");
 	}
 
-	
-	
+
+
 }

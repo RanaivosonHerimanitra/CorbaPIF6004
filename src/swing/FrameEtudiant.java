@@ -51,16 +51,16 @@ public class FrameEtudiant extends JFrame {
 			@Override
 			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
 				try {
-					controllerEtudiant.addEtudiant(e);
+					if(controllerEtudiant.addEtudiant(e)){
+						JOptionPane.showMessageDialog(tablePanelEtudiant, "Un etudiant vient d'être ajouté");
+						tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
+						tablePanelEtudiant.refresh();
+						formEtudiant.clearfileds();
+					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(tablePanelEtudiant, "Un etudiant vient d'être ajouté");
-				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
-				tablePanelEtudiant.refresh();
-				formEtudiant.clearfileds();
-
 			}
 		});
 

@@ -1,3 +1,7 @@
+/*
+ * A class to display Enseignant
+ */
+
 package swing;
 
 import java.awt.BorderLayout;
@@ -5,19 +9,8 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-//import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-//import javafx.event.ActionEvent;
-
-
-
-/*
- * A class to display Enseignant
- */
-
-
-import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -26,17 +19,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import controller.Controller;
+import controller.ControllerEnseignant;
 
 //modif
 public class FrameEnseignat extends JFrame{
 	private TextPanel textPanel;
-	private JButton btn;
 	private FormPanelEnseignant formPanel;
 	private TablePanel tablePanel;
 	private Toolbar toolbar;
 
-	private Controller controller;
+	private ControllerEnseignant controller;
 	public FrameEnseignat() throws SQLException{
 		super("Infos Enseignant");
 
@@ -47,7 +39,7 @@ public class FrameEnseignat extends JFrame{
 		tablePanel = new TablePanel();
 		toolbar = new Toolbar();
 
-		controller = new Controller();
+		controller = new ControllerEnseignant();
 
 		tablePanel.setData(controller.getProfesseurs());
 		setJMenuBar(createMenuBar());
@@ -61,11 +53,12 @@ public class FrameEnseignat extends JFrame{
 		 */
 		formPanel.setFormListener(new FormListener(){
 			public void formEventOccured(FormEventEnseignat e) throws SQLException{
-				controller.addEnseignant(e);
-				JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
-				tablePanel.setData(controller.getProfesseurs());
-				tablePanel.refresh();
-				formPanel.clearfileds();	
+				if (controller.addEnseignant(e)){
+					JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
+					tablePanel.setData(controller.getProfesseurs());
+					tablePanel.refresh();
+					formPanel.clearfileds();
+				}
 			}
 		});
 

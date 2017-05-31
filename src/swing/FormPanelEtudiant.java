@@ -73,15 +73,12 @@ public class FormPanelEtudiant extends JPanel {
 					FormEventEtudiant ev = new FormEventEtudiant(this,nom,prenom,courriel,domaine,matricule);
 					if(formListener !=null)
 					{
-						//System.out.println("formListner");
 						//input checking validation :
 						if (InputValidationErrorDialog.isEmailValid(courriel) )
 						{
-						formListener.formEventOccuredAddEtudiant(ev);
+							formListener.formEventOccuredAddEtudiant(ev);
 						}
 					}
-					//else
-						//System.out.println("No event");
 				}	
 			});
 			

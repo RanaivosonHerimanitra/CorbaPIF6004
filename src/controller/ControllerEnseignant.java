@@ -3,6 +3,9 @@ package controller;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
@@ -13,11 +16,11 @@ import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelHelper;
 import swing.FormEventEnseignat;
 
-public class Controller {
+public class ControllerEnseignant {
 
 	private static Personnel personnelImpl ;
 
-	public Controller(){
+	public ControllerEnseignant(){
 		try{
 			// create and initialize the ORB
 			Properties props = new Properties();
@@ -40,31 +43,34 @@ public class Controller {
 			//personnelImpl.shutdown();
 
 		} catch (Exception e) {
+			JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+					"Inane error",JOptionPane.ERROR_MESSAGE);
 			System.out.println("ERROR : " + e) ;
 			e.printStackTrace(System.out);
 		}
 	}
 
 	public Enseignant[] getProfesseurs(){
-		try {
-			return personnelImpl.AfficherEnseigants();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-
+		return personnelImpl.AfficherEnseigants();
 	}
-	
-	public void addEnseignant(FormEventEnseignat ev) throws SQLException {
+
+	public boolean addEnseignant(FormEventEnseignat ev) throws SQLException {
 		String nom = ev.getNom();
 		String prenom = ev.getPrenom();
 		String courriel = ev.getCourriel();
 		String domaine = ev.getDomaine();
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
-
+		/*
+		if(personnelImpl.chercherEnseignant(nom, prenom)!=null){
+			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette enseignat existe déja!",
+					"Inane warning",JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
+		//*/
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		personnelImpl.creerEnseignant(enseignant);
+		return true;
 	}
 
 }

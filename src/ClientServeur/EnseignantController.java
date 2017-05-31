@@ -39,11 +39,12 @@ public class EnseignantController {
 		}
 		return ListEnseignant;
 	}
-	public Enseignant selectEnseignant(String nom) throws SQLException{
-		String sql = "SELECT * FROM enseignant WHERE nom_ens=?";
+	public Enseignant selectEnseignant(String nom, String prenom) throws SQLException{
+		String sql = "SELECT * FROM enseignant WHERE nom_ens=? AND prenom_ens=?";
 		Enseignant e = null;
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, nom);
+		statement.setString(2, prenom);
 		 
 		ResultSet result= statement.executeQuery();
 		while ( result.next() ) {
@@ -52,6 +53,7 @@ public class EnseignantController {
 				 System.out.println(e.p.nom+" is found");
 			}
 		}
+		System.out.println(e);
 		return e;
 		//return null;
 	}
