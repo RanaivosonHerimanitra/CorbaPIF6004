@@ -30,22 +30,26 @@ public class PersonnelServant extends PersonnelPOA {
 
 
 	@Override
-	public void creerEnseignant(Enseignant e) {
+	public boolean creerEnseignant(Enseignant e) {
 		System.out.println("Servant: "+e.p.nom);
 		try {
 			enseignantController.insertion(e);
+			return true;
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			return false;
 		}
 	}
 
 	@Override
-	public void creerEtudiant(Etudiant e) {
+	public boolean creerEtudiant(Etudiant e) {
 		try {
 			etudiantController.insertion(e);
+			return true;
 		} catch (SQLException e1) {
 			e1.printStackTrace();
+			return false;
 		}
 
 	}

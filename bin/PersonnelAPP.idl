@@ -29,9 +29,9 @@ module PersonnelAPP{
 	//Service de l'App
 	interface Personnel {
 		
-		void creerEnseignant(in Enseignant e);
+		boolean creerEnseignant(in Enseignant e);
 	
-		void creerEtudiant(in Etudiant e);
+		boolean creerEtudiant(in Etudiant e);
 	
 		Enseignant chercherEnseignant(in string nom, in string prenom);
 	
