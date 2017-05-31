@@ -1,6 +1,7 @@
 /*
  * A class to handle errors when user try to crud in Swing
  * Source:https://stackoverflow.com/questions/8204680/java-regex-email
+ * http://www.journaldev.com/641/regular-expression-phone-number-validation-in-java
  */
 package swing;
 import java.util.regex.Matcher;
@@ -9,13 +10,12 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import PersonnelAPP.Enseignant;
-import PersonnelAPP.Etudiant;
 
 public class InputValidationErrorDialog 
 {
 	public static final Pattern VALID_EMAIL_ADDRESS_REGEX =  Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 	public static final String PHONE_REGEX = "\\+\\d(-\\d{3}){2}-\\d{4}";
+	
 	public static final  Pattern VALID_TELEPHONE = Pattern.compile(PHONE_REGEX);
 	
 	public static void showErrorMsg(String message)
@@ -24,35 +24,35 @@ public class InputValidationErrorDialog
 		JOptionPane.showMessageDialog(new JFrame(), message, "Dialog",JOptionPane.ERROR_MESSAGE);
 		
 	}
-	public static void isEmailValid(Etudiant e)
+	public static boolean isEmailValid(String e)
 	{
-		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(e.p.mail);
+		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(e);
         if( !matcher.find()) 	
         {
         	showErrorMsg("n'est pas une adresse email valide!");
+        	return false;
+        } else 
+        {
+            return true;
         }
 	}
-	public static void isEmailValid(Enseignant e)
-	{
-		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(e.p.mail);
-		 if( !matcher.find()) 	
-	        {
-			 showErrorMsg("n'est pas une adresse email valide!");
-	        }	
-	}
 	
-	public static void isPhoneNumberValid(Etudiant e)
+	public static boolean isPhoneNumberValid(String e)
 	{
-		//boolean out =  e..matches(regexPattern);;
-	
-	}
-	public static void isPhoneNumberValid(Enseignant e)
-	{
-		Matcher matcher = VALID_TELEPHONE .matcher( String.valueOf(e.tel));
-		 if( !matcher.find()) 	
-	        {
-			 showErrorMsg("n'est pas un telephone valide!");
-	        }	
+		//validate phone numbers of format "1234567890"
+		if (e.matches("\\d{10}")) return true;
+		//validating phone number with -, . or spaces
+		else if(e.matches("\\d{3}[-\\.\\s]\\d{3}[-\\.\\s]\\d{4}")) return true;
+		//validating phone number with extension length from 3 to 5
+		else if(e.matches("\\d{3}-\\d{3}-\\d{4}\\s(x|(ext))\\d{3,5}")) return true;
+		//validating phone number where area code is in braces ()
+		else if(e.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) return true;
+		//return false if nothing matches the input
+		else {
+			showErrorMsg("n'est pas un telephone valide!");
+			return false;	
+		}
+
 		
 	}
 }

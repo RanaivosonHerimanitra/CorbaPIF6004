@@ -62,7 +62,8 @@ public class FormPanelEtudiant extends JPanel {
 			nomLabel.setLabelFor(nomField);
 			
 			insertBtn.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e) {
+				public void actionPerformed(ActionEvent e) 
+				{
 					String nom= nomField.getText();
 					String prenom = prenomField.getText();
 					String courriel = courrielField.getText();
@@ -70,12 +71,17 @@ public class FormPanelEtudiant extends JPanel {
 					String matricule = matriculeField.getText();
 					
 					FormEventEtudiant ev = new FormEventEtudiant(this,nom,prenom,courriel,domaine,matricule);
-					if(formListener !=null){
-						System.out.println("formListner");
+					if(formListener !=null)
+					{
+						//System.out.println("formListner");
+						//input checking validation :
+						if (InputValidationErrorDialog.isEmailValid(courriel) )
+						{
 						formListener.formEventOccuredAddEtudiant(ev);
+						}
 					}
-					else
-						System.out.println("No event");
+					//else
+						//System.out.println("No event");
 				}	
 			});
 			

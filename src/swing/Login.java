@@ -1,19 +1,14 @@
 package swing;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-import com.sun.java.swing.plaf.windows.resources.windows;
-
 import javax.swing.JPasswordField;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.sql.SQLException;
+import javax.swing.JTextField;
 
 public class Login {
 
@@ -24,11 +19,12 @@ public class Login {
 	private final String pass="admin";
 	private final String login1="user";
 	private final String pass1 ="user";
+
 	//Methode initialiser
 	public void initialiser(){
 		userField.setText("");
 		passwordField.setText("");
-		
+
 		userField.requestFocus();
 	}//fin methode
 	/**
@@ -63,24 +59,24 @@ public class Login {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel userLabel = new JLabel("Nom Utilisateur:");
 		userLabel.setBounds(24, 84, 124, 27);
 		frame.getContentPane().add(userLabel);
-		
+
 		JLabel pwLabel = new JLabel("Mot de passe:");
 		pwLabel.setBounds(24, 122, 98, 21);
 		frame.getContentPane().add(pwLabel);
-		
+
 		userField = new JTextField();
 		userField.setBounds(137, 87, 124, 20);
 		frame.getContentPane().add(userField);
 		userField.setColumns(10);
-		
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(137, 122, 124, 20);
 		frame.getContentPane().add(passwordField);
-		
+
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

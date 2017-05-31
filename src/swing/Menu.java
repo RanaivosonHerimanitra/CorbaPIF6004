@@ -14,52 +14,15 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
-/*
-import org.omg.CORBA.ORB;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
-import PersonnelAPP.PersonnelHelper;
-import PersonnelAPP.Personnel;
-//*/
+
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-	//private static Personnel personnelImpl;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		/* REference in Naming
-		try{
-			// create and initialize the ORB
-			Properties props = new Properties();
-			props.put("org.omg.CORBA.ORBInitialPort", "1000");
-			props.put("org.omg.CORBA.ORBInitialHost", "192.168.0.187");
-			ORB orb = ORB.init(args, props);
-			// get the root naming context
-			org.omg.CORBA.Object objRef = 
-					orb.resolve_initial_references("NameService");
-			// Use NamingContextExt instead of NamingContext. This is 
-			// part of the Interoperable naming Service.  
-			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-
-			// resolve the Object Reference in Naming
-			String name = "Personnel";
-			personnelImpl = PersonnelHelper.narrow(ncRef.resolve_str(name));
-
-			System.out.println("Obtained a handle on server object: " + personnelImpl);
-			personnelImpl.AfficherEtudiants();
-
-			//personnelImpl.shutdown();
-
-		} catch (Exception e) {
-			System.out.println("ERROR : " + e) ;
-			e.printStackTrace(System.out);
-		}
-		//*/
-
-
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
