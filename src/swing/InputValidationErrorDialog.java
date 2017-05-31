@@ -15,30 +15,27 @@ public class InputValidationErrorDialog
 {
 	public static final Pattern VALID_EMAIL_ADDRESS_REGEX =  Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 	public static final String PHONE_REGEX = "\\+\\d(-\\d{3}){2}-\\d{4}";
-	
 	public static final  Pattern VALID_TELEPHONE = Pattern.compile(PHONE_REGEX);
-	
-	public static void showErrorMsg(String message)
-	{
-		
+
+	public static void showErrorMsg(String message){
+
 		JOptionPane.showMessageDialog(new JFrame(), message, "Dialog",JOptionPane.ERROR_MESSAGE);
-		
+
 	}
-	public static boolean isEmailValid(String e)
-	{
-		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(e);
-        if( !matcher.find()) 	
-        {
-        	showErrorMsg("n'est pas une adresse email valide!");
-        	return false;
-        } else 
-        {
-            return true;
-        }
+
+	public static boolean isEmailValid(String e){
+		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(e);
+		if( !matcher.find()) 	
+		{
+			showErrorMsg("n'est pas une adresse email valide!");
+			return false;
+		} else 
+		{
+			return true;
+		}
 	}
-	
-	public static boolean isPhoneNumberValid(String e)
-	{
+
+	public static boolean isPhoneNumberValid(String e){
 		//validate phone numbers of format "1234567890"
 		if (e.matches("\\d{10}")) return true;
 		//validating phone number with -, . or spaces
@@ -52,7 +49,11 @@ public class InputValidationErrorDialog
 			showErrorMsg("n'est pas un telephone valide!");
 			return false;	
 		}
+	}
 
-		
+	public static boolean isPostValid(String e){
+		if( e.matches("\\d{4}")) return true;	
+		showErrorMsg("n'est pas un numéro de post valide! un numéro de post valide contient 4 chiffres");
+		return false;
 	}
 }
