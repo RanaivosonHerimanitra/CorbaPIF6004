@@ -84,7 +84,7 @@ public class FrameEtudiantUser extends JFrame {
 
 		JMenu windowMenu = new JMenu("Window");
 		JMenu showMenu = new JMenu("Show");
-
+		windowMenu.enable(false);
 		JCheckBoxMenuItem showFormItem = new JCheckBoxMenuItem("Formulaire Professeur");
 		showFormItem.setSelected(true);
 
