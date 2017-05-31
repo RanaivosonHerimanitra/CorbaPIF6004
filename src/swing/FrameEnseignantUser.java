@@ -76,7 +76,8 @@ public class FrameEnseignantUser extends JFrame{
 		
 		setMinimumSize(new Dimension(1000,400));
 		setSize(600,500);
-		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
 	//Menu Bar
