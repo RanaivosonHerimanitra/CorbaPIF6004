@@ -72,6 +72,7 @@ public class FrameEtudiant extends JFrame {
 
 		setMinimumSize(new Dimension(1000,400));
 		setSize(600,500);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setVisible(true);
 	}
