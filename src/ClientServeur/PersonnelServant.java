@@ -61,8 +61,9 @@ public class PersonnelServant extends PersonnelPOA {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return null;
+		
 	}
 
 	@Override

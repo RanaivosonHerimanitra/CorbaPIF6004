@@ -53,6 +53,7 @@ public class EnseignantController {
 				 System.out.println(e.p.nom+" is found");
 			}
 		}
+		System.out.println(e);
 		return e;
 		//return null;
 	}
