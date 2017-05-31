@@ -1,55 +1,70 @@
 package controller;
 
 import java.sql.SQLException;
-import ClientServeur.PersonnelServant;
+import java.util.Properties;
+
+import org.omg.CORBA.ORB;
+import org.omg.CosNaming.NamingContextExt;
+import org.omg.CosNaming.NamingContextExtHelper;
+
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.PersonInfo;
+import PersonnelAPP.Personnel;
+import PersonnelAPP.PersonnelHelper;
 import swing.FormEventEnseignat;
 
 public class Controller {
 
-	PersonnelServant personnelServant ;
+	private static Personnel personnelImpl ;
 
-	
 	public Controller(){
-		personnelServant = new PersonnelServant();
+		try{
+			// create and initialize the ORB
+			Properties props = new Properties();
+			props.put("org.omg.CORBA.ORBInitialPort", "1000");
+			props.put("org.omg.CORBA.ORBInitialHost", "192.168.0.187");
+			String[] args = null;
+			ORB orb = ORB.init(args, props);
+			// get the root naming context
+			org.omg.CORBA.Object objRef = 
+					orb.resolve_initial_references("NameService");
+			// Use NamingContextExt instead of NamingContext. This is 
+			// part of the Interoperable naming Service.  
+			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+
+			// resolve the Object Reference in Naming
+			String name = "Personnel";
+			personnelImpl = PersonnelHelper.narrow(ncRef.resolve_str(name));
+
+			System.out.println("Obtained a handle on server object: " + personnelImpl);
+			//personnelImpl.shutdown();
+
+		} catch (Exception e) {
+			System.out.println("ERROR : " + e) ;
+			e.printStackTrace(System.out);
+		}
 	}
-	
+
 	public Enseignant[] getProfesseurs(){
 		try {
-			return personnelServant.AfficherEnseigants();
+			return personnelImpl.AfficherEnseigants();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-		
+
 	}
+	
 	public void addEnseignant(FormEventEnseignat ev) throws SQLException {
 		String nom = ev.getNom();
 		String prenom = ev.getPrenom();
 		String courriel = ev.getCourriel();
 		String domaine = ev.getDomaine();
-
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
 
-		
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
-		
-	
-	    
-	    
-	    
-		System.out.println(nom);
-		System.out.println(prenom);
-		System.out.println(courriel);
-		System.out.println(domaine);
-		System.out.println(phone);
-		
-		System.out.println(poste);
-		personnelServant.creerEnseignant(enseignant);
-		//db.addEnseignant(enseignant);
+		personnelImpl.creerEnseignant(enseignant);
 	}
 
 }
