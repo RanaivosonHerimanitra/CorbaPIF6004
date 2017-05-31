@@ -2,16 +2,11 @@ package ClientServeur;
 import java.sql.SQLException;
 import java.util.List;
 
-import PersonnelAPP.*;         
+import org.omg.CORBA.ORB;
 
-import org.omg.CORBA.*;     
-import org.omg.CORBA.Object;
-import org.omg.CosNaming.NameComponent;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
-import org.omg.PortableServer.*; 
-import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
-import org.omg.PortableServer.POAPackage.WrongPolicy;
+import PersonnelAPP.Enseignant;
+import PersonnelAPP.Etudiant;
+import PersonnelAPP.PersonnelPOA;
 
 public class PersonnelServant extends PersonnelPOA {
 	EnseignantController enseignantController;

@@ -1,3 +1,7 @@
+/*
+ * A class to display Enseignant
+ */
+
 package swing;
 
 import java.awt.BorderLayout;
@@ -5,19 +9,8 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-//import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-//import javafx.event.ActionEvent;
-
-
-
-/*
- * A class to display Enseignant
- */
-
-
-import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -31,7 +24,6 @@ import controller.ControllerEnseignant;
 //modif
 public class FrameEnseignat extends JFrame{
 	private TextPanel textPanel;
-	private JButton btn;
 	private FormPanelEnseignant formPanel;
 	private TablePanel tablePanel;
 	private Toolbar toolbar;

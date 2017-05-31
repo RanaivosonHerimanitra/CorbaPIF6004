@@ -1,19 +1,15 @@
 package ClientServeur;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Properties;
 
 import org.omg.CORBA.ORB;
+import org.omg.CosNaming.NamingContextExt;
+import org.omg.CosNaming.NamingContextExtHelper;
 
 import PersonnelAPP.Enseignant;
-import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelHelper;
-
-import org.omg.CosNaming.*;
-import org.omg.CosNaming.NamingContextPackage.*;
-import org.omg.CORBA.*;
 
 public class Main {
 	private static Personnel personnelImpl;

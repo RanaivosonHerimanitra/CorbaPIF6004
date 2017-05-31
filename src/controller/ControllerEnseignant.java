@@ -53,7 +53,7 @@ public class ControllerEnseignant {
 	public Enseignant[] getProfesseurs(){
 		return personnelImpl.AfficherEnseigants();
 	}
-	
+
 	public boolean addEnseignant(FormEventEnseignat ev) throws SQLException {
 		String nom = ev.getNom();
 		String prenom = ev.getPrenom();
@@ -61,13 +61,13 @@ public class ControllerEnseignant {
 		String domaine = ev.getDomaine();
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
-		
+
 		if(personnelImpl.chercherEnseignant(nom, prenom)!=null){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette enseignat existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
-		
+
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		personnelImpl.creerEnseignant(enseignant);
 		return true;
