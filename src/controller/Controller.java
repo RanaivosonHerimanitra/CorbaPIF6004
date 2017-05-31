@@ -3,6 +3,9 @@ package controller;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
@@ -40,6 +43,8 @@ public class Controller {
 			//personnelImpl.shutdown();
 
 		} catch (Exception e) {
+			JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+					"Inane error",JOptionPane.ERROR_MESSAGE);
 			System.out.println("ERROR : " + e) ;
 			e.printStackTrace(System.out);
 		}
