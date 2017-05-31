@@ -1,61 +1,56 @@
 module PersonnelAPP{
 
-struct PersonInfo
-{
-	string nom;
-	string prenom;
-	string mail;
-	string domain;
-};
-//*  	
-struct Enseignant
-{
-	PersonInfo p;
-	unsigned long long tel;
-	unsigned long long post;
-};
-
-struct Etudiant
-{
-	PersonInfo p;
-	string matricul;
-};
-
-//*
-typedef sequence<Enseignant> Enseignants;
-
-typedef sequence<Etudiant> Etudiants;
-//*/
-
-
-//Service de l'App
-interface Personnel {
-
+	struct PersonInfo
+	{
+		string nom;
+		string prenom;
+		string mail;
+		string domain;
+	};
 	
-	//*
-	void creerEnseignant(in Enseignant e);
-
-	void creerEtudiant(in Etudiant e);
-
-	Enseignant chercherEnseignant(in string nom);
-
-	Etudiant chercherEtudiant(in string nom);
-
-	Enseignants AfficherEnseigants();
-
-	Etudiants AfficherEtudiants();
-
-	void supprimerEtudiant(in Etudiant e);
-
-	void supprimerEnseigant(in Enseignant e);
-
-
-	void modifierEnseignant(in Enseignant e, in Enseignant newEnseigant);
-
-	void modifierEtudiant(in Etudiant e, in Etudiant newEtudiant);
-
-	//*/
-	oneway void shutdown();
-};
+	struct Enseignant
+	{
+		PersonInfo p;
+		unsigned long long tel;
+		unsigned long long post;
+	};
+	
+	struct Etudiant
+	{
+		PersonInfo p;
+		string matricul;
+	};
+	
+	typedef sequence<Enseignant> Enseignants;
+	
+	typedef sequence<Etudiant> Etudiants;
+	
+	
+	//Service de l'App
+	interface Personnel {
+		
+		void creerEnseignant(in Enseignant e);
+	
+		void creerEtudiant(in Etudiant e);
+	
+		Enseignant chercherEnseignant(in string nom, in string prenom);
+	
+		Etudiant chercherEtudiant(in string nom, in string prenom);
+	
+		Enseignants AfficherEnseigants();
+	
+		Etudiants AfficherEtudiants();
+	
+		void supprimerEtudiant(in Etudiant e);
+	
+		void supprimerEnseigant(in Enseignant e);
+	
+	
+		void modifierEnseignant(in Enseignant e, in Enseignant newEnseigant);
+	
+		void modifierEtudiant(in Etudiant e, in Etudiant newEtudiant);
+	
+		oneway void shutdown();
+	};
 
 };

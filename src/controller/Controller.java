@@ -51,13 +51,7 @@ public class Controller {
 	}
 
 	public Enseignant[] getProfesseurs(){
-		try {
-			return personnelImpl.AfficherEnseigants();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-
+		return personnelImpl.AfficherEnseigants();
 	}
 	
 	public void addEnseignant(FormEventEnseignat ev) throws SQLException {
@@ -67,7 +61,6 @@ public class Controller {
 		String domaine = ev.getDomaine();
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
-
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		personnelImpl.creerEnseignant(enseignant);
 	}
