@@ -16,11 +16,11 @@ import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelHelper;
 import swing.FormEventEnseignat;
 
-public class Controller {
+public class ControllerEnseignant {
 
 	private static Personnel personnelImpl ;
 
-	public Controller(){
+	public ControllerEnseignant(){
 		try{
 			// create and initialize the ORB
 			Properties props = new Properties();
@@ -61,6 +61,13 @@ public class Controller {
 		String domaine = ev.getDomaine();
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
+		
+		if(personnelImpl.chercherEtudiant(nom, prenom)!=null){
+			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette enseignat existe déja!",
+					"Inane warning",JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+		
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		personnelImpl.creerEnseignant(enseignant);
 	}

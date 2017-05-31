@@ -26,7 +26,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import controller.Controller;
+import controller.ControllerEnseignant;
 import ClientServeur.EnseignantController;
 //modif
 public class FrameEnseignantUser extends JFrame{
@@ -36,7 +36,7 @@ public class FrameEnseignantUser extends JFrame{
 	private TablePanel tablePanel;
 	private Toolbar toolbar;
 	
-	private Controller controller;
+	private ControllerEnseignant controller;
 	public FrameEnseignantUser() throws SQLException{
 		super("Infos Enseignant");
 		
@@ -47,7 +47,7 @@ public class FrameEnseignantUser extends JFrame{
 		tablePanel = new TablePanel();
 		toolbar = new Toolbar();
 		
-		controller = new Controller();
+		controller = new ControllerEnseignant();
 		
 		tablePanel.setData(controller.getProfesseurs());
 		setJMenuBar(createMenuBar());
