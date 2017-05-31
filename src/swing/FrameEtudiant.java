@@ -73,7 +73,7 @@ public class FrameEtudiant extends JFrame {
 		setMinimumSize(new Dimension(1000,400));
 		setSize(600,500);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
 	//Menu Bar
@@ -112,9 +112,9 @@ public class FrameEtudiant extends JFrame {
 
 			public void actionPerformed(ActionEvent arg0) {
 				int action = JOptionPane.showConfirmDialog(FrameEtudiant.this, 
-						"Désirez-vous quitter l'application?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
+						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				if (action == JOptionPane.OK_OPTION){
-					System.exit(0);
+					FrameEtudiant.this.dispose();
 				}
 
 			}

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -56,6 +57,8 @@ public class MenuUser extends JFrame {
 		JMenu mnSelecionner = new JMenu("Selecionner");
 		mnFichier.add(mnSelecionner);
 		
+		JMenuItem iexit = new JMenuItem("Quitter");
+		mnFichier.add(iexit);
 		JMenuItem mntmEnseignant = new JMenuItem("Afficher Enseignant");
 		mntmEnseignant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,14 +82,18 @@ public class MenuUser extends JFrame {
 		});
 		mnSelecionner.add(mntmEtudiant);
 		
-		JMenuItem mntmQuitter = new JMenuItem("Quitter");
-		mntmQuitter.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				MenuUser frame = new MenuUser();
-				frame.setVisible(false);
+		
+		iexit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int action = JOptionPane.showConfirmDialog(MenuUser.this, 
+						"Désirez-vous quitter l'application?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
+				if (action == JOptionPane.OK_OPTION){
+					System.exit(0);
+				}
+
 			}
 		});
-		mnSelecionner.add(mntmQuitter);
+		
 	}
 
 }

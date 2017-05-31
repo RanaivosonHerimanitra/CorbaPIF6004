@@ -84,10 +84,10 @@ public class Login {
 					Menu a = new Menu();
 					a.setVisible(true);
 					frame.setVisible(false);
-					initialiser();
 				}else if(userField.getText().equals(login1) && passwordField.getText().equals(pass1)){
 					MenuUser mu = new MenuUser();
 					mu.setVisible(true);
+					frame.setVisible(false);
 				}
 			}
 		});

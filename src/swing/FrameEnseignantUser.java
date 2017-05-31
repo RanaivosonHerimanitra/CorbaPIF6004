@@ -116,9 +116,9 @@ JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) ev.getSource();
 			
 			public void actionPerformed(ActionEvent arg0) {
 				int action = JOptionPane.showConfirmDialog(FrameEnseignantUser.this, 
-						"Désirez-vous quitter l'application?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
+						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				if (action == JOptionPane.OK_OPTION){
-					System.exit(0);
+					FrameEnseignantUser.this.dispose();
 				}
 				
 			}
