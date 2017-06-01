@@ -40,24 +40,32 @@ public class EnseignantController {
 		return ListEnseignant;
 	
 	}
+	
 	public Enseignant selectEnseignant(String nom, String prenom) throws SQLException{
 		String sql = "SELECT * FROM enseignant WHERE nom_ens=? AND prenom_ens=?";
-		Enseignant e = null;
-		PreparedStatement statement = conn.prepareStatement(sql);
-		statement.setString(1, nom);
-		statement.setString(2, prenom);
-		 
-		ResultSet result= statement.executeQuery();
-		while ( result.next() ) {
-			if (result.getString("nom_ens").equals(nom)){
-				 e = new Enseignant(new PersonInfo(result.getString("nom_ens"),result.getString("prenom_ens"),result.getString("courriel_ens"),result.getString("domaine_act_ens")),result.getInt("tel_bureau"),result.getInt("numero_poste")) ;
-				 System.out.println(e.p.nom+" is found");
+		PreparedStatement statement;
+		try {
+			statement = conn.prepareStatement(sql);
+			statement.setString(1, nom);
+			statement.setString(2, prenom);
+			System.out.println("before search");
+			ResultSet result;
+			System.out.println("before query");
+			result = statement.executeQuery();
+			System.out.println("After query");
+			while (result.next()){
+				Enseignant e = new Enseignant(new PersonInfo(result.getString("nom_ens"),result.getString("prenom_ens"),result.getString("courriel_ens"),result.getString("domaine_act_ens")),result.getInt("tel_bureau"),result.getInt("numero_poste")) ;
+				System.out.println(e.p.nom+" is found");
+				return e;
 			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			//e1.printStackTrace();
+			return new Enseignant(new PersonInfo("","","",""),0,0);
 		}
-		System.out.println(e);
-		return e;
-		//return null;
+		return new Enseignant(new PersonInfo("","","",""),0,0);
 	}
+	
 	public void insertion(Enseignant e) throws SQLException {
 		String sql = "INSERT INTO enseignant (nom_ens, prenom_ens, domaine_act_ens, tel_bureau, numero_poste, courriel_ens) VALUES (?, ?, ?, ?,?,?)";
 		
