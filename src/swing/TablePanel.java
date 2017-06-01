@@ -27,12 +27,6 @@ public class TablePanel extends JPanel{
 		tableModel.fireTableDataChanged();
 	}
 
-	//today debut
-	public void setEnseignantTableListener(EnseignantTableListener listener){
-		this.enseignantListener =listener;
-	}
-	//today fin
-
 	
 	public Enseignant selectedRow(){
 		int selectedRow= table.getSelectedRow();

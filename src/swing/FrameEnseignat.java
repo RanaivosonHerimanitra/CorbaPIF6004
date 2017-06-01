@@ -20,12 +20,6 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 
-import ClientServeur.EnseignantController;
-import com.sun.glass.events.MouseEvent;
-
-import PersonnelAPP.Enseignant;
-
-import controller.ControllerEnseignant;
 
 //modif
 public class FrameEnseignat extends JFrame{
