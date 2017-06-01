@@ -70,6 +70,7 @@ public class ControllerEnseignant {
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		personnelImpl.creerEnseignant(enseignant);
 		return true;
+		
 	}
 
 
