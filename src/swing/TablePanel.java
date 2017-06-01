@@ -28,7 +28,10 @@ public class TablePanel extends JPanel{
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of cb6b357... fix syntax errors
 =======
 >>>>>>> parent of cb6b357... fix syntax errors
 <<<<<<< Updated upstream
@@ -49,6 +52,9 @@ public class TablePanel extends JPanel{
 	
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of cb6b357... fix syntax errors
+=======
 >>>>>>> parent of cb6b357... fix syntax errors
 =======
 >>>>>>> parent of cb6b357... fix syntax errors
