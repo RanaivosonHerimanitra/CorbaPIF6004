@@ -232,6 +232,30 @@ public class FormPanelEnseignant extends JPanel{
 		posteField.setText("");
 	}
 
-
+	public void setNom(String nom){
+		nomField.setText(nom);
+	}
+	
+	public void setPrenom(String prenom){
+		prenomField.setText(prenom);
+	}
+	
+	public void setCourriel(String courriel){
+		courrielField.setText(courriel);
+	}
+	
+	public void setDomaine(String domaine){
+		domaineField.setText(domaine);
+	}
+	
+	public void setTel(String tel){
+		phoneField.setText(tel);
+	}
+	
+	public void setPost(String post){
+		posteField.setText(post);
+	}
+	
+	
 
 }

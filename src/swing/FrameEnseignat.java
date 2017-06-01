@@ -19,6 +19,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import PersonnelAPP.Enseignant;
 import controller.ControllerEnseignant;
 
 //modif
@@ -49,6 +50,17 @@ public class FrameEnseignat extends JFrame{
 				tablePanel.setData(controller.getProfesseurs());
 				JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être supprimé");
 				tablePanel.refresh();
+			}
+
+			@Override
+			public void rowUpdate(int row) {
+				Enseignant e=tablePanel.getSelectedEnseignat(row);
+				formPanel.setNom(e.p.nom);
+				formPanel.setPrenom(e.p.prenom);
+				formPanel.setCourriel(e.p.mail);
+				formPanel.setDomaine(e.p.domain);
+				formPanel.setTel(Long.toString(e.tel));
+				formPanel.setPost(Long.toString(e.post));
 			}
 		});
 		//today fin

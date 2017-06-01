@@ -54,6 +54,19 @@ public class TablePanel extends JPanel{
 				}
 			}
 		});
+		updateItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int row = table.getSelectedRow();
+				if(enseignantListener !=null){
+					enseignantListener.rowUpdate(row);
+					tableModel.fireTableRowsDeleted(row, row);
+				}
+
+				
+			}
+		});
 		//add today fin
 		setLayout(new BorderLayout());
 		add(new JScrollPane(table),BorderLayout.CENTER);
