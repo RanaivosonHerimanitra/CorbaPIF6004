@@ -41,6 +41,7 @@ public class ControllerEnseignant {
 
 			System.out.println("Obtained a handle on server object: " + personnelImpl);
 			//personnelImpl.shutdown();
+			personnelImpl.AfficherEnseigants();
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
