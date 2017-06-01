@@ -26,21 +26,13 @@ public class TablePanel extends JPanel{
 	public void refresh(){
 		tableModel.fireTableDataChanged();
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of cb6b357... fix syntax errors
-=======
->>>>>>> parent of cb6b357... fix syntax errors
-<<<<<<< Updated upstream
+
 	//today debut
 	public void setEnseignantTableListener(EnseignantTableListener listener){
 		this.enseignantListener =listener;
 	}
 	//today fin
-=======
+
 	
 	public Enseignant selectedRow(){
 		int selectedRow= table.getSelectedRow();
@@ -50,12 +42,5 @@ public class TablePanel extends JPanel{
 				(long)tableModel.getValueAt(selectedRow, 1));
 	}
 	
->>>>>>> Stashed changes
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of cb6b357... fix syntax errors
-=======
->>>>>>> parent of cb6b357... fix syntax errors
-=======
->>>>>>> parent of cb6b357... fix syntax errors
+
 }
