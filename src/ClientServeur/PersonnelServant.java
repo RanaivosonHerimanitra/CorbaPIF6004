@@ -6,6 +6,7 @@ import org.omg.CORBA.ORB;
 
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
+import PersonnelAPP.PersonInfo;
 import PersonnelAPP.PersonnelPOA;
 
 public class PersonnelServant extends PersonnelPOA {
@@ -56,13 +57,13 @@ public class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public Enseignant chercherEnseignant(String nom, String prenom) {
-		try {
+	//	try {
 			return enseignantController.selectEnseignant(nom, prenom);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+//		} catch (SQLException e) {
+////			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return new Enseignant(new PersonInfo("","","",""),0,0);
+//		}
 		
 	}
 

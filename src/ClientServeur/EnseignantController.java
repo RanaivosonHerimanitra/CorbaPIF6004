@@ -11,7 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import PersonnelAPP.Enseignant;
-import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
 public class EnseignantController {
@@ -41,26 +40,29 @@ public class EnseignantController {
 	
 	}
 	
-	public Enseignant selectEnseignant(String nom, String prenom) throws SQLException{
+	public Enseignant selectEnseignant(String nom, String prenom) {
 		String sql = "SELECT * FROM enseignant WHERE nom_ens=? AND prenom_ens=?";
 		PreparedStatement statement;
+	
 		try {
 			statement = conn.prepareStatement(sql);
 			statement.setString(1, nom);
 			statement.setString(2, prenom);
-			System.out.println("search :"+ nom);
 			System.out.println("before search");
 			ResultSet result;
 			System.out.println("before query");
 			result = statement.executeQuery();
 			System.out.println("After query");
+		
 			if (result == null){
 				System.out.println("search null");
 				return new Enseignant(new PersonInfo("","","",""),0,0);
 			}
 				
 			while (result.next()){
-				Enseignant e = new Enseignant(new PersonInfo(result.getString("nom_ens"),result.getString("prenom_ens"),result.getString("courriel_ens"),result.getString("domaine_act_ens")),result.getInt("tel_bureau"),result.getInt("numero_poste")) ;
+				Enseignant e = new Enseignant(new PersonInfo(result.getString("nom_ens"),result.getString("prenom_ens"),
+						result.getString("courriel_ens"),result.getString("domaine_act_ens")),result.getLong("tel_bureau"),
+						result.getLong("numero_poste")) ;
 				System.out.println(e.p.nom+" is found");
 				return e;
 			}
@@ -82,7 +84,7 @@ public class EnseignantController {
 		statement.setLong(4, e.tel);
 		statement.setLong(5, e.post);
 		statement.setString(6, e.p.mail);
-		System.out.println(statement);
+		//System.out.println(statement);
 		int rowsInserted = statement.executeUpdate();
 		if (rowsInserted > 0) {
 		    System.out.println("A new user was inserted successfully!");

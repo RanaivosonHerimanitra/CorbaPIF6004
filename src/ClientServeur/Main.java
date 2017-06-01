@@ -39,7 +39,9 @@ public class Main {
 
 		        System.out.println("Obtained a handle on server object: " + personnelImpl);
 		        //personnelImpl.AfficherEtudiants();
-		        personnelImpl.AfficherEnseigants();
+		        //personnelImpl.AfficherEnseigants();
+//		        if (personnelImpl.chercherEnseignant(e1.p.nom, e1.p.prenom).p.nom.equals(""))personnelImpl.creerEnseignant(e1);
+//		        else System.out.println("cas vide");
 		     // Test de la selection enseignant ok 26 mai
 //				ArrayList<Enseignant> ListEnseignant= ec.getEnseignant();
 //				 for ( Enseignant ens: ListEnseignant ) {
