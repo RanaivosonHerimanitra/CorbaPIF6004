@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import PersonnelAPP.Enseignant;
+import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
 public class EnseignantController {
@@ -21,23 +22,23 @@ public class EnseignantController {
 	}
 	public ArrayList<Enseignant> getEnseignant() throws SQLException 
 	{
-		String sql = "SELECT * FROM enseignant";	
+		String sql = "SELECT * FROM enseignant";
+		Statement stmt = conn.createStatement();
+		ResultSet rs= stmt.executeQuery(sql);
 		ArrayList<Enseignant> ListEnseignant = new ArrayList<Enseignant>();
-		
-		Statement statement = conn.createStatement();
-		ResultSet result = statement.executeQuery(sql);
-		while (result.next()){
-		    String nom = result.getString("nom_ens");
-		    String prenom = result.getString("prenom_ens");
-		    String domaine = result.getString("domaine_act_ens");
-		    long tel_bureau = result.getLong("tel_bureau");
-		    long numero_poste = result.getLong("numero_poste");
-		    String courriel_ens = result.getString("courriel_ens");
+
+		while (rs.next()){
+			String nom = rs.getString("nom_ens");
+		    String prenom = rs.getString("prenom_ens");
+		    String domaine = rs.getString("domaine_act_ens");
+		    long tel_bureau = rs.getLong("tel_bureau");
+		    long numero_poste = rs.getLong("numero_poste");
+		    String courriel_ens = rs.getString("courriel_ens");
 		    Enseignant e = new Enseignant(new PersonInfo(nom,prenom,courriel_ens,domaine),tel_bureau,numero_poste) ;
-		
-		    ListEnseignant.add(e);
+			ListEnseignant.add(e);
 		}
 		return ListEnseignant;
+	
 	}
 	public Enseignant selectEnseignant(String nom, String prenom) throws SQLException{
 		String sql = "SELECT * FROM enseignant WHERE nom_ens=? AND prenom_ens=?";

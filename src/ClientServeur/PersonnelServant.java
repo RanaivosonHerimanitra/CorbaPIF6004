@@ -73,19 +73,26 @@ public class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public Enseignant[] AfficherEnseigants() {
-		List<Enseignant> ListEnseignant;
+		List<Enseignant> ListEnseignant=null;
+		Enseignant[] tabEnseignant = null;
 		try {
 			ListEnseignant = enseignantController.getEnseignant();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println("erreur affichage");
 			e.printStackTrace();
-			return null;
+			//return null;
 		}
-		Enseignant[] tabEnseignant = new Enseignant[ListEnseignant.size()];
-		tabEnseignant = ListEnseignant.toArray(tabEnseignant);
+		if (ListEnseignant!=null){
+			tabEnseignant = new Enseignant[ListEnseignant.size()];
+			ListEnseignant.toArray(tabEnseignant);
 
-		for(Enseignant s : tabEnseignant)
-			System.out.println(s.p.nom);
+			for(Enseignant e : tabEnseignant)
+				System.out.println(e.p.nom);
+		} else {
+			System.out.println("ici erreur");
+		}
+
 		return tabEnseignant;
 	}
 

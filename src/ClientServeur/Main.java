@@ -1,5 +1,6 @@
 package ClientServeur;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.omg.CORBA.ORB;
@@ -37,8 +38,13 @@ public class Main {
 		        personnelImpl = PersonnelHelper.narrow(ncRef.resolve_str(name));
 
 		        System.out.println("Obtained a handle on server object: " + personnelImpl);
-		        personnelImpl.AfficherEtudiants();
-				
+		        //personnelImpl.AfficherEtudiants();
+		        personnelImpl.AfficherEnseigants();
+		     // Test de la selection enseignant ok 26 mai
+//				ArrayList<Enseignant> ListEnseignant= ec.getEnseignant();
+//				 for ( Enseignant ens: ListEnseignant ) {
+//				 	System.out.println(ens.p.nom + ' ' + ens.p.prenom + ' ' + ens.p.domain + ' ' + ens.tel + ' ' + ens.post + ' ' + ens.p.mail);
+//				 }
 		        //personnelImpl.shutdown();
 
 		        } catch (Exception e) {
