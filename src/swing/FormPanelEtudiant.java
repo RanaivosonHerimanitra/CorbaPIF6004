@@ -33,7 +33,7 @@ public class FormPanelEtudiant extends JPanel {
 		
 		//JButton
 		private JButton insertBtn;
-		private JButton deleteBtn;
+		private JButton updateBtn;
 		
 		private FormListenerEtudiant formListener;
 		
@@ -55,8 +55,8 @@ public class FormPanelEtudiant extends JPanel {
 			matriculeField = new JTextField(10);
 			
 			insertBtn = new JButton("Insérer");
-			deleteBtn = new JButton("Supprimer");
-			
+			updateBtn = new JButton("Modifier");
+			updateBtn.setEnabled(false);
 			insertBtn.setMnemonic(KeyEvent.VK_0);
 			nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 			nomLabel.setLabelFor(nomField);
@@ -182,7 +182,7 @@ public class FormPanelEtudiant extends JPanel {
 			gc.gridx =1;
 			gc.insets = new Insets(0,0,0,0);
 			gc.anchor = GridBagConstraints.CENTER;
-			add(deleteBtn,gc);
+			add(updateBtn,gc);
 			
 		}
 		
