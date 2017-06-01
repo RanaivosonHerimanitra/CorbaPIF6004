@@ -19,7 +19,6 @@ import swing.FormEventEnseignat;
 public class ControllerEnseignant {
 
 	private static Personnel personnelImpl ;
-
 	public ControllerEnseignant(){
 		try{
 			// create and initialize the ORB
@@ -61,8 +60,8 @@ public class ControllerEnseignant {
 		String domaine = ev.getDomaine();
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
-		/*
-		if(personnelImpl.chercherEnseignant(nom, prenom)!=null){
+		//*
+		if(!personnelImpl.chercherEnseignant(nom, prenom).p.nom.equals("")){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette enseignat existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
 			return false;
@@ -72,6 +71,7 @@ public class ControllerEnseignant {
 		personnelImpl.creerEnseignant(enseignant);
 		return true;
 	}
+
 
 	public void removeEnseignant(Enseignant enseignant){
 		System.out.println(enseignant.p.prenom);
