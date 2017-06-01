@@ -19,6 +19,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+import ClientServeur.EnseignantController;
+=======
+import com.sun.glass.events.MouseEvent;
+
+import PersonnelAPP.Enseignant;
+>>>>>>> Stashed changes
+>>>>>>> parent of cb6b357... fix syntax errors
 import controller.ControllerEnseignant;
 
 //modif

@@ -26,4 +26,24 @@ public class TablePanel extends JPanel{
 	public void refresh(){
 		tableModel.fireTableDataChanged();
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+	//today debut
+	public void setEnseignantTableListener(EnseignantTableListener listener){
+		this.enseignantListener =listener;
+	}
+	//today fin
+=======
+	
+	public Enseignant selectedRow(){
+		int selectedRow= table.getSelectedRow();
+		return new Enseignant(new PersonInfo((String)tableModel.getValueAt(selectedRow, 1),
+				(String)tableModel.getValueAt(selectedRow, 1),(String)tableModel.getValueAt(selectedRow, 1),
+				(String)tableModel.getValueAt(selectedRow, 1)),(long)tableModel.getValueAt(selectedRow, 1),
+				(long)tableModel.getValueAt(selectedRow, 1));
+	}
+	
+>>>>>>> Stashed changes
+>>>>>>> parent of cb6b357... fix syntax errors
 }
