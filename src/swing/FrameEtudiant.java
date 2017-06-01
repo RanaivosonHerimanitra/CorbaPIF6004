@@ -35,6 +35,17 @@ public class FrameEtudiant extends JFrame {
 		toolbar = new Toolbar();
 
 		controllerEtudiant = new ControllerEtudiant();
+		
+		//today debut
+			tablePanelEtudiant.setEtudiantTableListener(new EtudiantTableListener(){
+				public void rowDeleted(int row){
+					controllerEtudiant.removeEtudiant(tablePanelEtudiant.getSelectedEtudiant(row));
+					tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
+					JOptionPane.showMessageDialog(tablePanelEtudiant, "Un étudiant vient d'être supprimé");
+					tablePanelEtudiant.refresh();
+				}
+			});
+		//today fin
 
 		tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 		setJMenuBar(createMenuBar());
