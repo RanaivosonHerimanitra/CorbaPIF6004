@@ -197,5 +197,26 @@ public class FormPanelEtudiant extends JPanel {
 			domaineField.setText("");
 			matriculeField.setText("");
 		}
+
+		public void setNom(String nom) {
+			nomField.setText(nom);
+		}
+
+		public void setPrenom(String prenom) {
+			prenomField.setText(prenom);
+			
+		}
+
+		public void setCourriel(String mail) {
+			courrielField.setText(mail);
+		}
+
+		public void setDomaine(String domain) {
+			domaineField.setText(domain);
+		}
+
+		public void setMatricul(String matricul) {
+			matriculeField.setText(matricul);
+		}
 		
 }

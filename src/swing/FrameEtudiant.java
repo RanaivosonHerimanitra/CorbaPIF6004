@@ -15,6 +15,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import PersonnelAPP.Enseignant;
+import PersonnelAPP.Etudiant;
 import controller.ControllerEtudiant;
 
 public class FrameEtudiant extends JFrame {
@@ -44,6 +46,17 @@ public class FrameEtudiant extends JFrame {
 					tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 					JOptionPane.showMessageDialog(tablePanelEtudiant, "Un étudiant vient d'être supprimé");
 					tablePanelEtudiant.refresh();
+				}
+
+				@Override
+				public void rowUpdate(int row) {
+					Etudiant e=tablePanelEtudiant.getSelectedEtudiant(row);
+					formEtudiant.setNom(e.p.nom);
+					formEtudiant.setPrenom(e.p.prenom);
+					formEtudiant.setCourriel(e.p.mail);
+					formEtudiant.setDomaine(e.p.domain);
+					formEtudiant.setMatricul(e.matricul);
+					
 				}
 			});
 		//today fin

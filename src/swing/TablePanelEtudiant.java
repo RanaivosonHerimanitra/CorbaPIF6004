@@ -18,16 +18,16 @@ import PersonnelAPP.PersonInfo;
 
 
 public class TablePanelEtudiant extends JPanel{
-	
+
 	private JTable table;
 	private PersonnelTableModelEtudiant tableModel;
 	private EtudiantTableListener etudiantTableListener;
 	private JPopupMenu popup;
-	
+
 	public TablePanelEtudiant(){
 		tableModel = new PersonnelTableModelEtudiant();
 		table = new JTable(tableModel);
-		
+
 		popup = new JPopupMenu();
 		JMenuItem removeItem = new JMenuItem("Delete row");
 		popup.add(removeItem);
@@ -43,7 +43,7 @@ public class TablePanelEtudiant extends JPanel{
 					popup.show(table, e.getX(), e.getY());
 				}
 			}
-			
+
 		});
 		removeItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -54,12 +54,25 @@ public class TablePanelEtudiant extends JPanel{
 				}
 			}
 		});
-		
+		updateItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int row = table.getSelectedRow();
+				if(etudiantTableListener !=null){
+					etudiantTableListener.rowUpdate(row);
+					tableModel.fireTableRowsDeleted(row, row);
+				}
+
+
+			}
+		});
+
 		setLayout(new BorderLayout());
 		add(new JScrollPane(table),BorderLayout.CENTER);
-		
+
 	}
-	
+
 	public void setData(Etudiant[] etudiants) {
 		tableModel.setData(etudiants);
 	}
@@ -76,5 +89,5 @@ public class TablePanelEtudiant extends JPanel{
 	public void setEtudiantTableListener(EtudiantTableListener listener){
 		this.etudiantTableListener =listener;
 	}
-		
+
 }
