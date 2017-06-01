@@ -27,7 +27,10 @@ public class TablePanel extends JPanel{
 		tableModel.fireTableDataChanged();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of cb6b357... fix syntax errors
 <<<<<<< Updated upstream
 	//today debut
 	public void setEnseignantTableListener(EnseignantTableListener listener){
@@ -45,5 +48,8 @@ public class TablePanel extends JPanel{
 	}
 	
 >>>>>>> Stashed changes
+<<<<<<< HEAD
+>>>>>>> parent of cb6b357... fix syntax errors
+=======
 >>>>>>> parent of cb6b357... fix syntax errors
 }

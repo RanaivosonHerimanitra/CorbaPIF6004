@@ -20,7 +20,10 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of cb6b357... fix syntax errors
 <<<<<<< Updated upstream
 import ClientServeur.EnseignantController;
 =======
@@ -28,6 +31,9 @@ import com.sun.glass.events.MouseEvent;
 
 import PersonnelAPP.Enseignant;
 >>>>>>> Stashed changes
+<<<<<<< HEAD
+>>>>>>> parent of cb6b357... fix syntax errors
+=======
 >>>>>>> parent of cb6b357... fix syntax errors
 import controller.ControllerEnseignant;
 
