@@ -76,4 +76,8 @@ public class ControllerEtudiant {
 		System.out.println(selectedEtudiant.p.prenom);
 		personnelImpl.supprimerEtudiant(selectedEtudiant);
 	}
+	
+	public void shutDown(){
+		personnelImpl.shutdown();
+	}
 }

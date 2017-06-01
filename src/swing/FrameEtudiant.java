@@ -26,7 +26,8 @@ public class FrameEtudiant extends JFrame {
 	private ControllerEtudiant controllerEtudiant;
 	public FrameEtudiant(){
 		super("Infos Etudiant");
-
+		controllerEtudiant = new ControllerEtudiant();
+		
 		setLayout(new BorderLayout());
 
 		textPanel = new TextPanel();
@@ -34,7 +35,7 @@ public class FrameEtudiant extends JFrame {
 		formEtudiant = new FormPanelEtudiant();
 		toolbar = new Toolbar();
 
-		controllerEtudiant = new ControllerEtudiant();
+		
 		
 		//today debut
 			tablePanelEtudiant.setEtudiantTableListener(new EtudiantTableListener(){
@@ -125,6 +126,7 @@ public class FrameEtudiant extends JFrame {
 				int action = JOptionPane.showConfirmDialog(FrameEtudiant.this, 
 						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				if (action == JOptionPane.OK_OPTION){
+					FrameEtudiant.this.controllerEtudiant.shutDown();
 					FrameEtudiant.this.dispose();
 				}
 

@@ -31,15 +31,15 @@ public class FrameEnseignat extends JFrame{
 	private ControllerEnseignant controller;
 	public FrameEnseignat() throws SQLException{
 		super("Infos Enseignant");
-
+		controller = new ControllerEnseignant();
 		setLayout(new BorderLayout());
-
+		
 		textPanel = new TextPanel();
 		formPanel = new FormPanelEnseignant();
 		tablePanel = new TablePanel();
 		toolbar = new Toolbar();
 
-		controller = new ControllerEnseignant();
+		
 
 		tablePanel.setData(controller.getProfesseurs());
 		//today debut
@@ -124,8 +124,11 @@ public class FrameEnseignat extends JFrame{
 				int action = JOptionPane.showConfirmDialog(FrameEnseignat.this, 
 						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				System.out.println(JOptionPane.getRootFrame());
-				if (action == JOptionPane.OK_OPTION)
+				if (action == JOptionPane.OK_OPTION){
+					FrameEnseignat.this.controller.shutDown();
 					FrameEnseignat.this.dispose();
+				}
+					
 			}
 		});
 		return menuBar;

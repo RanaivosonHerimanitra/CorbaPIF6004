@@ -45,7 +45,6 @@ public class ControllerEnseignant {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
 					"Inane error",JOptionPane.ERROR_MESSAGE);
-			System.out.println("ERROR : " + e) ;
 			e.printStackTrace(System.out);
 		}
 	}
@@ -79,6 +78,10 @@ public class ControllerEnseignant {
 	public void removeEnseignant(Enseignant enseignant){
 		System.out.println(enseignant.p.prenom);
 		personnelImpl.supprimerEnseigant(enseignant);
+	}
+	
+	public void shutDown(){
+		personnelImpl.shutdown();
 	}
 
 }
