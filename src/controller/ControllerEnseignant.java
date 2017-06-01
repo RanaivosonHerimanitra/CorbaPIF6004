@@ -73,4 +73,9 @@ public class ControllerEnseignant {
 		return true;
 	}
 
+	public void removeEnseignant(Enseignant enseignant){
+		System.out.println(enseignant.p.prenom);
+		personnelImpl.supprimerEnseigant(enseignant);
+	}
+
 }

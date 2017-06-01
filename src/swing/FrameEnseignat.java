@@ -43,14 +43,14 @@ public class FrameEnseignat extends JFrame{
 
 		tablePanel.setData(controller.getProfesseurs());
 		//today debut
-//		tablePanel.setEnseignantTableListener(new EnseignantTableListener(){
-//			public void rowDeleted(int row){
-//				controller.removeEnseignant(tablePanel.getSelectedEnseignat(row));
-//				tablePanel.setData(controller.getProfesseurs());
-//				JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être supprimé");
-//				tablePanel.refresh();
-//			}
-//		});
+		tablePanel.setEnseignantTableListener(new EnseignantTableListener(){
+			public void rowDeleted(int row){
+				controller.removeEnseignant(tablePanel.getSelectedEnseignat(row));
+				tablePanel.setData(controller.getProfesseurs());
+				JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être supprimé");
+				tablePanel.refresh();
+			}
+		});
 		//today fin
 		setJMenuBar(createMenuBar());
 		toolbar.setStringListener(new StringListener(){
