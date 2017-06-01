@@ -63,16 +63,8 @@ public class EnseignantController {
 		 */
 
 	}
-	//today debut
-	public void removeEnseignant(int index){
-		try {
-			getEnseignant().remove(index);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	//today fin
+	
+
 	public Enseignant selectEnseignant(String nom, String prenom) throws SQLException{
 		String sql = "SELECT * FROM enseignant WHERE nom_ens=? AND prenom_ens=?";
 		PreparedStatement statement;
