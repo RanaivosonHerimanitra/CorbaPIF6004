@@ -48,11 +48,17 @@ public class EnseignantController {
 			statement = conn.prepareStatement(sql);
 			statement.setString(1, nom);
 			statement.setString(2, prenom);
+			System.out.println("search :"+ nom);
 			System.out.println("before search");
 			ResultSet result;
 			System.out.println("before query");
 			result = statement.executeQuery();
 			System.out.println("After query");
+			if (result == null){
+				System.out.println("search null");
+				return new Enseignant(new PersonInfo("","","",""),0,0);
+			}
+				
 			while (result.next()){
 				Enseignant e = new Enseignant(new PersonInfo(result.getString("nom_ens"),result.getString("prenom_ens"),result.getString("courriel_ens"),result.getString("domaine_act_ens")),result.getInt("tel_bureau"),result.getInt("numero_poste")) ;
 				System.out.println(e.p.nom+" is found");
