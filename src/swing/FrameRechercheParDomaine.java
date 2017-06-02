@@ -82,9 +82,15 @@ public class FrameRechercheParDomaine extends JFrame {
 
 			@Override
 			public void formEventOccuredSearchByDomain(String domain) {
-				tablePanel.setData(controller.getProfesseursByDomain(domain));
-				tablePanel.refresh();
-				formRechDom.clearfileds();
+				Enseignant ens[]=controller.getProfesseursByDomain(domain);
+				if(ens[0].p.nom.equals(""))
+					JOptionPane.showMessageDialog(tablePanel, "Ce domaine n'existe pas!");
+				else{
+					tablePanel.setData(ens);
+					tablePanel.refresh();
+					formRechDom.clearfileds();
+				}
+				
 			}
 
 			/*
