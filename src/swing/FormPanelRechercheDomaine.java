@@ -60,7 +60,7 @@ public class FormPanelRechercheDomaine extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(formListener !=null)
+				if(formListener !=null & !InputValidationErrorDialog.areFieldEmpty(domaineField.getText()))
 					formListener.formEventOccuredSearchByDomain(domaineField.getText());
 
 			}
@@ -128,22 +128,8 @@ public class FormPanelRechercheDomaine extends JPanel {
 
 	}
 
-
-
 	public void setDomaine(String domaine){
 		domaineField.setText(domaine);
 	}
-
-	/*public void changeButtons(){
-			insertBtn.setEnabled(!insertBtn.isEnabled());
-			insertBtn.setVisible(!insertBtn.isVisible());
-			updateBtn.setEnabled(!updateBtn.isEnabled());
-			updateBtn.setVisible(!updateBtn.isVisible());
-		}
-
-		public boolean isUpdateON(){
-			return updateBtn.isEnabled();
-		}*/
-
 
 }
