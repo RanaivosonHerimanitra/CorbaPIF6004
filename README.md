@@ -29,4 +29,8 @@ Ensure you open the terminal with full credential (sudo..., as admin). Go to the
  Then right click on `PersonnelServer` Java class to start the server as in the image above:
  
   <img src="img/startserver.png" >
+  
+## Starting with the application:
+  
+  
  

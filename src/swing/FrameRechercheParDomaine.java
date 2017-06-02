@@ -51,7 +51,55 @@ public class FrameRechercheParDomaine extends JFrame {
 				textPanel.appendText(text);
 			}
 		});
-		
+		formRechNom.setFormListener(new FormListener() {
+
+			@Override
+			public void formEventOccured(FormEventEnseignat e) throws SQLException {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredCancelEnseignant() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredCancelDomain() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredSearchByDomain(String string) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+			/*
+			 * (non-Javadoc)
+			 * @see swing.FormListener#formEventOccuredSearchByNomPrenom(java.lang.String, java.lang.String)
+			 * action de recherche par nom prenom
+			 */
+			@Override
+			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
+				Enseignant[] ens = new Enseignant[1];
+				ens[0]= controller.getProfesseursByNomPrenom(nom, prenom);
+				tablePanel.setData(ens);
+				tablePanel.refresh();
+				formRechDom.clearfileds();
+				
+			}
+			
+		});
 		formRechDom.setFormListener(new FormListener() {
 			
 			@Override
@@ -94,11 +142,7 @@ public class FrameRechercheParDomaine extends JFrame {
 			 */
 			@Override
 			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
-				Enseignant[] ens = new Enseignant[1];
-				ens[0]= controller.getProfesseursByNomPrenom(nom, prenom);
-				tablePanel.setData(ens);
-				tablePanel.refresh();
-				formRechDom.clearfileds();
+				
 				
 			}
 		});
