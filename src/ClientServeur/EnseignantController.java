@@ -48,27 +48,20 @@ public class EnseignantController {
 			statement = conn.prepareStatement(sql);
 			statement.setString(1, nom);
 			statement.setString(2, prenom);
-			System.out.println("before search");
 			ResultSet result;
-			System.out.println("before query");
 			result = statement.executeQuery();
-			System.out.println("After query");
-		
-			if (result == null){
-				System.out.println("search null");
+			if (result == null)
 				return new Enseignant(new PersonInfo("","","",""),0,0);
-			}
-				
+
 			while (result.next()){
 				Enseignant e = new Enseignant(new PersonInfo(result.getString("nom_ens"),result.getString("prenom_ens"),
 						result.getString("courriel_ens"),result.getString("domaine_act_ens")),result.getLong("tel_bureau"),
 						result.getLong("numero_poste")) ;
-				System.out.println(e.p.nom+" is found");
 				return e;
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			//e1.printStackTrace();
+			e1.printStackTrace();
 			return new Enseignant(new PersonInfo("","","",""),0,0);
 		}
 		return new Enseignant(new PersonInfo("","","",""),0,0);
@@ -84,7 +77,6 @@ public class EnseignantController {
 		statement.setLong(4, e.tel);
 		statement.setLong(5, e.post);
 		statement.setString(6, e.p.mail);
-		//System.out.println(statement);
 		int rowsInserted = statement.executeUpdate();
 		if (rowsInserted > 0) {
 		    System.out.println("A new user was inserted successfully!");
@@ -94,13 +86,13 @@ public class EnseignantController {
 		String sql = "UPDATE enseignant SET nom_ens=?, prenom_ens=?, domaine_act_ens=?, tel_bureau=?, numero_poste=?, courriel_ens=? WHERE nom_ens=?";
 		 
 		PreparedStatement statement = conn.prepareStatement(sql);
-		statement.setString(1, oldE.p.nom);
-		statement.setString(2, oldE.p.prenom);
-		statement.setString(3, oldE.p.domain);
-		statement.setLong(4, oldE.tel);
-		statement.setLong(5, oldE.post);
-		statement.setString(6, oldE.p.mail);
-		statement.setString(7, modifE.p.nom);
+		statement.setString(1, modifE.p.nom);
+		statement.setString(2, modifE.p.prenom);
+		statement.setString(3, modifE.p.domain);
+		statement.setLong(4, modifE.tel);
+		statement.setLong(5, modifE.post);
+		statement.setString(6, modifE.p.mail);
+		statement.setString(7, oldE.p.nom);
 		 
 		int rowsUpdated = statement.executeUpdate();
 		if (rowsUpdated > 0) {

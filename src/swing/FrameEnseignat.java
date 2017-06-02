@@ -28,6 +28,7 @@ public class FrameEnseignat extends JFrame{
 	private FormPanelEnseignant formPanel;
 	private TablePanel tablePanel;
 	private Toolbar toolbar;
+	private Enseignant old;
 
 	private ControllerEnseignant controller;
 	public FrameEnseignat() throws SQLException{
@@ -55,6 +56,7 @@ public class FrameEnseignat extends JFrame{
 			@Override
 			public void rowUpdate(int row) {
 				Enseignant e=tablePanel.getSelectedEnseignat(row);
+				old = e;
 				if (!formPanel.isUpdateON())
 					formPanel.changeButtons();
 				formPanel.setNom(e.p.nom);
@@ -77,6 +79,7 @@ public class FrameEnseignat extends JFrame{
 		 * update each time a Prof is added on db
 		 */
 		formPanel.setFormListener(new FormListener(){
+			@Override
 			public void formEventOccured(FormEventEnseignat e) throws SQLException{
 				if (controller.addEnseignant(e)){
 					JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
@@ -85,8 +88,26 @@ public class FrameEnseignat extends JFrame{
 					formPanel.clearfileds();
 				}
 			}
+			
+			@Override
+			public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
+				if(controller.updateEnseignant(e, old)){
+					JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être modifié");
+					formPanel.changeButtons();
+					tablePanel.setData(controller.getProfesseurs());
+					tablePanel.refresh();
+					formPanel.clearfileds();
+				}
+			}
+			
+			@Override
+			public void formEventOccuredCancelEnseignant() {
+				formPanel.clearfileds();
+				if(formPanel.isUpdateON())
+					formPanel.changeButtons();
+			}
+			
 		});
-
 
 		add(formPanel,BorderLayout.WEST);
 		add(toolbar,BorderLayout.NORTH);

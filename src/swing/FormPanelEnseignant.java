@@ -89,7 +89,7 @@ public class FormPanelEnseignant extends JPanel{
 				} catch (Exception e1 ) {
 					e1.printStackTrace();
 				}
-				
+
 				FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
 				if(formListener !=null)
 				{
@@ -108,6 +108,45 @@ public class FormPanelEnseignant extends JPanel{
 				}
 			}
 
+		});
+
+		cancelBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(formListener !=null)
+					formListener.formEventOccuredCancelEnseignant();
+			}
+		});
+
+		updateBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nom= nomField.getText();
+				String prenom = prenomField.getText();
+				String courriel = courrielField.getText();
+				String domaine = domaineField.getText();
+				/*
+				 * handle phone and post conversion seamlessly
+				 */
+				long phone=0;
+				long poste=0;
+				try {
+					phone = Long.parseLong(phoneField.getText());
+					poste = Long.parseLong(posteField.getText());
+				} catch (Exception e1 ) {
+					e1.printStackTrace();
+				}
+
+				FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
+				if(formListener !=null)
+					//input checking validation :
+					if (InputValidationErrorDialog.isEmailValid(courriel) & 
+							InputValidationErrorDialog.isPhoneNumberValid(String.valueOf(phone)) & 
+								InputValidationErrorDialog.isPostValid(String.valueOf(poste)))
+									formListener.formEventOccuredUpdateEnseignant(ev);
+			}
 		});
 
 		Border innerBorder = BorderFactory.createTitledBorder("Enseignant");
@@ -250,34 +289,34 @@ public class FormPanelEnseignant extends JPanel{
 	public void setNom(String nom){
 		nomField.setText(nom);
 	}
-	
+
 	public void setPrenom(String prenom){
 		prenomField.setText(prenom);
 	}
-	
+
 	public void setCourriel(String courriel){
 		courrielField.setText(courriel);
 	}
-	
+
 	public void setDomaine(String domaine){
 		domaineField.setText(domaine);
 	}
-	
+
 	public void setTel(String tel){
 		phoneField.setText(tel);
 	}
-	
+
 	public void setPost(String post){
 		posteField.setText(post);
 	}
-	
+
 	public void changeButtons(){
 		insertBtn.setEnabled(!insertBtn.isEnabled());
 		insertBtn.setVisible(!insertBtn.isVisible());
 		updateBtn.setEnabled(!updateBtn.isEnabled());
 		updateBtn.setVisible(!updateBtn.isVisible());
 	}
-	
+
 	public boolean isUpdateON(){
 		return updateBtn.isEnabled();
 	}

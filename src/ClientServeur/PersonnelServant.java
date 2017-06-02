@@ -56,14 +56,7 @@ public class PersonnelServant extends PersonnelPOA {
 
 	@Override
 	public Enseignant chercherEnseignant(String nom, String prenom) {
-	//	try {
 			return enseignantController.selectEnseignant(nom, prenom);
-//		} catch (SQLException e) {
-////			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			return new Enseignant(new PersonInfo("","","",""),0,0);
-//		}
-		
 	}
 
 	@Override
@@ -86,11 +79,6 @@ public class PersonnelServant extends PersonnelPOA {
 		if (ListEnseignant!=null){
 			tabEnseignant = new Enseignant[ListEnseignant.size()];
 			ListEnseignant.toArray(tabEnseignant);
-
-			for(Enseignant e : tabEnseignant)
-				System.out.println(e.p.nom);
-		} else {
-			System.out.println("ici erreur");
 		}
 
 		return tabEnseignant;
@@ -111,9 +99,6 @@ public class PersonnelServant extends PersonnelPOA {
 		if (ListEtudiants!=null){
 			tabEtudiants = new Etudiant[ListEtudiants.size()];
 			ListEtudiants.toArray(tabEtudiants);
-
-			for(Etudiant e : tabEtudiants)
-				System.out.println(e.p.nom);
 		}
 
 		return tabEtudiants;

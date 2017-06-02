@@ -58,6 +58,18 @@ public class FrameEnseignantUser extends JFrame{
 				tablePanel.refresh();
 				
 			}
+
+			@Override
+			public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredCancelEnseignant() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		
 	

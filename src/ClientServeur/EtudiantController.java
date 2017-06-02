@@ -30,9 +30,8 @@ public class EtudiantController {
 		statement.setString(5, e.p.domain);
 
 		int rowsInserted = statement.executeUpdate();
-		if (rowsInserted > 0) {
+		if (rowsInserted > 0)
 			System.out.println("A new student was inserted successfully into table etudiant!");
-		}
 	}
 
 	public void update(Etudiant oldE, Etudiant modifE) throws SQLException {
@@ -47,10 +46,8 @@ public class EtudiantController {
 		statement.setString(6, oldE.p.nom);
 
 		int rowsUpdated = statement.executeUpdate();
-		if (rowsUpdated > 0) {
+		if (rowsUpdated > 0) 
 			System.out.println("An existing student was updated successfully!");
-		}
-
 	}
 
 	public void delete(Etudiant e) throws SQLException{
@@ -59,9 +56,8 @@ public class EtudiantController {
 		statement.setString(1, e.p.nom);
 
 		int rowsDeleted = statement.executeUpdate();
-		if (rowsDeleted > 0) {
+		if (rowsDeleted > 0) 
 			System.out.println("A user was deleted successfully!");
-		}
 	}
 
 	public ArrayList<Etudiant> getStudents() throws SQLException{
@@ -70,9 +66,9 @@ public class EtudiantController {
 		ResultSet rs= stmt.executeQuery(sql);
 		ArrayList<Etudiant> ListEtudiant = new ArrayList<Etudiant>();
 
-		while (rs.next()){
+		while (rs.next())
 			ListEtudiant.add(new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getString("matricule_et")));
-		}
+
 		return ListEtudiant;
 	}
 
@@ -84,11 +80,8 @@ public class EtudiantController {
 			statement = conn.prepareStatement(sql);
 			statement.setString(1, nom);
 			statement.setString(2, prenom);
-			System.out.println("before search");
 			ResultSet result;
-			System.out.println("before query");
 			result = statement.executeQuery();
-			System.out.println("After query");
 			if (result == null)
 				return new Etudiant(new PersonInfo("","","",""),"");
 			while (result.next()){
@@ -98,7 +91,7 @@ public class EtudiantController {
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			//e1.printStackTrace();
+			e1.printStackTrace();
 			return new Etudiant(new PersonInfo("","","",""),"");
 		}
 
