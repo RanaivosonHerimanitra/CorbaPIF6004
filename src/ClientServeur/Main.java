@@ -37,8 +37,11 @@ public class Main {
 		        // resolve the Object Reference in Naming
 		        String name = "Personnel";
 		        personnelImpl = PersonnelHelper.narrow(ncRef.resolve_str(name));
-
+		        
 		        System.out.println("Obtained a handle on server object: " + personnelImpl);
+		        Enseignant tab[]=personnelImpl.chercherEnseignantByDomain("domain");
+		        System.out.println(tab[0].p.nom);
+		        
 		        //System.out.println(InputValidationErrorDialog.isPhoneNumberValid(null));
 		        //System.out.println(InputValidationErrorDialog.isPostValid(""));
 		        //personnelImpl.AfficherEtudiants();
