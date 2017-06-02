@@ -98,4 +98,8 @@ public class ControllerEtudiant {
 		personnelImpl.modifierEtudiant(old, newEtudiant);
 		return true;
 	}
+
+	public Etudiant[] getStudentsByDomain(String domain) {
+		return personnelImpl.chercherEtudiantByDomain(domain);
+	}
 }

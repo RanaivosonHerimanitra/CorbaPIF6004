@@ -75,6 +75,18 @@ public class FrameEtudiantUser extends JFrame {
 				// TODO Auto-generated method stub
 
 			}
+
+			@Override
+			public void formEventOccuredCancelDomain() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredSearchByDomain(String domain) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 
 

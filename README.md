@@ -31,6 +31,8 @@ Ensure you open the terminal with full credential (sudo..., as admin). Go to the
   <img src="img/startserver.png" >
   
 ## Starting with the application:
+
+Run login as Java application
   
   
  

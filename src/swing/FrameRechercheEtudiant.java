@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.sql.SQLException;
 
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
@@ -21,14 +20,12 @@ import controller.ControllerEtudiant;
 public class FrameRechercheEtudiant extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
-	private FormPanelEtudiant formEtudiant;
 	private FormPanelRechercheDomaineEtudiant formRechEtud;
 	FormPanelRechercheNomsEtudiant formRechNom;
 	private TablePanelEtudiant tablePanelEtudiant;
 	private Toolbar toolbar;
-	private Etudiant old;
-
 	private ControllerEtudiant controllerEtudiant;
+	
 	public FrameRechercheEtudiant(){
 		super("Infos Etudiant");
 		controllerEtudiant = new ControllerEtudiant();
@@ -36,33 +33,52 @@ public class FrameRechercheEtudiant extends JFrame {
 
 		textPanel = new TextPanel();
 		tablePanelEtudiant = new TablePanelEtudiant();
-		formEtudiant = new FormPanelEtudiant();
+		new FormPanelEtudiant();
 		formRechEtud = new FormPanelRechercheDomaineEtudiant();
 		formRechNom = new FormPanelRechercheNomsEtudiant();
 		toolbar = new Toolbar();
 
-		/*tablePanelEtudiant.setEtudiantTableListener(new EtudiantTableListener(){
-			public void rowDeleted(int row){
-				controllerEtudiant.removeEtudiant(tablePanelEtudiant.getSelectedEtudiant(row));
-				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
-				JOptionPane.showMessageDialog(tablePanelEtudiant, "Un étudiant vient d'être supprimé");
-				tablePanelEtudiant.refresh();
-			}
-
+		formRechEtud.setFormListener(new FormListenerEtudiant() {
+			
 			@Override
-			public void rowUpdate(int row) {
-				Etudiant e=tablePanelEtudiant.getSelectedEtudiant(row);
-				old = e;
-				if (!formEtudiant.isUpdateON())
-					formEtudiant.changeButtons();
-				formEtudiant.setNom(e.p.nom);
-				formEtudiant.setPrenom(e.p.prenom);
-				formEtudiant.setCourriel(e.p.mail);
-				formEtudiant.setDomaine(e.p.domain);
-				formEtudiant.setMatricul(e.matricul);
-
+			public void formEventOccuredUpdateEtudiant(FormEventEtudiant ev) {
+				// TODO Auto-generated method stub
+				
 			}
-		});*/
+			
+			@Override
+			public void formEventOccuredCancelEtudiant() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredCancelDomain() {
+				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
+				tablePanelEtudiant.refresh();
+				formRechEtud.clearfileds();
+				
+			}
+			
+			@Override
+			public void formEventOccuredSearchByDomain(String domain) {
+				Etudiant ets[]=controllerEtudiant.getStudentsByDomain(domain);
+				if(ets[0].p.nom.equals(""))
+					JOptionPane.showMessageDialog(tablePanelEtudiant, "Ce domaine n'existe pas!");
+				else{
+					tablePanelEtudiant.setData(ets);
+					tablePanelEtudiant.refresh();
+					formRechEtud.clearfileds();
+				}
+			}
+			
+		});
 		
 		tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 		setJMenuBar(createMenuBar());
@@ -71,44 +87,6 @@ public class FrameRechercheEtudiant extends JFrame {
 				textPanel.appendText(text);
 			}
 		});
-		/*
-		 * update each time a student is added on db
-		 */
-		/*formEtudiant.setFormListener(new FormListenerEtudiant() {
-
-			@Override
-			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
-				try {
-					if(controllerEtudiant.addEtudiant(e)){
-						JOptionPane.showMessageDialog(tablePanelEtudiant, "Un etudiant vient d'être ajouté");
-						tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
-						tablePanelEtudiant.refresh();
-						formEtudiant.clearfileds();
-					}
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-			}
-
-			@Override
-			public void formEventOccuredUpdateEtudiant(FormEventEtudiant e) {
-				if(controllerEtudiant.updateEtudiant(e, old)){
-					JOptionPane.showMessageDialog(tablePanelEtudiant, "Un etudiant vient d'être modifié");
-					formEtudiant.changeButtons();
-					tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
-					tablePanelEtudiant.refresh();
-					formEtudiant.clearfileds();
-				}
-			}
-
-			@Override
-			public void formEventOccuredCancelEtudiant() {
-				formEtudiant.clearfileds();
-				if(formEtudiant.isUpdateON())
-					formEtudiant.changeButtons();
-			}
-		});*/
-
 
 		add(formRechEtud,BorderLayout.WEST);
 		add(formRechNom,BorderLayout.EAST);
