@@ -59,7 +59,7 @@ public class FrameRechercheEtudiant extends JFrame {
 			public void formEventOccuredCancelEtudiant() {
 				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 				tablePanelEtudiant.refresh();
-				formRechEtud.clearfileds();
+				formRechNom.clearfileds();
 				
 			}
 			
