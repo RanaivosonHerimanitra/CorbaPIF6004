@@ -59,7 +59,7 @@ public class FormPanelRechercheNomsEtudiant extends JPanel {
 		});
 
 		
-		Border innerBorder = BorderFactory.createTitledBorder("Recherche par Domaine");
+		Border innerBorder = BorderFactory.createTitledBorder("Recherche par Noms");
 		Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 

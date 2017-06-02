@@ -58,6 +58,9 @@ public class MenuUser extends JFrame {
 		JMenu mnSelecionner = new JMenu("Selecionner");
 		mnFichier.add(mnSelecionner);
 		
+		JMenu mnRechercher = new JMenu("Rechercher");
+		mnFichier.add(mnRechercher);
+		
 		JMenuItem iexit = new JMenuItem("Quitter");
 		mnFichier.add(iexit);
 		JMenuItem mntmEnseignant = new JMenuItem("Afficher Enseignant");

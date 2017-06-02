@@ -30,19 +30,19 @@ public class FrameRechercheParDomaine extends JFrame {
 	private Toolbar toolbar;
 
 	private ControllerEnseignant controller;
-	
+
 	public FrameRechercheParDomaine() throws SQLException{
 		super("Infos Enseignant");
 		controller = new ControllerEnseignant();
 		setLayout(new BorderLayout());
-		
+
 		textPanel = new TextPanel();
 		formRechDom = new FormPanelRechercheDomaine();
 		formRechNom = new FormPanelRechercheNom();
 		tablePanel = new TablePanel();
 		toolbar = new Toolbar();
 
-		
+
 
 		tablePanel.setData(controller.getProfesseurs());
 		setJMenuBar(createMenuBar());
@@ -59,19 +59,19 @@ public class FrameRechercheParDomaine extends JFrame {
 			@Override
 			public void formEventOccured(FormEventEnseignat e) throws SQLException {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void formEventOccuredCancelEnseignant() {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
@@ -79,13 +79,13 @@ public class FrameRechercheParDomaine extends JFrame {
 				tablePanel.setData(controller.getProfesseurs());
 				tablePanel.refresh();
 				formRechNom.clearfileds();
-				
+
 			}
 
 			@Override
 			public void formEventOccuredSearchByDomain(String string) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 
@@ -97,6 +97,7 @@ public class FrameRechercheParDomaine extends JFrame {
 			@Override
 			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
 				Enseignant[] ens = new Enseignant[1];
+
 				ens[0]= controller.getProfesseursByNomPrenom(nom, prenom);
 				if(ens[0].p.nom.equals("")) {
 					JOptionPane.showMessageDialog(tablePanel, "ce professeur n'existe pas");
@@ -107,35 +108,37 @@ public class FrameRechercheParDomaine extends JFrame {
 				}
 				
 				
-			}
+
 			
-		});
+
+		}});
+
 		formRechDom.setFormListener(new FormListener() {
-			
+
 			@Override
 			public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void formEventOccuredCancelEnseignant() {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void formEventOccuredCancelDomain() {
 				tablePanel.setData(controller.getProfesseurs());
 				tablePanel.refresh();
 				formRechDom.clearfileds();
-				
+
 			}
-			
+
 			@Override
 			public void formEventOccured(FormEventEnseignat e) throws SQLException {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
@@ -148,7 +151,7 @@ public class FrameRechercheParDomaine extends JFrame {
 					tablePanel.refresh();
 					formRechDom.clearfileds();
 				}
-				
+
 			}
 
 			/*
@@ -158,8 +161,8 @@ public class FrameRechercheParDomaine extends JFrame {
 			 */
 			@Override
 			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
-				
-				
+
+
 			}
 		});
 
@@ -195,8 +198,8 @@ public class FrameRechercheParDomaine extends JFrame {
 
 		menuBar.add(fileMenu);
 		menuBar.add(windowMenu);
-		
-		
+
+
 		//ACTION ITEM RECHERCHE PAR DOMAINE
 		showFormItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ev) {
@@ -229,7 +232,7 @@ public class FrameRechercheParDomaine extends JFrame {
 					FrameRechercheParDomaine.this.controller.shutDown();
 					FrameRechercheParDomaine.this.dispose();
 				}
-					
+
 			}
 		});
 		return menuBar;
