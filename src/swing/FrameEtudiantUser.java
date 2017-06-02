@@ -24,6 +24,7 @@ public class FrameEtudiantUser extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
 	private FormPanelEtudiant formEtudiant;
+	FormPanelRechercheDomaineEtudUser formUserEt;
 	private TablePanelEtudiant tablePanelEtudiant;
 	private Toolbar toolbar;
 
@@ -36,6 +37,7 @@ public class FrameEtudiantUser extends JFrame {
 		textPanel = new TextPanel();
 		tablePanelEtudiant = new TablePanelEtudiant();
 		formEtudiant = new FormPanelEtudiant();
+		formUserEt = new FormPanelRechercheDomaineEtudUser();
 		toolbar = new Toolbar();
 
 		controllerEtudiant = new ControllerEtudiant();

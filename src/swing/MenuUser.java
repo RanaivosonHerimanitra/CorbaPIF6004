@@ -58,18 +58,18 @@ public class MenuUser extends JFrame {
 		JMenu mnSelecionner = new JMenu("Selecionner");
 		mnFichier.add(mnSelecionner);
 		
-		JMenu mnRechercher = new JMenu("Rechercher");
-		mnFichier.add(mnRechercher);
-		
 		JMenuItem iexit = new JMenuItem("Quitter");
 		mnFichier.add(iexit);
+		
 		JMenuItem mntmEnseignant = new JMenuItem("Afficher Enseignant");
 		mntmEnseignant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrameRechercheParDomaine fer;
 				try {
-					FrameEnseignantUser feu = new FrameEnseignantUser();
-					feu.setVisible(true);
+					fer = new FrameRechercheParDomaine();
+					fer.setVisible(true);
 				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -79,8 +79,9 @@ public class MenuUser extends JFrame {
 		JMenuItem mntmEtudiant = new JMenuItem("Afficher Etudiant");
 		mntmEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrameEtudiantUser fet = new FrameEtudiantUser();
-				fet.setVisible(true);
+				FrameRechercheEtudiant ret= new FrameRechercheEtudiant();
+				ret.setVisible(true);
+				
 			}
 		});
 		mnSelecionner.add(mntmEtudiant);
