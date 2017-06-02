@@ -46,7 +46,7 @@ public class FormPanelRechercheDomaine extends JPanel {
 
 			
 
-			Border innerBorder = BorderFactory.createTitledBorder("Enseignant");
+			Border innerBorder = BorderFactory.createTitledBorder("Recherche par Domaine");
 			Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 			setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
