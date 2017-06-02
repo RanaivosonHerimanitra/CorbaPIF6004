@@ -48,13 +48,24 @@ public class FormPanelRechercheNomsEtudiant extends JPanel {
 		searchBtn.setMnemonic(KeyEvent.VK_0);
 		nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 		nomLabel.setLabelFor(nomField);
+		
+		searchBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+
+				if(formListener !=null & !InputValidationErrorDialog.areFieldEmpty(nomField.getText(),
+						prenomField.getText()))
+					formListener.formEventOccuredSearchByNomPrenom(nomField.getText(),prenomField.getText());
+			}
+
+		});
 
 		cancelBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(formListener !=null)
-					formListener.formEventOccuredCancelEtudiant();
+					formListener. formEventOccuredCancelEtudiant();
+
 			}
 		});
 

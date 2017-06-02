@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JCheckBoxMenuItem;
@@ -14,6 +16,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import controller.ControllerEtudiant;
 
@@ -37,6 +40,54 @@ public class FrameRechercheEtudiant extends JFrame {
 		formRechEtud = new FormPanelRechercheDomaineEtudiant();
 		formRechNom = new FormPanelRechercheNomsEtudiant();
 		toolbar = new Toolbar();
+		
+		formRechNom.setFormListener(new FormListenerEtudiant() {
+			
+			@Override
+			public void formEventOccuredUpdateEtudiant(FormEventEtudiant ev) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredSearchByDomain(String domain) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredCancelEtudiant() {
+				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
+				tablePanelEtudiant.refresh();
+				formRechEtud.clearfileds();
+				
+			}
+			
+			@Override
+			public void formEventOccuredCancelDomain() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
+				Etudiant[] ets = new Etudiant[1];
+				ets[0]= controllerEtudiant.getStudentsByNomPrenom(nom, prenom);
+				if(ets[0].p.nom.equals(""))
+					JOptionPane.showMessageDialog(tablePanelEtudiant, "Cet étudiant n'existe pas!");
+				else{
+					tablePanelEtudiant.setData(ets);
+					tablePanelEtudiant.refresh();
+					formRechNom.clearfileds();
+				}
+			}
+		});
 
 		formRechEtud.setFormListener(new FormListenerEtudiant() {
 			
@@ -76,6 +127,12 @@ public class FrameRechercheEtudiant extends JFrame {
 					tablePanelEtudiant.refresh();
 					formRechEtud.clearfileds();
 				}
+			}
+
+			@Override
+			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
+				// TODO Auto-generated method stub
+				
 			}
 			
 		});
