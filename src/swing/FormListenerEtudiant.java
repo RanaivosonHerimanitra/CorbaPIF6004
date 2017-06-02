@@ -12,4 +12,6 @@ public interface FormListenerEtudiant extends EventListener{
 	void formEventOccuredCancelDomain();
 
 	void formEventOccuredSearchByDomain(String domain);
+
+	void formEventOccuredSearchByNomPrenom(String nom, String prenom);
 }

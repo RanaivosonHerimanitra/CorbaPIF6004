@@ -11,6 +11,7 @@ import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 
 import swing.FormEventEtudiant;
+import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 import PersonnelAPP.Personnel;
@@ -76,7 +77,7 @@ public class ControllerEtudiant {
 	public void removeEtudiant(Etudiant selectedEtudiant) {
 		personnelImpl.supprimerEtudiant(selectedEtudiant);
 	}
-	
+
 	public void shutDown(){
 		personnelImpl.shutdown();
 	}
@@ -88,7 +89,7 @@ public class ControllerEtudiant {
 		String domaine = ev.getDomaine();
 		String matricule = ev.getMatricule();
 		Etudiant newEtudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
-		
+
 		if(!personnelImpl.chercherEtudiant(nom, prenom).p.nom.equals("")& 
 				!((nom.equals(old.p.nom)& prenom.equals(old.p.prenom)))){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette etudiant existe déja!",
@@ -101,5 +102,9 @@ public class ControllerEtudiant {
 
 	public Etudiant[] getStudentsByDomain(String domain) {
 		return personnelImpl.chercherEtudiantByDomain(domain);
+	}
+
+	public Etudiant getStudentsByNomPrenom(String nom,String prenom) {
+		return personnelImpl.chercherEtudiant(nom, prenom);
 	}
 }

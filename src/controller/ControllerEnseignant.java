@@ -108,7 +108,6 @@ public class ControllerEnseignant {
 	}
 	
 	public Enseignant getProfesseursByNomPrenom(String nom,String prenom) {
-		
 		return personnelImpl.chercherEnseignant(nom, prenom);
 	}
 

@@ -89,8 +89,6 @@ public class FormPanelRechercheNom extends JPanel {
 			}
 		});
 
-
-
 	}
 
 	public void layoutComponents() {

@@ -118,6 +118,12 @@ public class FrameEtudiant extends JFrame {
 				// TODO Auto-generated method stub
 				
 			}
+
+			@Override
+			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 
 
