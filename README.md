@@ -22,7 +22,7 @@ on the cli, go to source directory(src) of the project then:
 
 ## Starting the server:
 
-Go to the bin folder of your `jdk` installation then (you may use any port number ):
+Ensure you open the terminal with full credential (sudo..., as admin). Go to the bin folder of your `jdk` installation then (you may choose any port number ):
 
  `$ start orbd -ORBInitialPort 1000`
  
