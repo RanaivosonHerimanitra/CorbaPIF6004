@@ -110,5 +110,25 @@ public class EnseignantController {
 		    System.out.println("A user was deleted successfully!");
 		}
 	}
+	public ArrayList<Enseignant> getEnseignant(String domain) throws SQLException {
+		String sql = "SELECT * FROM enseignant WHERE domaine_act_ens_ens=?";
+		PreparedStatement statement = conn.prepareStatement(sql);
+		statement.setString(1,domain);
+		Statement stmt = conn.createStatement();
+		ResultSet rs= stmt.executeQuery(sql);
+		ArrayList<Enseignant> ListEnseignant = new ArrayList<Enseignant>();
+
+		while (rs.next()){
+			String nom = rs.getString("nom_ens");
+		    String prenom = rs.getString("prenom_ens");
+		    String domaine = rs.getString("domaine_act_ens");
+		    long tel_bureau = rs.getLong("tel_bureau");
+		    long numero_poste = rs.getLong("numero_poste");
+		    String courriel_ens = rs.getString("courriel_ens");
+		    Enseignant e = new Enseignant(new PersonInfo(nom,prenom,courriel_ens,domaine),tel_bureau,numero_poste) ;
+			ListEnseignant.add(e);
+		}
+		return ListEnseignant;
+	}
 
 }

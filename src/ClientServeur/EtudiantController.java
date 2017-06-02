@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
@@ -98,5 +99,18 @@ public class EtudiantController {
 
 		return new Etudiant(new PersonInfo("","","",""),"");
 
+	}
+
+	public List<Etudiant> getStudents(String domain) throws SQLException {
+		String sql = "SELECT * FROM etudiant WHERE domaine_act_et=?";
+		PreparedStatement statement = conn.prepareStatement(sql);
+		statement.setString(1, domain);
+		ResultSet rs= statement.executeQuery(sql);
+		ArrayList<Etudiant> ListEtudiant = new ArrayList<Etudiant>();
+
+		while (rs.next())
+			ListEtudiant.add(new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getString("matricule_et")));
+
+		return ListEtudiant;
 	}
 }

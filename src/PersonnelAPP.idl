@@ -36,6 +36,10 @@ module PersonnelAPP{
 		Enseignant chercherEnseignant(in string nom, in string prenom);
 	
 		Etudiant chercherEtudiant(in string nom, in string prenom);
+		
+		Enseignants chercherEnseignantByDomain(in string domain);
+	
+		Etudiants chercherEtudiantByDomain(in string domain);
 	
 		Enseignants AfficherEnseigants();
 	

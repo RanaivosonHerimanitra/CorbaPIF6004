@@ -146,4 +146,42 @@ public class PersonnelServant extends PersonnelPOA {
 		}		
 	}
 
+	@Override
+	public Enseignant[] chercherEnseignantByDomain(String domain) {
+		List<Enseignant> ListEnseignant=null;
+		Enseignant[] tabEnseignant = null;
+		try {
+			ListEnseignant = enseignantController.getEnseignant(domain);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (ListEnseignant!=null){
+			tabEnseignant = new Enseignant[ListEnseignant.size()];
+			ListEnseignant.toArray(tabEnseignant);
+		}
+
+		return tabEnseignant;
+	}
+
+	@Override
+	public Etudiant[] chercherEtudiantByDomain(String domain) {
+		List<Etudiant> ListEtudiants = null;
+		Etudiant[] tabEtudiants = null;
+
+		try {
+			ListEtudiants = etudiantController.getStudents(domain);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if (ListEtudiants!=null){
+			tabEtudiants = new Etudiant[ListEtudiants.size()];
+			ListEtudiants.toArray(tabEtudiants);
+		}
+
+		return tabEtudiants;
+	}
+
 }
