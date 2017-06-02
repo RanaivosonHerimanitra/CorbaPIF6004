@@ -51,6 +51,9 @@ public class FrameRechercheParDomaine extends JFrame {
 				textPanel.appendText(text);
 			}
 		});
+		/*
+		 * handle all events related to search by name surname
+		 */
 		formRechNom.setFormListener(new FormListener() {
 
 			@Override
