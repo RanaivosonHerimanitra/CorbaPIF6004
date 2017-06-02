@@ -1,3 +1,6 @@
+/*
+ * a  class for data entry of Enseignant
+ */
 package swing;
 
 import java.awt.Dimension;
