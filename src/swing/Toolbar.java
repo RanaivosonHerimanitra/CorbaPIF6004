@@ -37,9 +37,14 @@ public class Toolbar extends JPanel implements ActionListener{
 	}
 
 	@Override
+<<<<<<< HEAD
 
 	public void actionPerformed(ActionEvent e) {
 	JButton clicked = (JButton)e.getSource();
+=======
+	public void actionPerformed(ActionEvent e){
+		JButton clicked = (JButton)e.getSource();
+>>>>>>> master
 
 		/*
 		if(clicked == searchBtn) {
