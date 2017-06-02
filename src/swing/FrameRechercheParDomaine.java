@@ -67,6 +67,8 @@ public class FrameRechercheParDomaine extends JFrame {
 			
 			@Override
 			public void formEventOccuredCancelDomain() {
+				tablePanel.setData(controller.getProfesseurs());
+				tablePanel.refresh();
 				formRechDom.clearfileds();
 				
 			}
