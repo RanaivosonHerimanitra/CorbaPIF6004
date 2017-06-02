@@ -88,6 +88,23 @@ public class FrameEtudiant extends JFrame {
 					e1.printStackTrace();
 				}
 			}
+
+			@Override
+			public void formEventOccuredUpdateEtudiant(FormEventEtudiant e) {
+				if(controllerEtudiant.updateEtudiant(e)){
+					JOptionPane.showMessageDialog(tablePanelEtudiant, "Un etudiant vient d'être modifié");
+					tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
+					tablePanelEtudiant.refresh();
+					formEtudiant.clearfileds();
+				}
+			}
+
+			@Override
+			public void formEventOccuredCancelEtudiant() {
+				formEtudiant.clearfileds();
+				if(formEtudiant.isUpdateON())
+					formEtudiant.changeButtons();
+			}
 		});
 
 

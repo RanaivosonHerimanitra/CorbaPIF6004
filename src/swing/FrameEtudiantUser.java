@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 
-import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -60,6 +59,18 @@ public class FrameEtudiantUser extends JFrame {
 				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 				tablePanelEtudiant.refresh();
 
+			}
+
+			@Override
+			public void formEventOccuredUpdateEtudiant(FormEventEtudiant e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredCancelEtudiant() {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 
