@@ -73,17 +73,26 @@ public class FormPanelEnseignant extends JPanel{
 				String courriel = courrielField.getText();
 				String domaine = domaineField.getText();
 				System.out.println(phoneField.getText());
-				long phone = Long.parseLong(phoneField.getText().trim());
-				long poste = Long.parseLong(posteField.getText().trim());
-
+				/*
+				 * handle phone and post conversion seamlessly
+				 */
+				long phone=0;
+				long poste=0;
+				try {
+					phone = Long.parseLong(phoneField.getText());
+					poste = Long.parseLong(posteField.getText());
+				} catch (Exception e1 ) {
+					e1.printStackTrace();
+				}
+				
 				FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
 				if(formListener !=null)
 				{
 					try 
 					{
 						//input checking validation :
-						if (InputValidationErrorDialog.isEmailValid(courriel)& 
-								InputValidationErrorDialog.isPhoneNumberValid(String.valueOf(phone))& 
+						if (InputValidationErrorDialog.isEmailValid(courriel) & 
+								InputValidationErrorDialog.isPhoneNumberValid(String.valueOf(phone)) & 
 									InputValidationErrorDialog.isPostValid(String.valueOf(poste)))
 										formListener.formEventOccured(ev);
 

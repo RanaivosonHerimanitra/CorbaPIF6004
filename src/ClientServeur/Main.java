@@ -11,6 +11,7 @@ import PersonnelAPP.Enseignant;
 import PersonnelAPP.PersonInfo;
 import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelHelper;
+import swing.InputValidationErrorDialog;
 
 public class Main {
 	private static Personnel personnelImpl;
@@ -38,6 +39,8 @@ public class Main {
 		        personnelImpl = PersonnelHelper.narrow(ncRef.resolve_str(name));
 
 		        System.out.println("Obtained a handle on server object: " + personnelImpl);
+		        //System.out.println(InputValidationErrorDialog.isPhoneNumberValid(null));
+		        //System.out.println(InputValidationErrorDialog.isPostValid(""));
 		        //personnelImpl.AfficherEtudiants();
 		        //personnelImpl.AfficherEnseigants();
 //		        if (personnelImpl.chercherEnseignant(e1.p.nom, e1.p.prenom).p.nom.equals(""))personnelImpl.creerEnseignant(e1);
