@@ -98,7 +98,8 @@ public class FormPanelEnseignant extends JPanel{
 						//input checking validation :
 						if (InputValidationErrorDialog.isEmailValid(courriel) & 
 								InputValidationErrorDialog.isPhoneNumberValid(String.valueOf(phone)) & 
-									InputValidationErrorDialog.isPostValid(String.valueOf(poste)))
+									InputValidationErrorDialog.isPostValid(String.valueOf(poste)) &
+									 !InputValidationErrorDialog.areFieldEmpty(nom, prenom) )
 										formListener.formEventOccured(ev);
 
 					} catch (SQLException e1) {
@@ -144,7 +145,8 @@ public class FormPanelEnseignant extends JPanel{
 					//input checking validation :
 					if (InputValidationErrorDialog.isEmailValid(courriel) & 
 							InputValidationErrorDialog.isPhoneNumberValid(String.valueOf(phone)) & 
-								InputValidationErrorDialog.isPostValid(String.valueOf(poste)))
+								InputValidationErrorDialog.isPostValid(String.valueOf(poste))
+								& !InputValidationErrorDialog.areFieldEmpty(nom, prenom))
 									formListener.formEventOccuredUpdateEnseignant(ev);
 			}
 		});
