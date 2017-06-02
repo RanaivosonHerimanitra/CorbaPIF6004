@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class FormPanelRechercheDomaine extends JPanel {
+<<<<<<< HEAD
 	/**
 	 * 
 	 */
@@ -116,6 +117,44 @@ public class FormPanelRechercheDomaine extends JPanel {
 			gc.anchor = GridBagConstraints.LINE_END;
 			add(resetBtn,gc);*/
 	}
+=======
+		//JLabel
+		
+		private JLabel domaineLabel;
+		
+		//JTextField
+		
+		private JTextField domaineField;
+		
+		//JButton
+		private JButton searchBtn;
+		private JButton cancelBtn;
+		private FormListener formListener;
+
+		public FormPanelRechercheDomaine(){
+			Dimension dim = getPreferredSize();
+			dim.width=250;
+			setPreferredSize(dim);
+			domaineLabel = new JLabel("Domaine d'activité: ");
+			
+			domaineField = new JTextField(10);
+			
+			searchBtn = new JButton("Rechercher");
+			cancelBtn = new JButton("Annuler");
+			searchBtn.setMnemonic(KeyEvent.VK_0);
+			domaineLabel.setDisplayedMnemonic(KeyEvent.VK_N);
+			domaineLabel.setLabelFor(domaineField);
+
+			
+
+			Border innerBorder = BorderFactory.createTitledBorder("Recherche par Domaine");
+			Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+			setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
+
+			layoutComponents();
+
+		}
+>>>>>>> master
 
 	public void setFormListener(FormListener listener){
 		this.formListener =listener;

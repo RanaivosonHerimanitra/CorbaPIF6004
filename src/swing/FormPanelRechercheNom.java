@@ -43,7 +43,7 @@ public class FormPanelRechercheNom extends JPanel {
 				nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 				nomLabel.setLabelFor(nomField);
 				
-				Border innerBorder = BorderFactory.createTitledBorder("Enseignant");
+				Border innerBorder = BorderFactory.createTitledBorder("Recherche par Noms");
 				Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 				setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
