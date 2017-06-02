@@ -72,7 +72,7 @@ public class FormPanelRechercheNom extends JPanel {
 					@Override
 					public void formEventOccured(FormEventEnseignat e) throws SQLException 
 					{
-						if (controller.addEnseignant(e)) {
+						if (controller.getProfesseurs()) {
 							JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
 							tablePanel.setData(controller.getProfesseurs());
 							tablePanel.refresh();
