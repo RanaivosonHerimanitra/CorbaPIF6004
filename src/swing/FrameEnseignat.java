@@ -55,6 +55,8 @@ public class FrameEnseignat extends JFrame{
 			@Override
 			public void rowUpdate(int row) {
 				Enseignant e=tablePanel.getSelectedEnseignat(row);
+				if (!formPanel.isUpdateON())
+					formPanel.changeButtons();
 				formPanel.setNom(e.p.nom);
 				formPanel.setPrenom(e.p.prenom);
 				formPanel.setCourriel(e.p.mail);
