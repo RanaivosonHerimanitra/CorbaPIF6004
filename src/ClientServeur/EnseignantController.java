@@ -114,8 +114,7 @@ public class EnseignantController {
 		String sql = "SELECT * FROM enseignant WHERE domaine_act_ens_ens=?";
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1,domain);
-		Statement stmt = conn.createStatement();
-		ResultSet rs= stmt.executeQuery(sql);
+		ResultSet rs= statement.executeQuery(sql);
 		ArrayList<Enseignant> ListEnseignant = new ArrayList<Enseignant>();
 
 		while (rs.next()){

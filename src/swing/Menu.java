@@ -68,11 +68,12 @@ public class Menu extends JFrame {
 		JMenu mnRecherche = new JMenu("Rechercher");
 		mnFichier.add(mnRecherche);
 		
-		JMenuItem parDomaine = new JMenuItem("Par Domaine d'activité");
-		mnRecherche.add(parDomaine);
-		
-		JMenuItem parNomPrenom = new JMenuItem("Par nom & Prénom");
-		mnRecherche.add(parNomPrenom);
+		JMenuItem rechProf = new JMenuItem("Enseignant");
+		mnRecherche.add(rechProf);
+		JMenuItem rechEtud = new JMenuItem("Etudiant");
+		mnRecherche.add(rechEtud);
+		//JMenuItem parNomPrenom = new JMenuItem("Par nom & Prénom");
+		//mnRecherche.add(parNomPrenom);
 		
 
 		JMenuItem mnExit = new JMenuItem("Quitter");
@@ -85,7 +86,7 @@ public class Menu extends JFrame {
 		mnNouveau.add(mntmEtudiant);
 
 		//Action Recherche
-		parDomaine.addActionListener(new ActionListener(){
+		rechProf.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				FrameRechercheParDomaine fr;
 				try {

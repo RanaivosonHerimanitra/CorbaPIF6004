@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import PersonnelAPP.Enseignant;
 import controller.ControllerEnseignant;
 
 public class FormPanelRechercheNom extends JPanel {
@@ -59,7 +60,7 @@ public class FormPanelRechercheNom extends JPanel {
 				nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 				nomLabel.setLabelFor(nomField);
 				
-				Border innerBorder = BorderFactory.createTitledBorder("Enseignant");
+				Border innerBorder = BorderFactory.createTitledBorder("Recherche par Noms");
 				Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 				setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
@@ -72,11 +73,16 @@ public class FormPanelRechercheNom extends JPanel {
 					@Override
 					public void formEventOccured(FormEventEnseignat e) throws SQLException 
 					{
-						if (controller.getProfesseurs()) {
-							JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
-							tablePanel.setData(controller.getProfesseurs());
-							tablePanel.refresh();
-							formPanel.clearfileds();
+						Enseignant[] ens = controller.getProfesseurs();
+						for ( Enseignant x: ens) 
+						{
+							if ( x.p.nom.equals(nomField) & x.p.prenom.equals(prenomField) )
+							{
+								JOptionPane.showMessageDialog(tablePanel, "enseignant trouvÉ");
+								tablePanel.setData(controller.getProfesseurs());
+								tablePanel.refresh();
+								formPanel.clearfileds();
+							 }
 						}
 					}
 
@@ -88,6 +94,18 @@ public class FormPanelRechercheNom extends JPanel {
 
 					@Override
 					public void formEventOccuredCancelEnseignant() {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void formEventOccuredCancelDomain() {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void formEventOccuredSearchByDomain(String string) {
 						// TODO Auto-generated method stub
 						
 					}});
