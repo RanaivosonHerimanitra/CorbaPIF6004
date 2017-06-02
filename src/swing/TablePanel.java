@@ -85,7 +85,6 @@ public class TablePanel extends JPanel{
 	}
 
 	public Enseignant getSelectedEnseignat(int selectedRow){
-		System.out.println("\n"+tableModel.getValueAt(selectedRow, 5));
 		return new Enseignant(new PersonInfo((String)tableModel.getValueAt(selectedRow, 0),
 				(String)tableModel.getValueAt(selectedRow, 1),(String)tableModel.getValueAt(selectedRow, 3),
 				(String)tableModel.getValueAt(selectedRow, 2)),(long)tableModel.getValueAt(selectedRow, 5),
