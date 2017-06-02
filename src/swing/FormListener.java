@@ -10,4 +10,8 @@ public interface FormListener extends EventListener{
 
 	void formEventOccuredCancelEnseignant();
 
+	public void formEventOccuredCancelDomain();
+
+	public void formEventOccuredSearchByDomain(String string);
+
 }

@@ -107,6 +107,18 @@ public class FrameEnseignat extends JFrame{
 				if(formPanel.isUpdateON())
 					formPanel.changeButtons();
 			}
+
+			@Override
+			public void formEventOccuredCancelDomain() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredSearchByDomain(String string) {
+				// TODO Auto-generated method stub
+				
+			}
 			
 		});
 

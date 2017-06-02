@@ -15,18 +15,21 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import PersonnelAPP.Enseignant;
 import controller.ControllerEnseignant;
 
 public class FrameRechercheParDomaine extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
-	//private FormPanelEnseignant formPanel;
 	FormPanelRechercheDomaine formRechDom;
 	FormPanelRechercheNom formRechNom;
 	private TablePanel tablePanel;
 	private Toolbar toolbar;
 
 	private ControllerEnseignant controller;
+	
 	public FrameRechercheParDomaine() throws SQLException{
 		super("Infos Enseignant");
 		controller = new ControllerEnseignant();
@@ -45,6 +48,40 @@ public class FrameRechercheParDomaine extends JFrame {
 		toolbar.setStringListener(new StringListener(){
 			public void textEmitted(String text){
 				textPanel.appendText(text);
+			}
+		});
+		
+		formRechDom.setFormListener(new FormListener() {
+			
+			@Override
+			public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredCancelEnseignant() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void formEventOccuredCancelDomain() {
+				formRechDom.clearfileds();
+				
+			}
+			
+			@Override
+			public void formEventOccured(FormEventEnseignat e) throws SQLException {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void formEventOccuredSearchByDomain(String domain) {
+				tablePanel.setData(controller.getProfesseursByDomain(domain));
+				tablePanel.refresh();
+				formRechDom.clearfileds();
 			}
 		});
 
@@ -91,7 +128,7 @@ public class FrameRechercheParDomaine extends JFrame {
 
 			}
 		});
-		//ACTION ITEM RECHERCHE PAR NOM
+		//ACTION ITEM RECHERCHE PAR DOMAIN
 		showFormItem1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				JCheckBoxMenuItem menuItem1 = (JCheckBoxMenuItem) e.getSource();
