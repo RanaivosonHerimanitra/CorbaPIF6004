@@ -76,7 +76,9 @@ public class FrameRechercheParDomaine extends JFrame {
 
 			@Override
 			public void formEventOccuredCancelDomain() {
-				// TODO Auto-generated method stub
+				tablePanel.setData(controller.getProfesseurs());
+				tablePanel.refresh();
+				formRechNom.clearfileds();
 				
 			}
 
@@ -96,9 +98,14 @@ public class FrameRechercheParDomaine extends JFrame {
 			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
 				Enseignant[] ens = new Enseignant[1];
 				ens[0]= controller.getProfesseursByNomPrenom(nom, prenom);
-				tablePanel.setData(ens);
-				tablePanel.refresh();
-				formRechDom.clearfileds();
+				if(ens[0].p.nom.equals("")) {
+					JOptionPane.showMessageDialog(tablePanel, "ce professeur n'existe pas");
+				} else{
+					tablePanel.setData(ens);
+					tablePanel.refresh();
+					formRechNom.clearfileds();
+				}
+				
 				
 			}
 			
