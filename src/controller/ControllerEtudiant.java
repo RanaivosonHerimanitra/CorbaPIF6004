@@ -89,6 +89,12 @@ public class ControllerEtudiant {
 		String domaine = ev.getDomaine();
 		String matricule = ev.getMatricule();
 		Etudiant newEtudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
+		
+		if(!personnelImpl.chercherEtudiant(nom, prenom).p.nom.equals("")){
+			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette etudiant existe déja!",
+					"Inane warning",JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
 		personnelImpl.modifierEtudiant(old, newEtudiant);
 		return true;
 	}
