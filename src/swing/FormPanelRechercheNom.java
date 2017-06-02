@@ -4,14 +4,20 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+
+import controller.ControllerEnseignant;
 
 public class FormPanelRechercheNom extends JPanel {
 			//JLabel
@@ -26,7 +32,17 @@ public class FormPanelRechercheNom extends JPanel {
 			//JButton
 			private JButton searchBtn;
 			private JButton cancelBtn;
+			
+			
+			/*
+			 * addition Herimanitra, 16h, 06 02 2017
+			 */
 			private FormListener formListener;
+			private FormPanelEnseignant formPanelEnseignant;
+			ControllerEnseignant controller = new ControllerEnseignant();
+			TablePanel tablePanel = new TablePanel();
+			FormPanelEnseignant formPanel = new FormPanelEnseignant();
+			//
 
 			public FormPanelRechercheNom(){
 				Dimension dim = getPreferredSize();
@@ -48,6 +64,56 @@ public class FormPanelRechercheNom extends JPanel {
 				setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
 				layoutComponents();
+				
+				/*
+				 * action to search for Enseignant by nom prenom
+				 */
+				formPanelEnseignant.setFormListener(new FormListener(){
+					@Override
+					public void formEventOccured(FormEventEnseignat e) throws SQLException 
+					{
+						if (controller.addEnseignant(e)) {
+							JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
+							tablePanel.setData(controller.getProfesseurs());
+							tablePanel.refresh();
+							formPanel.clearfileds();
+						}
+					}
+
+					@Override
+					public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void formEventOccuredCancelEnseignant() {
+						// TODO Auto-generated method stub
+						
+					}});
+				searchBtn.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						String nom= nomField.getText();
+						String prenom = prenomField.getText();
+						FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,"","",0,0);
+						if(formListener !=null)
+						{
+							try 
+							{
+								//input checking validation :
+								if (!InputValidationErrorDialog.areFieldEmpty(nom, prenom) )
+										
+												formListener.formEventOccured(ev);
+
+							} catch (SQLException e1) {
+
+								e1.printStackTrace();
+							}
+						}
+					}
+
+				});
+
 
 			}
 

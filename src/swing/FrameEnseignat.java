@@ -81,7 +81,7 @@ public class FrameEnseignat extends JFrame{
 		 */
 		formPanel.setFormListener(new FormListener(){
 			@Override
-			public void formEventOccured(FormEventEnseignat e) throws SQLException{
+			public void formEventOccured(FormEventEnseignat e) throws SQLException {
 				if (controller.addEnseignant(e)){
 					JOptionPane.showMessageDialog(tablePanel, "Un enseignant vient d'être ajouté");
 					tablePanel.setData(controller.getProfesseurs());

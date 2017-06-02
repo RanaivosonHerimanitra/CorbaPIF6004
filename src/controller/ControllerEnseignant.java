@@ -51,7 +51,7 @@ public class ControllerEnseignant {
 			e.printStackTrace(System.out);
 		}
 	}
-
+	
 	public Enseignant[] getProfesseurs(){
 		return personnelImpl.AfficherEnseigants();
 	}
