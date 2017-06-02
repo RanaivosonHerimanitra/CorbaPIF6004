@@ -118,7 +118,7 @@ public class EnseignantController {
 		statement.setString(1,domain);
 		ResultSet rs= statement.executeQuery();
 		ArrayList<Enseignant> ListEnseignant = new ArrayList<Enseignant>();
-
+		
 		while (rs.next()){
 			String nom = rs.getString("nom_ens");
 		    String prenom = rs.getString("prenom_ens");
@@ -129,7 +129,8 @@ public class EnseignantController {
 		    Enseignant e = new Enseignant(new PersonInfo(nom,prenom,courriel_ens,domaine),tel_bureau,numero_poste) ;
 			ListEnseignant.add(e);
 		}
-		if(ListEnseignant.get(0)!=null)
+		
+		if(ListEnseignant.size()!=0)
 			return ListEnseignant;
 		ListEnseignant.add(new Enseignant(new PersonInfo("","","",""),0,0));
 		return ListEnseignant;
