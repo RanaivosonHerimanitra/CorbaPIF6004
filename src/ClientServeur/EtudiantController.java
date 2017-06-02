@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
@@ -111,6 +112,9 @@ public class EtudiantController {
 		while (rs.next())
 			ListEtudiant.add(new Etudiant(new PersonInfo(rs.getString("nom_et"),rs.getString("prenom_et"),rs.getString("courriel_et"),rs.getString("domaine_act_et")),rs.getString("matricule_et")));
 
+		if(ListEtudiant.size()!=0)
+			return ListEtudiant;
+		ListEtudiant.add(new Etudiant(new PersonInfo("","","",""),""));
 		return ListEtudiant;
 	}
 }
