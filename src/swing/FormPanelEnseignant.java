@@ -37,7 +37,7 @@ public class FormPanelEnseignant extends JPanel{
 	//JButton
 	private JButton insertBtn;
 	private JButton updateBtn;
-
+	private JButton cancelBtn;
 	private FormListener formListener;
 
 	public FormPanelEnseignant(){
@@ -61,7 +61,9 @@ public class FormPanelEnseignant extends JPanel{
 
 		insertBtn = new JButton("Insérer");
 		updateBtn = new JButton("Modifier");
+		cancelBtn = new JButton("Annuler");
 		updateBtn.setEnabled(false);
+		updateBtn.setVisible(false);
 		//searchBtn = new JButton("Rechercheer");
 		//displayBtn = new JButton("Afficher");
 
@@ -218,12 +220,12 @@ public class FormPanelEnseignant extends JPanel{
 		gc.insets = new Insets(0,0,0,5);
 		gc.anchor = GridBagConstraints.LINE_END;
 		add(insertBtn,gc);
-
+		add(updateBtn,gc);
 		gc.gridy =6;
 		gc.gridx =1;
 		gc.insets = new Insets(0,0,0,0);
 		gc.anchor = GridBagConstraints.CENTER;
-		add(updateBtn,gc);
+		add(cancelBtn,gc);
 
 		/*gc.gridy =6;
 		gc.gridx =2;
@@ -269,6 +271,16 @@ public class FormPanelEnseignant extends JPanel{
 		posteField.setText(post);
 	}
 	
+	public void changeButtons(){
+		insertBtn.setEnabled(!insertBtn.isEnabled());
+		insertBtn.setVisible(!insertBtn.isVisible());
+		updateBtn.setEnabled(!updateBtn.isEnabled());
+		updateBtn.setVisible(!updateBtn.isVisible());
+	}
 	
+	public boolean isUpdateON(){
+		return updateBtn.isEnabled();
+	}
+
 
 }
