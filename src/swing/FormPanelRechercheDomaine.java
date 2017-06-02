@@ -55,7 +55,9 @@ public class FormPanelRechercheDomaine extends JPanel {
 					formListener.formEventOccuredCancelDomain();
 			}
 		});
-
+		/*
+		 * perform search by domain
+		 */
 		searchBtn.addActionListener(new ActionListener() {
 
 			@Override

@@ -106,5 +106,11 @@ public class ControllerEnseignant {
 	public Enseignant[] getProfesseursByDomain(String domain) {
 		return personnelImpl.chercherEnseignantByDomain(domain);
 	}
+	
+	public Enseignant getProfesseursByNomPrenom(String nom,String prenom) {
+		
+		return personnelImpl.chercherEnseignant(nom, prenom);
+	}
+
 
 }

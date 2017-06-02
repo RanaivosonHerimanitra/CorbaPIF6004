@@ -15,6 +15,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import PersonnelAPP.Enseignant;
 import controller.ControllerEnseignant;
 
 public class FrameRechercheParDomaine extends JFrame {
@@ -86,9 +87,18 @@ public class FrameRechercheParDomaine extends JFrame {
 				formRechDom.clearfileds();
 			}
 
+			/*
+			 * (non-Javadoc)
+			 * @see swing.FormListener#formEventOccuredSearchByNomPrenom(java.lang.String, java.lang.String)
+			 * action de recherche par nom prenom
+			 */
 			@Override
 			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
-				// TODO Auto-generated method stub
+				Enseignant[] ens = new Enseignant[0];
+				ens[0]= controller.getProfesseursByNomPrenom(nom, prenom);
+				tablePanel.setData(ens);
+				tablePanel.refresh();
+				formRechDom.clearfileds();
 				
 			}
 		});

@@ -14,7 +14,7 @@ public interface PersonnelOperations
 {
   boolean creerEnseignant (PersonnelAPP.Enseignant e);
   boolean creerEtudiant (PersonnelAPP.Etudiant e);
-  PersonnelAPP.Enseignant chercherEnseignant (String nom, String prenom);
+  Enseignant chercherEnseignant (String nom, String prenom);
   PersonnelAPP.Etudiant chercherEtudiant (String nom, String prenom);
   PersonnelAPP.Enseignant[] chercherEnseignantByDomain (String domain);
   PersonnelAPP.Etudiant[] chercherEtudiantByDomain (String domain);

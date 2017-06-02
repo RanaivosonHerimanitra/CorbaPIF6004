@@ -67,62 +67,14 @@ public class FormPanelRechercheNom extends JPanel {
 				layoutComponents();
 				
 				/*
-				 * action to search for Enseignant by nom prenom
+				 * perform search by nom prenom
 				 */
-				formPanelEnseignant.setFormListener(new FormListener(){
-					@Override
-					public void formEventOccured(FormEventEnseignat e) throws SQLException 
-					{
-						Enseignant[] ens = controller.getProfesseurs();
-						for ( Enseignant x: ens) 
-						{
-							if ( x.p.nom.equals(nomField) & x.p.prenom.equals(prenomField) )
-							{
-								JOptionPane.showMessageDialog(tablePanel, "enseignant trouv…");
-								//tablePanel.setData( (Enseignant[]) x );
-								tablePanel.refresh();
-								formPanelEnseignant.clearfileds();
-							 }
-						}
-					}
-
-					@Override
-					public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					@Override
-					public void formEventOccuredCancelEnseignant() {
-						// TODO Auto-generated method stub
-						
-					}
-
-					@Override
-					public void formEventOccuredCancelDomain() {
-						// TODO Auto-generated method stub
-						
-					}
-
-					@Override
-					public void formEventOccuredSearchByDomain(String string) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					@Override
-					public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
-						
-						System.out.println("enseignant trouve");
-					}});
 				searchBtn.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
-						String nom= nomField.getText();
-						String prenom = prenomField.getText();
-						//FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
+						
 						if(formListener !=null)
 						{
-							formListener.formEventOccuredSearchByNomPrenom(nom, prenom);
+							formListener.formEventOccuredSearchByNomPrenom(nomField.getText(),prenomField.getText());
 						}
 					}
 
