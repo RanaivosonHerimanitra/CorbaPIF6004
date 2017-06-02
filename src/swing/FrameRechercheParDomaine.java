@@ -94,7 +94,7 @@ public class FrameRechercheParDomaine extends JFrame {
 			 */
 			@Override
 			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
-				Enseignant[] ens = new Enseignant[0];
+				Enseignant[] ens = new Enseignant[1];
 				ens[0]= controller.getProfesseursByNomPrenom(nom, prenom);
 				tablePanel.setData(ens);
 				tablePanel.refresh();
