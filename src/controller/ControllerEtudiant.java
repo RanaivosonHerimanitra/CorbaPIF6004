@@ -90,7 +90,8 @@ public class ControllerEtudiant {
 		String matricule = ev.getMatricule();
 		Etudiant newEtudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
 		
-		if(!personnelImpl.chercherEtudiant(nom, prenom).p.nom.equals("")){
+		if(!personnelImpl.chercherEtudiant(nom, prenom).p.nom.equals("")& 
+				!((nom.equals(old.p.nom)& prenom.equals(old.p.prenom)))){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette etudiant existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
 			return false;
