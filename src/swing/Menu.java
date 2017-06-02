@@ -68,11 +68,11 @@ public class Menu extends JFrame {
 		JMenu mnRecherche = new JMenu("Rechercher");
 		mnFichier.add(mnRecherche);
 		
-		JMenuItem parDomaine = new JMenuItem("Par Domaine d'activité");
+		JMenuItem parDomaine = new JMenuItem("Par Domaine d'activité & Noms");
 		mnRecherche.add(parDomaine);
 		
-		JMenuItem parNomPrenom = new JMenuItem("Par nom & Prénom");
-		mnRecherche.add(parNomPrenom);
+		//JMenuItem parNomPrenom = new JMenuItem("Par nom & Prénom");
+		//mnRecherche.add(parNomPrenom);
 		
 
 		JMenuItem mnExit = new JMenuItem("Quitter");

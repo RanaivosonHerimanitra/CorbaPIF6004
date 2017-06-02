@@ -9,9 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Toolbar extends JPanel implements ActionListener{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JButton searchBtn;
 	private JButton displayBtn;
@@ -21,7 +19,7 @@ public class Toolbar extends JPanel implements ActionListener{
 
 	public Toolbar(){
 		setBorder(BorderFactory.createEtchedBorder());
-
+/*
 		searchBtn = new JButton("Rechercher");
 		displayBtn = new JButton("Afficher");
 
@@ -29,9 +27,9 @@ public class Toolbar extends JPanel implements ActionListener{
 		displayBtn.addActionListener(this);
 
 		setLayout(new FlowLayout(FlowLayout.LEFT));
-
-		add(searchBtn);
-		add(displayBtn);
+*/
+		//add(searchBtn);
+		//add(displayBtn);
 	}
 
 	public void setStringListener(StringListener listener){
@@ -43,15 +41,14 @@ public class Toolbar extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 	JButton clicked = (JButton)e.getSource();
 
-
+		/*
 		if(clicked == searchBtn) {
 			if(textListener != null)
 				textListener.textEmitted("Recherche\n");
 		}
-		else 
-			if(clicked == displayBtn & textListener != null) 
+		else if(clicked == displayBtn & textListener != null) 
 				textListener.textEmitted("Affiche\n");
-			
+			*/
 		}
 
 }
