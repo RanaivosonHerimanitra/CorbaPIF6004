@@ -15,7 +15,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import controller.ControllerEtudiant;
 
@@ -24,6 +23,7 @@ public class FrameEtudiant extends JFrame {
 	private FormPanelEtudiant formEtudiant;
 	private TablePanelEtudiant tablePanelEtudiant;
 	private Toolbar toolbar;
+	private Etudiant old;
 
 	private ControllerEtudiant controllerEtudiant;
 	public FrameEtudiant(){
@@ -51,6 +51,7 @@ public class FrameEtudiant extends JFrame {
 				@Override
 				public void rowUpdate(int row) {
 					Etudiant e=tablePanelEtudiant.getSelectedEtudiant(row);
+					old = e;
 					if (!formEtudiant.isUpdateON())
 						formEtudiant.changeButtons();
 					formEtudiant.setNom(e.p.nom);
@@ -71,7 +72,7 @@ public class FrameEtudiant extends JFrame {
 			}
 		});
 		/*
-		 * update each time a Prof is added on db
+		 * update each time a student is added on db
 		 */
 		formEtudiant.setFormListener(new FormListenerEtudiant() {
 
@@ -92,8 +93,9 @@ public class FrameEtudiant extends JFrame {
 
 			@Override
 			public void formEventOccuredUpdateEtudiant(FormEventEtudiant e) {
-				if(controllerEtudiant.updateEtudiant(e)){
+				if(controllerEtudiant.updateEtudiant(e, old)){
 					JOptionPane.showMessageDialog(tablePanelEtudiant, "Un etudiant vient d'être modifié");
+					formEtudiant.changeButtons();
 					tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 					tablePanelEtudiant.refresh();
 					formEtudiant.clearfileds();

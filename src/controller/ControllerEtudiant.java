@@ -82,15 +82,14 @@ public class ControllerEtudiant {
 		personnelImpl.shutdown();
 	}
 
-	public boolean updateEtudiant(FormEventEtudiant ev) {
+	public boolean updateEtudiant(FormEventEtudiant ev, Etudiant old) {
 		String nom = ev.getNom();
 		String prenom = ev.getPrenom();
 		String courriel = ev.getCourriel();
 		String domaine = ev.getDomaine();
 		String matricule = ev.getMatricule();
-		
-		Etudiant etudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
-		personnelImpl.creerEtudiant(etudiant);
+		Etudiant newEtudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
+		personnelImpl.modifierEtudiant(old, newEtudiant);
 		return true;
 	}
 }
