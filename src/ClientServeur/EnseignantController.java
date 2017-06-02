@@ -99,6 +99,7 @@ public class EnseignantController {
 		    System.out.println("An existing user was updated successfully!");
 		}
 	}
+	
 	public void delete(Enseignant e) throws SQLException 
 	{
 		String sql = "DELETE FROM enseignant WHERE nom_ens=?";
@@ -110,12 +111,12 @@ public class EnseignantController {
 		    System.out.println("A user was deleted successfully!");
 		}
 	}
+	
 	public ArrayList<Enseignant> getEnseignant(String domain) throws SQLException {
-		String sql = "SELECT * FROM enseignant WHERE domaine_act_ens_ens=?";
+		String sql = "SELECT * FROM enseignant WHERE domaine_act_ens=?";
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1,domain);
-		Statement stmt = conn.createStatement();
-		ResultSet rs= stmt.executeQuery(sql);
+		ResultSet rs= statement.executeQuery();
 		ArrayList<Enseignant> ListEnseignant = new ArrayList<Enseignant>();
 
 		while (rs.next()){
@@ -128,6 +129,9 @@ public class EnseignantController {
 		    Enseignant e = new Enseignant(new PersonInfo(nom,prenom,courriel_ens,domaine),tel_bureau,numero_poste) ;
 			ListEnseignant.add(e);
 		}
+		if(ListEnseignant.get(0)!=null)
+			return ListEnseignant;
+		ListEnseignant.add(new Enseignant(new PersonInfo("","","",""),0,0));
 		return ListEnseignant;
 	}
 

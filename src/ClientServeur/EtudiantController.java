@@ -105,7 +105,7 @@ public class EtudiantController {
 		String sql = "SELECT * FROM etudiant WHERE domaine_act_et=?";
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, domain);
-		ResultSet rs= statement.executeQuery(sql);
+		ResultSet rs= statement.executeQuery();
 		ArrayList<Etudiant> ListEtudiant = new ArrayList<Etudiant>();
 
 		while (rs.next())
