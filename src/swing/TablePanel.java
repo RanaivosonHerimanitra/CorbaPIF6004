@@ -16,18 +16,20 @@ import PersonnelAPP.Enseignant;
 import PersonnelAPP.PersonInfo;
 
 public class TablePanel extends JPanel{
-	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable table;
 	private PersonnelTableModelEnseignant tableModel;
-	
-	//add today debut
+
 	private EnseignantTableListener enseignantListener;
 	private JPopupMenu popup;
-	//fin
+
 	public TablePanel(){
 		tableModel = new PersonnelTableModelEnseignant();
 		table = new JTable(tableModel);
-		//add today debut
 		popup = new JPopupMenu();
 		JMenuItem removeItem = new JMenuItem("Delete row");
 		popup.add(removeItem);
@@ -35,18 +37,17 @@ public class TablePanel extends JPanel{
 		popup.add(updateItem);
 		table.addMouseListener(new MouseAdapter(){
 
-			public void mousePressed(MouseEvent e) {
+			public void mousePressed(MouseEvent e){
 				int row = table.rowAtPoint(e.getPoint());
 				table.getSelectionModel().setSelectionInterval(row, row);
-				System.out.print(row);
-				if(e.getButton() == MouseEvent.BUTTON3){
+				if(e.getButton() == MouseEvent.BUTTON3)
 					popup.show(table, e.getX(), e.getY());
-				}
 			}
-			
+
 		});
+
 		removeItem.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0){
 				int row = table.getSelectedRow();
 				if(enseignantListener !=null){
 					enseignantListener.rowDeleted(row);
@@ -54,8 +55,9 @@ public class TablePanel extends JPanel{
 				}
 			}
 		});
-		updateItem.addActionListener(new ActionListener() {
-			
+
+		updateItem.addActionListener(new ActionListener(){
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int row = table.getSelectedRow();
@@ -63,30 +65,25 @@ public class TablePanel extends JPanel{
 					enseignantListener.rowUpdate(row);
 					tableModel.fireTableRowsDeleted(row, row);
 				}
-
-				
 			}
 		});
-		//add today fin
+
 		setLayout(new BorderLayout());
 		add(new JScrollPane(table),BorderLayout.CENTER);
-		
 	}
-	
-	public void setData(Enseignant[] enseignants) {
+
+	public void setData(Enseignant[] enseignants){
 		tableModel.setData(enseignants);
 	}
+
 	public void refresh(){
 		tableModel.fireTableDataChanged();
 	}
 
-	//today debut
 	public void setEnseignantTableListener(EnseignantTableListener listener){
 		this.enseignantListener =listener;
 	}
-	//today fin
 
-	
 	public Enseignant getSelectedEnseignat(int selectedRow){
 		System.out.println("\n"+tableModel.getValueAt(selectedRow, 5));
 		return new Enseignant(new PersonInfo((String)tableModel.getValueAt(selectedRow, 0),
@@ -94,6 +91,5 @@ public class TablePanel extends JPanel{
 				(String)tableModel.getValueAt(selectedRow, 2)),(long)tableModel.getValueAt(selectedRow, 5),
 				(long)tableModel.getValueAt(selectedRow, 4));
 	}
-	
 
 }

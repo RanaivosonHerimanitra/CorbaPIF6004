@@ -12,13 +12,15 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
-
 public class TablePanelEtudiant extends JPanel{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable table;
 	private PersonnelTableModelEtudiant tableModel;
 	private EtudiantTableListener etudiantTableListener;
@@ -35,16 +37,15 @@ public class TablePanelEtudiant extends JPanel{
 		popup.add(updateItem);
 		table.addMouseListener(new MouseAdapter(){
 
-			public void mousePressed(MouseEvent e) {
+			public void mousePressed(MouseEvent e){
 				int row = table.rowAtPoint(e.getPoint());
 				table.getSelectionModel().setSelectionInterval(row, row);
 				System.out.print(row);
-				if(e.getButton() == MouseEvent.BUTTON3){
+				if(e.getButton() == MouseEvent.BUTTON3)
 					popup.show(table, e.getX(), e.getY());
-				}
 			}
-
 		});
+		
 		removeItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				int row = table.getSelectedRow();
@@ -54,17 +55,16 @@ public class TablePanelEtudiant extends JPanel{
 				}
 			}
 		});
-		updateItem.addActionListener(new ActionListener() {
+		
+		updateItem.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
 				int row = table.getSelectedRow();
 				if(etudiantTableListener !=null){
 					etudiantTableListener.rowUpdate(row);
 					tableModel.fireTableRowsDeleted(row, row);
 				}
-
-
 			}
 		});
 
@@ -73,14 +73,15 @@ public class TablePanelEtudiant extends JPanel{
 
 	}
 
-	public void setData(Etudiant[] etudiants) {
+	public void setData(Etudiant[] etudiants){
 		tableModel.setData(etudiants);
 	}
+	
 	public void refresh(){
 		tableModel.fireTableDataChanged();
 	}
 
-	public Etudiant getSelectedEtudiant(int selectedRow) {
+	public Etudiant getSelectedEtudiant(int selectedRow){
 		return new Etudiant(new PersonInfo((String)tableModel.getValueAt(selectedRow, 0),
 				(String)tableModel.getValueAt(selectedRow, 1),(String)tableModel.getValueAt(selectedRow, 3),
 				(String)tableModel.getValueAt(selectedRow, 2)),(String)tableModel.getValueAt(selectedRow, 4));

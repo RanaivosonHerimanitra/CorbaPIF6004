@@ -19,6 +19,10 @@ import PersonnelAPP.Etudiant;
 import controller.ControllerEtudiant;
 
 public class FrameEtudiant extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
 	private FormPanelEtudiant formEtudiant;
 	private TablePanelEtudiant tablePanelEtudiant;
@@ -29,7 +33,6 @@ public class FrameEtudiant extends JFrame {
 	public FrameEtudiant(){
 		super("Infos Etudiant");
 		controllerEtudiant = new ControllerEtudiant();
-		
 		setLayout(new BorderLayout());
 
 		textPanel = new TextPanel();
@@ -37,32 +40,28 @@ public class FrameEtudiant extends JFrame {
 		formEtudiant = new FormPanelEtudiant();
 		toolbar = new Toolbar();
 
-		
-		
-		//today debut
-			tablePanelEtudiant.setEtudiantTableListener(new EtudiantTableListener(){
-				public void rowDeleted(int row){
-					controllerEtudiant.removeEtudiant(tablePanelEtudiant.getSelectedEtudiant(row));
-					tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
-					JOptionPane.showMessageDialog(tablePanelEtudiant, "Un étudiant vient d'être supprimé");
-					tablePanelEtudiant.refresh();
-				}
+		tablePanelEtudiant.setEtudiantTableListener(new EtudiantTableListener(){
+			public void rowDeleted(int row){
+				controllerEtudiant.removeEtudiant(tablePanelEtudiant.getSelectedEtudiant(row));
+				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
+				JOptionPane.showMessageDialog(tablePanelEtudiant, "Un étudiant vient d'être supprimé");
+				tablePanelEtudiant.refresh();
+			}
 
-				@Override
-				public void rowUpdate(int row) {
-					Etudiant e=tablePanelEtudiant.getSelectedEtudiant(row);
-					old = e;
-					if (!formEtudiant.isUpdateON())
-						formEtudiant.changeButtons();
-					formEtudiant.setNom(e.p.nom);
-					formEtudiant.setPrenom(e.p.prenom);
-					formEtudiant.setCourriel(e.p.mail);
-					formEtudiant.setDomaine(e.p.domain);
-					formEtudiant.setMatricul(e.matricul);
-					
-				}
-			});
-		//today fin
+			@Override
+			public void rowUpdate(int row) {
+				Etudiant e=tablePanelEtudiant.getSelectedEtudiant(row);
+				old = e;
+				if (!formEtudiant.isUpdateON())
+					formEtudiant.changeButtons();
+				formEtudiant.setNom(e.p.nom);
+				formEtudiant.setPrenom(e.p.prenom);
+				formEtudiant.setCourriel(e.p.mail);
+				formEtudiant.setDomaine(e.p.domain);
+				formEtudiant.setMatricul(e.matricul);
+
+			}
+		});
 
 		tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
 		setJMenuBar(createMenuBar());
@@ -86,7 +85,6 @@ public class FrameEtudiant extends JFrame {
 						formEtudiant.clearfileds();
 					}
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -122,6 +120,7 @@ public class FrameEtudiant extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
+
 	//Menu Bar
 	private JMenuBar createMenuBar(){
 		JMenuBar menuBar = new JMenuBar();
@@ -163,7 +162,6 @@ public class FrameEtudiant extends JFrame {
 					FrameEtudiant.this.controllerEtudiant.shutDown();
 					FrameEtudiant.this.dispose();
 				}
-
 			}
 		});
 		return menuBar;

@@ -4,31 +4,39 @@ import javax.swing.table.AbstractTableModel;
 import PersonnelAPP.Etudiant;
 
 public class PersonnelTableModelEtudiant extends AbstractTableModel {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Etudiant[] db;
 	public String[] colNames={"Nom","Prenom","Domaine","Mail","Matricule"};
-	public PersonnelTableModelEtudiant (){
+	
+	public PersonnelTableModelEtudiant(){
 		
 	}
+	
 	@Override
 	public String getColumnName(int column){
 		return colNames[column];
 	}
+	
 	public void setData(Etudiant[] etudiants){
 		this.db = etudiants;
 	}
+	
 	@Override
-	public int getColumnCount() {
+	public int getColumnCount(){
 		return 5;
 	}
 
 	@Override
-	public int getRowCount() {
-		
+	public int getRowCount(){
 		return db.length;
 	}
 
 	@Override
-	public Object getValueAt(int row , int col) {
+	public Object getValueAt(int row , int col){
 		Etudiant etudiant =db[row];
 		
 		switch(col){

@@ -11,12 +11,10 @@ import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 
 import PersonnelAPP.Enseignant;
-import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelHelper;
 import swing.FormEventEnseignat;
-import swing.FormEventEtudiant;
 
 public class ControllerEnseignant {
 
@@ -33,11 +31,11 @@ public class ControllerEnseignant {
 			// get the root naming context
 			org.omg.CORBA.Object objRef = 
 					orb.resolve_initial_references("NameService");
-			
+
 			// Use NamingContextExt instead of NamingContext. This is 
 			// part of the Interoperable naming Service.  
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-			
+
 
 			// resolve the Object Reference in Naming
 			String name = "Personnel";
@@ -67,7 +65,6 @@ public class ControllerEnseignant {
 		long poste = ev.getPoste();
 		//*
 		if(!personnelImpl.chercherEnseignant(nom, prenom).p.nom.equals("")){
-			System.out.println("cas non vide");
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette enseignat existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
 			return false;
@@ -76,14 +73,13 @@ public class ControllerEnseignant {
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		personnelImpl.creerEnseignant(enseignant);
 		return true;
-		
+
 	}
 
 	public void removeEnseignant(Enseignant enseignant){
-		System.out.println(enseignant.p.prenom);
 		personnelImpl.supprimerEnseigant(enseignant);
 	}
-	
+
 	public void shutDown(){
 		personnelImpl.shutdown();
 	}
@@ -96,7 +92,7 @@ public class ControllerEnseignant {
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
 		Enseignant newEnseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
-		
+
 		if(!personnelImpl.chercherEnseignant(nom, prenom).p.nom.equals("")& 
 				!((nom.equals(old.p.nom)& prenom.equals(old.p.prenom)))){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette enseignant existe déja!",

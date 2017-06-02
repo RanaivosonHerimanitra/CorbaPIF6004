@@ -74,7 +74,6 @@ public class ControllerEtudiant {
 	}
 
 	public void removeEtudiant(Etudiant selectedEtudiant) {
-		System.out.println(selectedEtudiant.p.prenom);
 		personnelImpl.supprimerEtudiant(selectedEtudiant);
 	}
 	

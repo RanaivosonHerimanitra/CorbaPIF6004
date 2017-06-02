@@ -5,18 +5,27 @@ import javax.swing.table.AbstractTableModel;
 import PersonnelAPP.Enseignant;
 
 public class PersonnelTableModelEnseignant extends AbstractTableModel {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Enseignant[] db;
 	public String[] colNames={"Nom","Prenom","Domaine","Mail","Poste","Téléphone"};
-	public PersonnelTableModelEnseignant (){
+	
+	public PersonnelTableModelEnseignant(){
 		
 	}
+	
 	@Override
 	public String getColumnName(int column){
 		return colNames[column];
 	}
+	
 	public void setData(Enseignant[] enseignants){
 		this.db = enseignants;
 	}
+	
 	@Override
 	public int getColumnCount() {
 		return 6;

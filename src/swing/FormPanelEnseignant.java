@@ -20,6 +20,10 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class FormPanelEnseignant extends JPanel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//JLabel
 	private JLabel nomLabel;
 	private JLabel prenomLabel;
@@ -77,7 +81,6 @@ public class FormPanelEnseignant extends JPanel{
 				String prenom = prenomField.getText();
 				String courriel = courrielField.getText();
 				String domaine = domaineField.getText();
-				System.out.println(phoneField.getText());
 				/*
 				 * handle phone and post conversion seamlessly
 				 */

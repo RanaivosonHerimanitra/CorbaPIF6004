@@ -1,22 +1,23 @@
 package swing;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class MenuUser extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -66,7 +67,6 @@ public class MenuUser extends JFrame {
 					FrameEnseignantUser feu = new FrameEnseignantUser();
 					feu.setVisible(true);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -82,7 +82,6 @@ public class MenuUser extends JFrame {
 		});
 		mnSelecionner.add(mntmEtudiant);
 		
-		
 		iexit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int action = JOptionPane.showConfirmDialog(MenuUser.this, 
@@ -90,10 +89,8 @@ public class MenuUser extends JFrame {
 				if (action == JOptionPane.OK_OPTION){
 					System.exit(0);
 				}
-
 			}
 		});
-		
 	}
 
 }

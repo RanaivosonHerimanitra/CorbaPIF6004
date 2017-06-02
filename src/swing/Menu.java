@@ -17,12 +17,17 @@ import javax.swing.border.TitledBorder;
 
 public class Menu extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	/*public static void main(String[] args) {
+  /*
+	 public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -33,7 +38,8 @@ public class Menu extends JFrame {
 				}
 			}
 		});
-	}*/
+	}
+  //*/
 
 	/**
 	 * Create the frame.
@@ -43,7 +49,8 @@ public class Menu extends JFrame {
 		setBounds(100, 100, 450, 300);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
-		contentPane.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Menu Principal", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
+		contentPane.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), 
+				"Menu Principal", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -56,16 +63,16 @@ public class Menu extends JFrame {
 
 		JMenu mnNouveau = new JMenu("Nouveau");
 		mnFichier.add(mnNouveau);
-		
+
 		JMenuItem mnExit = new JMenuItem("Quitter");
 		mnFichier.add(mnExit);
-		
+
 		JMenuItem mntmEnseignant = new JMenuItem("Enseignant");
 		mnNouveau.add(mntmEnseignant);
 
 		JMenuItem mntmEtudiant = new JMenuItem("Etudiant");
 		mnNouveau.add(mntmEtudiant);
-		
+
 		mntmEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameEtudiant fe = new FrameEtudiant();
@@ -78,7 +85,6 @@ public class Menu extends JFrame {
 					FrameEnseignat fes = new FrameEnseignat();
 					fes.setVisible(true);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

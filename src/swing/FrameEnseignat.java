@@ -24,6 +24,10 @@ import controller.ControllerEnseignant;
 
 //modif
 public class FrameEnseignat extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
 	private FormPanelEnseignant formPanel;
 	private TablePanel tablePanel;
@@ -41,10 +45,7 @@ public class FrameEnseignat extends JFrame{
 		tablePanel = new TablePanel();
 		toolbar = new Toolbar();
 
-		
-
 		tablePanel.setData(controller.getProfesseurs());
-		//today debut
 		tablePanel.setEnseignantTableListener(new EnseignantTableListener(){
 			public void rowDeleted(int row){
 				controller.removeEnseignant(tablePanel.getSelectedEnseignat(row));
@@ -67,7 +68,7 @@ public class FrameEnseignat extends JFrame{
 				formPanel.setPost(Long.toString(e.post));
 			}
 		});
-		//today fin
+
 		setJMenuBar(createMenuBar());
 		toolbar.setStringListener(new StringListener(){
 			public void textEmitted(String text){
@@ -120,6 +121,7 @@ public class FrameEnseignat extends JFrame{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
+	
 	//Menu Bar
 	private JMenuBar createMenuBar(){
 		JMenuBar menuBar = new JMenuBar();
@@ -158,7 +160,6 @@ public class FrameEnseignat extends JFrame{
 
 				int action = JOptionPane.showConfirmDialog(FrameEnseignat.this, 
 						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
-				System.out.println(JOptionPane.getRootFrame());
 				if (action == JOptionPane.OK_OPTION){
 					FrameEnseignat.this.controller.shutDown();
 					FrameEnseignat.this.dispose();

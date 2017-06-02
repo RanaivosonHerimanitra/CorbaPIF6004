@@ -79,6 +79,7 @@ public class Login {
 
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				if(userField.getText().equals(login) && passwordField.getText().equals(pass)){
 					Menu a = new Menu();

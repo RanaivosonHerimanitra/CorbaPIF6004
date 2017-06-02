@@ -18,6 +18,10 @@ import javax.swing.KeyStroke;
 import controller.ControllerEtudiant;
 
 public class FrameEtudiantUser extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
 	private FormPanelEtudiant formEtudiant;
 	private TablePanelEtudiant tablePanelEtudiant;
@@ -47,13 +51,12 @@ public class FrameEtudiantUser extends JFrame {
 		 * update each time a Prof is added on db
 		 */
 		formEtudiant.setFormListener(new FormListenerEtudiant() {
-			
+
 			@Override
 			public void formEventOccuredAddEtudiant(FormEventEtudiant e) {
 				try {
 					controllerEtudiant.addEtudiant(e);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				tablePanelEtudiant.setData(controllerEtudiant.getEtudiants());
@@ -64,28 +67,29 @@ public class FrameEtudiantUser extends JFrame {
 			@Override
 			public void formEventOccuredUpdateEtudiant(FormEventEtudiant e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void formEventOccuredCancelEtudiant() {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
 
-		//add(formEtudiant,BorderLayout.WEST);
 		add(toolbar,BorderLayout.NORTH);
 		add(tablePanelEtudiant,BorderLayout.CENTER);
 
 		setMinimumSize(new Dimension(1000,400));
 		setSize(600,500);
 		setLocationRelativeTo(null);
-		
+
 		setVisible(true);
 	}
+	
 	//Menu Bar
+	@SuppressWarnings("deprecation")
 	private JMenuBar createMenuBar(){
 		JMenuBar menuBar = new JMenuBar();
 
@@ -108,7 +112,6 @@ public class FrameEtudiantUser extends JFrame {
 		showFormItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ev) {
 				JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) ev.getSource();
-
 				formEtudiant.setVisible(menuItem.isSelected());
 			}
 		});
@@ -123,7 +126,7 @@ public class FrameEtudiantUser extends JFrame {
 				int action = JOptionPane.showConfirmDialog(FrameEtudiantUser.this, 
 						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				if (action == JOptionPane.OK_OPTION){
-					//System.exit(0);
+					FrameEtudiantUser.this.controllerEtudiant.shutDown();
 					FrameEtudiantUser.this.dispose();
 				}
 
@@ -131,5 +134,5 @@ public class FrameEtudiantUser extends JFrame {
 		});
 		return menuBar;
 	}
-	
+
 }
