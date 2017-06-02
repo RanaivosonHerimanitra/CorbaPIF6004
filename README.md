@@ -25,3 +25,8 @@ on the cli, go to source directory(src) of the project then:
 Go to the bin folder of your `jdk` installation then (you may use any port number ):
 
  `$ start orbd -ORBInitialPort 1000`
+ 
+ Then right click on `PersonnelServer` Java class to start the server as in the image above:
+ 
+  <img src="img/startserver.png" >
+ 

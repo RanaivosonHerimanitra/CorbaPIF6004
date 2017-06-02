@@ -31,9 +31,11 @@ public class ControllerEnseignant {
 			// get the root naming context
 			org.omg.CORBA.Object objRef = 
 					orb.resolve_initial_references("NameService");
+			
 			// Use NamingContextExt instead of NamingContext. This is 
 			// part of the Interoperable naming Service.  
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+			
 
 			// resolve the Object Reference in Naming
 			String name = "Personnel";
