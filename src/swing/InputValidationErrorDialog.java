@@ -61,24 +61,31 @@ public class InputValidationErrorDialog
 	 * ensure some key fields are not empty during data entry
 	 */
 	public static boolean areFieldEmpty (String nom, String prenom) {
-	   if (!nom.isEmpty() & !prenom.isEmpty() ) {
-		   return false;
-	   } else {
-		   showErrorMsg("le nom et prenom ne doivent pas etre vides");
-		   return true;
-	   }
+		if (!nom.isEmpty() & !prenom.isEmpty() ) {
+			return false;
+		} else {
+			showErrorMsg("le nom et prenom ne doivent pas etre vides");
+			return true;
+		}
 	}
 	/*
 	 * surcharge
 	 */
-	public static boolean areFieldEmpty (String nom, String prenom,String matricule) {
-		   if (!nom.isEmpty() & !prenom.isEmpty()  & !matricule.isEmpty() ) {
-			   return false;
-		   } else {
-			   showErrorMsg("le nom,prenom et matricule ne doivent pas etre vides");
-			   return true;
-		   }
+	public static boolean areFieldEmpty (String nom, String prenom,String matricule, String domain) {
+		if (!nom.isEmpty() & !prenom.isEmpty()  & !matricule.isEmpty() & !domain.isEmpty()) {
+			return false;
+		} else {
+			showErrorMsg("le nom,prenom, domaine et matricule ne doivent pas etre vides");
+			return true;
 		}
+	}
 	
-	
+	public static boolean areFieldEmpty (String domain) {
+		if (!domain.isEmpty())
+			   return false;
+		   
+		showErrorMsg("le domaine ne doit pas etre vide");
+			   return true;
+	}
+
 }

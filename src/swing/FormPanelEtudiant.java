@@ -82,7 +82,7 @@ public class FormPanelEtudiant extends JPanel {
 				FormEventEtudiant ev = new FormEventEtudiant(this,nom,prenom,courriel,domaine,matricule);
 				if(formListener !=null)
 					//input checking validation :
-					if ( !InputValidationErrorDialog.areFieldEmpty(nom, prenom,matricule) & InputValidationErrorDialog.isEmailValid(courriel)  )
+					if ( !InputValidationErrorDialog.areFieldEmpty(nom, prenom,matricule,domaine) & InputValidationErrorDialog.isEmailValid(courriel)  )
 						formListener.formEventOccuredAddEtudiant(ev);
 			}	
 		});
@@ -109,7 +109,7 @@ public class FormPanelEtudiant extends JPanel {
 				FormEventEtudiant ev = new FormEventEtudiant(this,nom,prenom,courriel,domaine,matricule);
 				if(formListener !=null)
 					//input checking validation :
-					if ( !InputValidationErrorDialog.areFieldEmpty(nom, prenom,matricule)  &
+					if ( !InputValidationErrorDialog.areFieldEmpty(nom, prenom,matricule,domaine)  &
 							InputValidationErrorDialog.isEmailValid(courriel)  )
 						formListener.formEventOccuredUpdateEtudiant(ev);
 			}

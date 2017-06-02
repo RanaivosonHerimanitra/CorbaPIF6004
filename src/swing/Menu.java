@@ -23,27 +23,7 @@ public class Menu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-  /*
-	 public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Menu frame = new Menu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-  //*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public Menu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -85,7 +65,7 @@ public class Menu extends JFrame {
 		JMenuItem mntmEtudiant = new JMenuItem("Etudiant");
 		mnNouveau.add(mntmEtudiant);
 
-		//Action Recherche
+		//Action Recherche Enseignant
 		rechProf.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				FrameRechercheParDomaine fr;
@@ -101,6 +81,17 @@ public class Menu extends JFrame {
 			
 		});
 
+		//action recherche Etudiant
+		
+		rechEtud.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				FrameRechercheEtudiant fe = new FrameRechercheEtudiant();
+				fe.setVisible(true);
+				
+			}
+			
+		});
+		
 		mntmEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameEtudiant fe = new FrameEtudiant();
