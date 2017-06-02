@@ -34,6 +34,7 @@ public class FormPanelEtudiant extends JPanel {
 		//JButton
 		private JButton insertBtn;
 		private JButton updateBtn;
+		private JButton cancelBtn;
 		
 		private FormListenerEtudiant formListener;
 		
@@ -55,8 +56,10 @@ public class FormPanelEtudiant extends JPanel {
 			matriculeField = new JTextField(10);
 			
 			insertBtn = new JButton("Insérer");
+			cancelBtn = new JButton("Annuler");
 			updateBtn = new JButton("Modifier");
 			updateBtn.setEnabled(false);
+			updateBtn.setVisible(false);
 			insertBtn.setMnemonic(KeyEvent.VK_0);
 			nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 			nomLabel.setLabelFor(nomField);
@@ -177,12 +180,13 @@ public class FormPanelEtudiant extends JPanel {
 			gc.insets = new Insets(0,0,0,5);
 			gc.anchor = GridBagConstraints.LINE_END;
 			add(insertBtn,gc);
+			add(updateBtn,gc);
 			
 			gc.gridy =6;
 			gc.gridx =1;
 			gc.insets = new Insets(0,0,0,0);
 			gc.anchor = GridBagConstraints.CENTER;
-			add(updateBtn,gc);
+			add(cancelBtn,gc);
 			
 		}
 		
@@ -217,6 +221,13 @@ public class FormPanelEtudiant extends JPanel {
 
 		public void setMatricul(String matricul) {
 			matriculeField.setText(matricul);
+		}
+		
+		public void changeButtons(){
+			insertBtn.setEnabled(!insertBtn.isEnabled());
+			insertBtn.setVisible(!insertBtn.isVisible());
+			updateBtn.setEnabled(!updateBtn.isEnabled());
+			updateBtn.setVisible(!updateBtn.isVisible());
 		}
 		
 }
