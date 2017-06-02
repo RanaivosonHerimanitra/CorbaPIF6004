@@ -63,7 +63,20 @@ public class Menu extends JFrame {
 
 		JMenu mnNouveau = new JMenu("Nouveau");
 		mnFichier.add(mnNouveau);
+<<<<<<< Updated upstream
 
+=======
+		
+		JMenu mnRecherche = new JMenu("Rechercher");
+		mnFichier.add(mnRecherche);
+		
+		JMenuItem parDomaine = new JMenuItem("Par Domaine d'activité");
+		mnRecherche.add(parDomaine);
+		
+		JMenuItem parNomPrenom = new JMenuItem("Par nom & Prénom");
+		mnRecherche.add(parNomPrenom);
+		
+>>>>>>> Stashed changes
 		JMenuItem mnExit = new JMenuItem("Quitter");
 		mnFichier.add(mnExit);
 
@@ -72,7 +85,26 @@ public class Menu extends JFrame {
 
 		JMenuItem mntmEtudiant = new JMenuItem("Etudiant");
 		mnNouveau.add(mntmEtudiant);
+<<<<<<< Updated upstream
 
+=======
+		
+		//Action Recherche
+		parDomaine.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				FrameRechercheParDomaine fr;
+				try {
+					fr = new FrameRechercheParDomaine();
+					fr.setVisible(true);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+			
+		});
+>>>>>>> Stashed changes
 		mntmEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameEtudiant fe = new FrameEtudiant();
