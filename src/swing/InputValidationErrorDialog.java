@@ -56,4 +56,27 @@ public class InputValidationErrorDialog
 		showErrorMsg("n'est pas un numéro de post valide! un numéro de post valide contient 4 chiffres");
 		return false;
 	}
+	/*
+	 * ensure some key fields are not empty during data entry
+	 */
+	public static boolean areFieldEmpty (String nom, String prenom) {
+	   if (!nom.isEmpty() & !prenom.isEmpty() ) {
+		   return false;
+	   } else {
+		   showErrorMsg("le nom et prenom ne doivent pas etre vides");
+		   return true;
+	   }
+	}
+	/*
+	 * surcharge
+	 */
+	public static boolean areFieldEmpty (String nom, String prenom,String matricule) {
+		   if (!nom.isEmpty() & !prenom.isEmpty()  & !matricule.isEmpty() ) {
+			   return false;
+		   } else {
+			   showErrorMsg("le nom,prenom et matricule ne doivent pas etre vides");
+			   return true;
+		   }
+		}
+	
 }
