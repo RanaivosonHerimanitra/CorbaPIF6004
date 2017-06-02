@@ -43,9 +43,6 @@ public class Toolbar extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		JButton clicked = (JButton)e.getSource();
 
-	
-
-
 		if(clicked == searchBtn) {
 			if(textListener != null)
 				textListener.textEmitted("Recherche\n");
