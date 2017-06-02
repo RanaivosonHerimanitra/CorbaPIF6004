@@ -82,8 +82,8 @@ public class TablePanelEtudiant extends JPanel{
 
 	public Etudiant getSelectedEtudiant(int selectedRow) {
 		return new Etudiant(new PersonInfo((String)tableModel.getValueAt(selectedRow, 0),
-				(String)tableModel.getValueAt(selectedRow, 1),(String)tableModel.getValueAt(selectedRow, 2),
-				(String)tableModel.getValueAt(selectedRow, 3)),(String)tableModel.getValueAt(selectedRow, 4));
+				(String)tableModel.getValueAt(selectedRow, 1),(String)tableModel.getValueAt(selectedRow, 3),
+				(String)tableModel.getValueAt(selectedRow, 2)),(String)tableModel.getValueAt(selectedRow, 4));
 	}
 
 	public void setEtudiantTableListener(EtudiantTableListener listener){
