@@ -6,7 +6,6 @@ import org.omg.CORBA.ORB;
 
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
-import PersonnelAPP.PersonInfo;
 import PersonnelAPP.PersonnelPOA;
 
 public class PersonnelServant extends PersonnelPOA {

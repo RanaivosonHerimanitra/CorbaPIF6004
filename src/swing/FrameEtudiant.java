@@ -51,6 +51,7 @@ public class FrameEtudiant extends JFrame {
 				@Override
 				public void rowUpdate(int row) {
 					Etudiant e=tablePanelEtudiant.getSelectedEtudiant(row);
+					formEtudiant.changeButtons();
 					formEtudiant.setNom(e.p.nom);
 					formEtudiant.setPrenom(e.p.prenom);
 					formEtudiant.setCourriel(e.p.mail);

@@ -33,7 +33,7 @@ public class FormPanelEnseignant extends JPanel{
 	private JTextField posteField;
 	//JButton
 	private JButton insertBtn;
-	private JButton deleteBtn;
+	private JButton updateBtn;
 
 	private FormListener formListener;
 
@@ -57,7 +57,8 @@ public class FormPanelEnseignant extends JPanel{
 		posteField = new JTextField(10);
 
 		insertBtn = new JButton("Insérer");
-		deleteBtn = new JButton("Supprimer");
+		updateBtn = new JButton("Modifier");
+		updateBtn.setEnabled(false);
 		//searchBtn = new JButton("Rechercheer");
 		//displayBtn = new JButton("Afficher");
 
@@ -210,7 +211,7 @@ public class FormPanelEnseignant extends JPanel{
 		gc.gridx =1;
 		gc.insets = new Insets(0,0,0,0);
 		gc.anchor = GridBagConstraints.CENTER;
-		add(deleteBtn,gc);
+		add(updateBtn,gc);
 
 		/*gc.gridy =6;
 		gc.gridx =2;
