@@ -63,9 +63,6 @@ public class Menu extends JFrame {
 
 		JMenu mnNouveau = new JMenu("Nouveau");
 		mnFichier.add(mnNouveau);
-<<<<<<< Updated upstream
-
-=======
 		
 		JMenu mnRecherche = new JMenu("Rechercher");
 		mnFichier.add(mnRecherche);
@@ -76,7 +73,7 @@ public class Menu extends JFrame {
 		JMenuItem parNomPrenom = new JMenuItem("Par nom & Prénom");
 		mnRecherche.add(parNomPrenom);
 		
->>>>>>> Stashed changes
+
 		JMenuItem mnExit = new JMenuItem("Quitter");
 		mnFichier.add(mnExit);
 
@@ -85,9 +82,6 @@ public class Menu extends JFrame {
 
 		JMenuItem mntmEtudiant = new JMenuItem("Etudiant");
 		mnNouveau.add(mntmEtudiant);
-<<<<<<< Updated upstream
-
-=======
 		
 		//Action Recherche
 		parDomaine.addActionListener(new ActionListener(){
@@ -104,7 +98,7 @@ public class Menu extends JFrame {
 			}
 			
 		});
->>>>>>> Stashed changes
+		
 		mntmEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameEtudiant fe = new FrameEtudiant();
