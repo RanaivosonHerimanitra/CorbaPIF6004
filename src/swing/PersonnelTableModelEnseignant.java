@@ -25,7 +25,7 @@ public class PersonnelTableModelEnseignant extends AbstractTableModel {
 	public void setData(Enseignant[] enseignants){
 		this.db = enseignants;
 	}
-	
+
 	@Override
 	public int getColumnCount() {
 		return 6;
@@ -57,5 +57,7 @@ public class PersonnelTableModelEnseignant extends AbstractTableModel {
 		}
 		return null;
 	}
+
+	
 
 }

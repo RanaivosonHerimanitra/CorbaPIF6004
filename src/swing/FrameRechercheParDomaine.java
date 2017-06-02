@@ -83,6 +83,12 @@ public class FrameRechercheParDomaine extends JFrame {
 				tablePanel.refresh();
 				formRechDom.clearfileds();
 			}
+
+			@Override
+			public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 
 		add(formRechDom,BorderLayout.WEST);

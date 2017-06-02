@@ -111,7 +111,7 @@ public class EnseignantController {
 		}
 	}
 	public ArrayList<Enseignant> getEnseignant(String domain) throws SQLException {
-		String sql = "SELECT * FROM enseignant WHERE domaine_act_ens_ens=?";
+		String sql = "SELECT * FROM enseignant WHERE domaine_act_ens=?";
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1,domain);
 		ResultSet rs= statement.executeQuery(sql);

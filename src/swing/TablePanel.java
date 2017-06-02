@@ -75,6 +75,7 @@ public class TablePanel extends JPanel{
 	public void setData(Enseignant[] enseignants){
 		tableModel.setData(enseignants);
 	}
+	
 
 	public void refresh(){
 		tableModel.fireTableDataChanged();
@@ -90,5 +91,6 @@ public class TablePanel extends JPanel{
 				(String)tableModel.getValueAt(selectedRow, 2)),(long)tableModel.getValueAt(selectedRow, 5),
 				(long)tableModel.getValueAt(selectedRow, 4));
 	}
+    
 
 }

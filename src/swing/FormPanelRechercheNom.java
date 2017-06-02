@@ -39,10 +39,10 @@ public class FormPanelRechercheNom extends JPanel {
 			 * addition Herimanitra, 16h, 06 02 2017
 			 */
 			private FormListener formListener;
-			private FormPanelEnseignant formPanelEnseignant;
+			private FormPanelEnseignant formPanelEnseignant= new FormPanelEnseignant();
 			ControllerEnseignant controller = new ControllerEnseignant();
 			TablePanel tablePanel = new TablePanel();
-			FormPanelEnseignant formPanel = new FormPanelEnseignant();
+		
 			//
 
 			public FormPanelRechercheNom(){
@@ -79,9 +79,9 @@ public class FormPanelRechercheNom extends JPanel {
 							if ( x.p.nom.equals(nomField) & x.p.prenom.equals(prenomField) )
 							{
 								JOptionPane.showMessageDialog(tablePanel, "enseignant trouv…");
-								tablePanel.setData(controller.getProfesseurs());
+								//tablePanel.setData( (Enseignant[]) x );
 								tablePanel.refresh();
-								formPanel.clearfileds();
+								formPanelEnseignant.clearfileds();
 							 }
 						}
 					}
@@ -108,29 +108,26 @@ public class FormPanelRechercheNom extends JPanel {
 					public void formEventOccuredSearchByDomain(String string) {
 						// TODO Auto-generated method stub
 						
+					}
+
+					@Override
+					public void formEventOccuredSearchByNomPrenom(String nom, String prenom) {
+						
+						System.out.println("enseignant trouve");
 					}});
 				searchBtn.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
 						String nom= nomField.getText();
 						String prenom = prenomField.getText();
-						FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,"","",0,0);
+						//FormEventEnseignat ev = new FormEventEnseignat(this,nom,prenom,courriel,domaine,phone,poste);
 						if(formListener !=null)
 						{
-							try 
-							{
-								//input checking validation :
-								if (!InputValidationErrorDialog.areFieldEmpty(nom, prenom) )
-										
-												formListener.formEventOccured(ev);
-
-							} catch (SQLException e1) {
-
-								e1.printStackTrace();
-							}
+							formListener.formEventOccuredSearchByNomPrenom(nom, prenom);
 						}
 					}
 
 				});
+			
 
 
 			}
