@@ -160,7 +160,6 @@ public class PersonnelServant extends PersonnelPOA {
 			tabEnseignant = new Enseignant[ListEnseignant.size()];
 			ListEnseignant.toArray(tabEnseignant);
 		}
-		System.out.println(tabEnseignant[0].p.domain);
 
 		return tabEnseignant;
 	}
