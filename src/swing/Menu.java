@@ -70,6 +70,8 @@ public class Menu extends JFrame {
 					fr = new FrameRechercheEnseignant();
 					fr.setVisible(true);
 				} catch (SQLException e1) {
+					JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+							"Inane error",JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 				
