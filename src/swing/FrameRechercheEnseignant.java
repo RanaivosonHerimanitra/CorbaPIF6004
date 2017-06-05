@@ -18,28 +18,28 @@ import javax.swing.KeyStroke;
 import PersonnelAPP.Enseignant;
 import controller.ControllerEnseignant;
 
-public class FrameRechercheParDomaine extends JFrame {
+public class FrameRechercheEnseignant extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
-	FormPanelRechercheDomaine formRechDom;
-	FormPanelRechercheNom formRechNom;
-	private TablePanel tablePanel;
+	FormPanelRechercheDomaineEnseignant formRechDom;
+	FormPanelRechercheNomEnseignant formRechNom;
+	private TablePanelEnseignant tablePanel;
 	private Toolbar toolbar;
 
 	private ControllerEnseignant controller;
 
-	public FrameRechercheParDomaine() throws SQLException{
+	public FrameRechercheEnseignant() throws SQLException{
 		super("Infos Enseignant");
 		controller = new ControllerEnseignant();
 		setLayout(new BorderLayout());
 
 		textPanel = new TextPanel();
-		formRechDom = new FormPanelRechercheDomaine();
-		formRechNom = new FormPanelRechercheNom();
-		tablePanel = new TablePanel();
+		formRechDom = new FormPanelRechercheDomaineEnseignant();
+		formRechNom = new FormPanelRechercheNomEnseignant();
+		tablePanel = new TablePanelEnseignant();
 		toolbar = new Toolbar();
 
 
@@ -54,7 +54,7 @@ public class FrameRechercheParDomaine extends JFrame {
 		/*
 		 * handle all events related to search by name surname
 		 */
-		formRechNom.setFormListener(new FormListener() {
+		formRechNom.setFormListener(new FormListenerEnseignant() {
 
 			@Override
 			public void formEventOccured(FormEventEnseignat e) throws SQLException {
@@ -113,7 +113,7 @@ public class FrameRechercheParDomaine extends JFrame {
 
 		}});
 
-		formRechDom.setFormListener(new FormListener() {
+		formRechDom.setFormListener(new FormListenerEnseignant() {
 
 			@Override
 			public void formEventOccuredUpdateEnseignant(FormEventEnseignat e) {
@@ -225,12 +225,12 @@ public class FrameRechercheParDomaine extends JFrame {
 
 			public void actionPerformed(ActionEvent arg0) {
 
-				int action = JOptionPane.showConfirmDialog(FrameRechercheParDomaine.this, 
+				int action = JOptionPane.showConfirmDialog(FrameRechercheEnseignant.this, 
 						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				System.out.println(JOptionPane.getRootFrame());
 				if (action == JOptionPane.OK_OPTION){
-					FrameRechercheParDomaine.this.controller.shutDown();
-					FrameRechercheParDomaine.this.dispose();
+					FrameRechercheEnseignant.this.controller.shutDown();
+					FrameRechercheEnseignant.this.dispose();
 				}
 
 			}

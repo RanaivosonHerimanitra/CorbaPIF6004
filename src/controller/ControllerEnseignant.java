@@ -63,13 +63,13 @@ public class ControllerEnseignant {
 		String domaine = ev.getDomaine();
 		long phone = ev.getPhone();
 		long poste = ev.getPoste();
-		//*
+		
 		if(!personnelImpl.chercherEnseignant(nom, prenom).p.nom.equals("")){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette enseignat existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
-		//*/
+		
 		Enseignant enseignant = new Enseignant(new PersonInfo(nom,prenom,courriel,domaine),phone,poste) ;
 		personnelImpl.creerEnseignant(enseignant);
 		return true;

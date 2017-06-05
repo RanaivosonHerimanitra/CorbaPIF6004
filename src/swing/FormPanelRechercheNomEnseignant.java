@@ -7,20 +7,21 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
-import PersonnelAPP.Enseignant;
 import controller.ControllerEnseignant;
 
-public class FormPanelRechercheNom extends JPanel {
+public class FormPanelRechercheNomEnseignant extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//JLabel
 	private JLabel nomLabel;
 	private JLabel prenomLabel;
@@ -38,14 +39,11 @@ public class FormPanelRechercheNom extends JPanel {
 	/*
 	 * addition Herimanitra, 16h, 06 02 2017
 	 */
-	private FormListener formListener;
-	private FormPanelEnseignant formPanelEnseignant= new FormPanelEnseignant();
+	private FormListenerEnseignant formListener;
 	ControllerEnseignant controller = new ControllerEnseignant();
-	TablePanel tablePanel = new TablePanel();
+	TablePanelEnseignant tablePanel = new TablePanelEnseignant();
 
-	//
-
-	public FormPanelRechercheNom(){
+	public FormPanelRechercheNomEnseignant(){
 		Dimension dim = getPreferredSize();
 		dim.width=250;
 		setPreferredSize(dim);
@@ -142,19 +140,13 @@ public class FormPanelRechercheNom extends JPanel {
 		gc.anchor = GridBagConstraints.CENTER;
 		add(cancelBtn,gc);
 
-		/*gc.gridy =6;
-				gc.gridx =2;
-				gc.insets = new Insets(0,0,0,0);
-				gc.anchor = GridBagConstraints.LINE_END;
-				add(resetBtn,gc);*/
 	}
 
-	public void setFormListener(FormListener listener){
+	public void setFormListener(FormListenerEnseignant listener){
 		this.formListener =listener;
 	}
 
 	public void clearfileds(){
-
 		nomField.setText("");
 		prenomField.setText("");
 	}

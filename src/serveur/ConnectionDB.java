@@ -1,7 +1,7 @@
 /*
  * classe pour les credentials de la connection a la base de donnees mysql
  */
-package ClientServeur;
+package serveur;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

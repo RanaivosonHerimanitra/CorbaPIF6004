@@ -10,12 +10,11 @@ import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 
-import swing.FormEventEtudiant;
-import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelHelper;
+import swing.FormEventEtudiant;
 
 public class ControllerEtudiant {
 	private static Personnel  personnelImpl ;
@@ -62,13 +61,13 @@ public class ControllerEtudiant {
 		String courriel = ev.getCourriel();
 		String domaine = ev.getDomaine();
 		String matricule = ev.getMatricule();
-		//*
+		
 		if(!personnelImpl.chercherEtudiant(nom, prenom).p.nom.equals("")){
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur! Cette etudiant existe déja!",
 					"Inane warning",JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
-		//*/
+		
 		Etudiant etudiant = new Etudiant(new PersonInfo(nom,prenom,courriel,domaine),matricule) ;
 		personnelImpl.creerEtudiant(etudiant);
 		return true;

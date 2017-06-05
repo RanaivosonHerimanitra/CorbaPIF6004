@@ -21,22 +21,6 @@ public class MenuUser extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuUser frame = new MenuUser();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
 	 * Create the frame.
 	 */
 	public MenuUser() {
@@ -64,12 +48,11 @@ public class MenuUser extends JFrame {
 		JMenuItem mntmEnseignant = new JMenuItem("Afficher Enseignant");
 		mntmEnseignant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrameRechercheParDomaine fer;
+				FrameRechercheEnseignant fer;
 				try {
-					fer = new FrameRechercheParDomaine();
+					fer = new FrameRechercheEnseignant();
 					fer.setVisible(true);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

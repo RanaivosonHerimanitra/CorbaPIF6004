@@ -52,9 +52,6 @@ public class Menu extends JFrame {
 		mnRecherche.add(rechProf);
 		JMenuItem rechEtud = new JMenuItem("Etudiant");
 		mnRecherche.add(rechEtud);
-		//JMenuItem parNomPrenom = new JMenuItem("Par nom & Prénom");
-		//mnRecherche.add(parNomPrenom);
-		
 
 		JMenuItem mnExit = new JMenuItem("Quitter");
 		mnFichier.add(mnExit);
@@ -68,12 +65,11 @@ public class Menu extends JFrame {
 		//Action Recherche Enseignant
 		rechProf.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				FrameRechercheParDomaine fr;
+				FrameRechercheEnseignant fr;
 				try {
-					fr = new FrameRechercheParDomaine();
+					fr = new FrameRechercheEnseignant();
 					fr.setVisible(true);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				

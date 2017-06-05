@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
-public class FormPanelRechercheDomaine extends JPanel {
+public class FormPanelRechercheDomaineEnseignant extends JPanel {
 
 	/**
 	 * 
@@ -31,9 +31,9 @@ public class FormPanelRechercheDomaine extends JPanel {
 	//JButton
 	private JButton searchBtn;
 	private JButton cancelBtn;
-	private FormListener formListener;
+	private FormListenerEnseignant formListener;
 
-	public FormPanelRechercheDomaine(){
+	public FormPanelRechercheDomaineEnseignant(){
 		Dimension dim = getPreferredSize();
 		dim.width=250;
 		setPreferredSize(dim);
@@ -113,21 +113,14 @@ public class FormPanelRechercheDomaine extends JPanel {
 		gc.anchor = GridBagConstraints.CENTER;
 		add(cancelBtn,gc);
 
-		/*gc.gridy =6;
-			gc.gridx =2;
-			gc.insets = new Insets(0,0,0,0);
-			gc.anchor = GridBagConstraints.LINE_END;
-			add(resetBtn,gc);*/
 	}
 
-	public void setFormListener(FormListener listener){
+	public void setFormListener(FormListenerEnseignant listener){
 		this.formListener =listener;
 	}
 
 	public void clearfileds(){
-
 		domaineField.setText("");
-
 	}
 
 	public void setDomaine(String domaine){

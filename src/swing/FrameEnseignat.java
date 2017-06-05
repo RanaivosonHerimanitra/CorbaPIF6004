@@ -22,7 +22,6 @@ import javax.swing.KeyStroke;
 import PersonnelAPP.Enseignant;
 import controller.ControllerEnseignant;
 
-//modif
 public class FrameEnseignat extends JFrame{
 	/**
 	 * 
@@ -30,7 +29,7 @@ public class FrameEnseignat extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private TextPanel textPanel;
 	private FormPanelEnseignant formPanel;
-	private TablePanel tablePanel;
+	private TablePanelEnseignant tablePanel;
 	private Toolbar toolbar;
 	private Enseignant old;
 
@@ -42,7 +41,7 @@ public class FrameEnseignat extends JFrame{
 		
 		textPanel = new TextPanel();
 		formPanel = new FormPanelEnseignant();
-		tablePanel = new TablePanel();
+		tablePanel = new TablePanelEnseignant();
 		toolbar = new Toolbar();
 
 		tablePanel.setData(controller.getProfesseurs());
@@ -79,7 +78,7 @@ public class FrameEnseignat extends JFrame{
 		/*
 		 * update each time a Prof is added on db
 		 */
-		formPanel.setFormListener(new FormListener(){
+		formPanel.setFormListener(new FormListenerEnseignant(){
 			@Override
 			public void formEventOccured(FormEventEnseignat e) throws SQLException {
 				if (controller.addEnseignant(e)){

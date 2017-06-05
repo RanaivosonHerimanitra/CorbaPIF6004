@@ -1,4 +1,4 @@
-package ClientServeur;
+package serveur;
 
 import java.util.Properties;
 
@@ -11,7 +11,6 @@ import org.omg.PortableServer.POAHelper;
 
 import PersonnelAPP.Personnel;
 import PersonnelAPP.PersonnelHelper;
-
 
 public class PersonnelServer 
 {

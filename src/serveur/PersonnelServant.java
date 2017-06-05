@@ -1,4 +1,4 @@
-package ClientServeur;
+package serveur;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -71,10 +71,8 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			ListEnseignant = enseignantController.getEnseignant();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("erreur affichage");
 			e.printStackTrace();
-			//return null;
 		}
 		if (ListEnseignant!=null){
 			tabEnseignant = new Enseignant[ListEnseignant.size()];
@@ -92,7 +90,6 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			ListEtudiants = etudiantController.getStudents();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -109,7 +106,6 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			etudiantController.delete(e);
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}
@@ -119,7 +115,6 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			enseignantController.delete(e);
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -130,7 +125,6 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			enseignantController.update(e, newEnseignant);
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -141,7 +135,6 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			etudiantController.update(e, newEtudiant);
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}		
 	}
@@ -153,7 +146,6 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			ListEnseignant = enseignantController.getEnseignant(domain);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (ListEnseignant!=null){
@@ -172,7 +164,6 @@ public class PersonnelServant extends PersonnelPOA {
 		try {
 			ListEtudiants = etudiantController.getStudents(domain);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -1,7 +1,7 @@
 /*
  * contains all crud method for Enseignant
  */
-package ClientServeur;
+package serveur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

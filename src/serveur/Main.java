@@ -1,4 +1,4 @@
-package ClientServeur;
+package serveur;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;

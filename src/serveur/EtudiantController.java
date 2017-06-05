@@ -1,7 +1,7 @@
 /*
  * contains all crud method for Etudiant
  */
-package ClientServeur;
+package serveur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import PersonnelAPP.Enseignant;
 import PersonnelAPP.Etudiant;
 import PersonnelAPP.PersonInfo;
 
@@ -92,7 +91,6 @@ public class EtudiantController {
 				return e;
 			}
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return new Etudiant(new PersonInfo("","","",""),"");
 		}

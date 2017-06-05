@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import PersonnelAPP.Enseignant;
 import PersonnelAPP.PersonInfo;
 
-public class TablePanel extends JPanel{
+public class TablePanelEnseignant extends JPanel{
 
 	/**
 	 * 
@@ -27,7 +27,7 @@ public class TablePanel extends JPanel{
 	private EnseignantTableListener enseignantListener;
 	private JPopupMenu popup;
 
-	public TablePanel(){
+	public TablePanelEnseignant(){
 		tableModel = new PersonnelTableModelEnseignant();
 		table = new JTable(tableModel);
 		popup = new JPopupMenu();

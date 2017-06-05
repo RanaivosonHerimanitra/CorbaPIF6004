@@ -42,7 +42,7 @@ public class FormPanelEnseignant extends JPanel{
 	private JButton insertBtn;
 	private JButton updateBtn;
 	private JButton cancelBtn;
-	private FormListener formListener;
+	private FormListenerEnseignant formListener;
 
 	public FormPanelEnseignant(){
 		Dimension dim = getPreferredSize();
@@ -68,8 +68,6 @@ public class FormPanelEnseignant extends JPanel{
 		cancelBtn = new JButton("Annuler");
 		updateBtn.setEnabled(false);
 		updateBtn.setVisible(false);
-		//searchBtn = new JButton("Rechercheer");
-		//displayBtn = new JButton("Afficher");
 
 		insertBtn.setMnemonic(KeyEvent.VK_0);
 		nomLabel.setDisplayedMnemonic(KeyEvent.VK_N);
@@ -257,6 +255,7 @@ public class FormPanelEnseignant extends JPanel{
 		gc.insets = new Insets(0,0,0,0);
 		gc.anchor = GridBagConstraints.LINE_START;
 		add(posteField,gc);
+		
 		//derniere ligne
 		gc.weightx = 1;
 		gc.weighty = 2.0;
@@ -272,14 +271,9 @@ public class FormPanelEnseignant extends JPanel{
 		gc.anchor = GridBagConstraints.CENTER;
 		add(cancelBtn,gc);
 
-		/*gc.gridy =6;
-		gc.gridx =2;
-		gc.insets = new Insets(0,0,0,0);
-		gc.anchor = GridBagConstraints.LINE_END;
-		add(resetBtn,gc);*/
 	}
 
-	public void setFormListener(FormListener listener){
+	public void setFormListener(FormListenerEnseignant listener){
 		this.formListener =listener;
 	}
 
