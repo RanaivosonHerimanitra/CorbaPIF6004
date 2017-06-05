@@ -72,6 +72,7 @@ public class Menu extends JFrame {
 				} catch (SQLException e1) {
 					JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
 							"Inane error",JOptionPane.ERROR_MESSAGE);
+					System.exit(0);
 					e1.printStackTrace();
 				}
 				
@@ -83,8 +84,15 @@ public class Menu extends JFrame {
 		
 		rechEtud.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				FrameRechercheEtudiant fe = new FrameRechercheEtudiant();
-				fe.setVisible(true);
+				try {
+					FrameRechercheEtudiant fe = new FrameRechercheEtudiant();
+					fe.setVisible(true);
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+							"Inane error",JOptionPane.ERROR_MESSAGE);
+					System.exit(0);
+					e1.printStackTrace();
+				}
 				
 			}
 			
@@ -92,8 +100,15 @@ public class Menu extends JFrame {
 		
 		mntmEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrameEtudiant fe = new FrameEtudiant();
-				fe.setVisible(true);
+				try {
+					FrameEtudiant fe = new FrameEtudiant();
+					fe.setVisible(true);
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+							"Inane error",JOptionPane.ERROR_MESSAGE);
+					System.exit(0);
+					e1.printStackTrace();
+				}
 			}
 		});
 		mntmEnseignant.addActionListener(new ActionListener() {
@@ -102,6 +117,9 @@ public class Menu extends JFrame {
 					FrameEnseignat fes = new FrameEnseignat();
 					fes.setVisible(true);
 				} catch (SQLException e1) {
+					JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+							"Inane error",JOptionPane.ERROR_MESSAGE);
+					System.exit(1);
 					e1.printStackTrace();
 				}
 			}
