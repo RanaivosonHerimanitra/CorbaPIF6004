@@ -1,4 +1,5 @@
-/swing/
 /ClientServeur/
-/controller/
 /PersonnelAPP/
+/PersonnelAPP.idl
+/controller/
+/swing/

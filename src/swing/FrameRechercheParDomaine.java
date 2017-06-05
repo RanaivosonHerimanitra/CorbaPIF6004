@@ -190,9 +190,9 @@ public class FrameRechercheParDomaine extends JFrame {
 
 		JCheckBoxMenuItem showFormItem = new JCheckBoxMenuItem("Recherche par Domaine d'activité");
 		showFormItem.setSelected(true);
-		JCheckBoxMenuItem showFormItem1 = new JCheckBoxMenuItem("Recherche par Nom & Prénom");
-		//showFormItem1.setSelected(true);
 		showMenu.add(showFormItem);
+		JCheckBoxMenuItem showFormItem1 = new JCheckBoxMenuItem("Recherche par Nom & Prénom");
+		showFormItem1.setSelected(true);
 		showMenu.add(showFormItem1);
 		windowMenu.add(showMenu);
 
