@@ -47,8 +47,7 @@ public class ControllerEtudiant {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
 					"Inane error",JOptionPane.ERROR_MESSAGE);
-			System.out.println("ERROR : " + e) ;
-			e.printStackTrace(System.out);
+			System.exit(0);
 		}
 	}
 
