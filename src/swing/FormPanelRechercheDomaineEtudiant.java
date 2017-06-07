@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import controller.InputValidationErrorDialog;
+
 public class FormPanelRechercheDomaineEtudiant extends JPanel {
 	private static final long serialVersionUID = 1L;
 	//JLabel

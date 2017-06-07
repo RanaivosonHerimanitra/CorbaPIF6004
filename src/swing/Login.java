@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controller.InputValidationErrorDialog;
+
 public class Login {
 
 	private JFrame frame;

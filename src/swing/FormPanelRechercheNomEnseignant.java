@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import controller.ControllerEnseignant;
+import controller.InputValidationErrorDialog;
 
 public class FormPanelRechercheNomEnseignant extends JPanel {
 	/**
