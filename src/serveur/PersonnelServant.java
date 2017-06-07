@@ -1,3 +1,7 @@
+/*
+ * la classe encapsulant les methodes definies dans le package controller
+ * pour la distribution dans l'ORB de CORBA
+ */
 package serveur;
 import java.sql.SQLException;
 import java.util.List;
