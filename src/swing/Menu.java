@@ -1,3 +1,7 @@
+/*
+ * menu contenant toutes les options disponibles
+ * dans l'application (recherche, modification, suppresion, ajout,etc.)
+ */
 package swing;
 
 import java.awt.Color;
