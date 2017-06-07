@@ -32,7 +32,10 @@ Ensure you open the terminal with full credential (sudo..., as admin). Go to the
   
 ## Starting with the application:
 
-Run login as Java application
+Run login as Java application and enter the following credentials:
+
+ * Admin: `admin` , `admin`
   
+ * User: `user` , `user`
   
  
