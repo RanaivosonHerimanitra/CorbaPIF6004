@@ -1,5 +1,7 @@
+/*
+ * distribue les methodes CRUD etudiant dans l'ORB de CORBA
+ */
 package controller;
-
 import java.sql.SQLException;
 import java.util.Properties;
 

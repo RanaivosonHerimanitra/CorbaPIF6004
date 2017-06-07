@@ -1,3 +1,7 @@
+/*
+ * Fenetre de connexion
+ * point d'entree à l'application
+ */
 package swing;
 
 import java.awt.EventQueue;
@@ -9,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import controller.InputValidationErrorDialog;
 
 public class Login {
 

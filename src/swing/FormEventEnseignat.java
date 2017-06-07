@@ -7,6 +7,7 @@ public class FormEventEnseignat extends EventObject{
 	/**
 	 * 
 	 */
+	//attributs
 	private static final long serialVersionUID = 1L;
 	private String nom;
 	private String prenom;
@@ -19,7 +20,7 @@ public class FormEventEnseignat extends EventObject{
 		super(source);
 
 	}
-
+	//constructeurs
 	public FormEventEnseignat(Object source,String nom,String prenom,String courriel,String domaine,long phone2,long poste2) {
 		super(source);
 		this.nom=nom;
@@ -29,7 +30,7 @@ public class FormEventEnseignat extends EventObject{
 		this.phone=phone2;
 		this.poste=poste2;
 	}
-
+	//getters & setters
 	public String getNom() {
 		return nom;
 	}

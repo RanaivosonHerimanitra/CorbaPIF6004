@@ -3,7 +3,7 @@
  * Source:https://stackoverflow.com/questions/8204680/java-regex-email
  * http://www.journaldev.com/641/regular-expression-phone-number-validation-in-java
  */
-package swing;
+package controller;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

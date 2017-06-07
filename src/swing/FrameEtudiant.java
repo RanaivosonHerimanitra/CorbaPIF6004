@@ -1,3 +1,6 @@
+/*
+ * UI de l'administrateur pour les operations CRUD
+ */
 package swing;
 
 import java.awt.BorderLayout;

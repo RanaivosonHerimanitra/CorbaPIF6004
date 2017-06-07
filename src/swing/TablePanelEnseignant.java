@@ -1,3 +1,6 @@
+/*
+ * grille d'emplacement des enseignants extrait depuis notre BD MySQL
+ */
 package swing;
 
 import java.awt.BorderLayout;

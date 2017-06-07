@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import controller.InputValidationErrorDialog;
+
 public class FormPanelEnseignant extends JPanel{
 	/**
 	 * 
@@ -43,7 +45,8 @@ public class FormPanelEnseignant extends JPanel{
 	private JButton updateBtn;
 	private JButton cancelBtn;
 	private FormListenerEnseignant formListener;
-
+	
+	//constructeur
 	public FormPanelEnseignant(){
 		Dimension dim = getPreferredSize();
 		dim.width=250;

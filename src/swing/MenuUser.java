@@ -53,6 +53,9 @@ public class MenuUser extends JFrame {
 					fer = new FrameRechercheEnseignant();
 					fer.setVisible(true);
 				} catch (SQLException e1) {
+					JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+							"Inane error",JOptionPane.ERROR_MESSAGE);
+					System.exit(0);
 					e1.printStackTrace();
 				}
 			}
@@ -62,8 +65,15 @@ public class MenuUser extends JFrame {
 		JMenuItem mntmEtudiant = new JMenuItem("Afficher Etudiant");
 		mntmEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrameRechercheEtudiant ret= new FrameRechercheEtudiant();
-				ret.setVisible(true);
+				try {
+					FrameRechercheEtudiant ret= new FrameRechercheEtudiant();
+					ret.setVisible(true);
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(new JFrame(), "Erreur de connexion avec le serveur. Nous nous excusons!",
+							"Inane error",JOptionPane.ERROR_MESSAGE);
+					System.exit(0);
+					e1.printStackTrace();
+				}
 				
 			}
 		});
@@ -74,7 +84,7 @@ public class MenuUser extends JFrame {
 				int action = JOptionPane.showConfirmDialog(MenuUser.this, 
 						"Désirez-vous quitter l'application?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
 				if (action == JOptionPane.OK_OPTION){
-					System.exit(0);
+					System.exit(1);
 				}
 			}
 		});

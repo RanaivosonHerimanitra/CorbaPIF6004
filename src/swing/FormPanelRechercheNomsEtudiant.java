@@ -1,3 +1,6 @@
+/*
+ * classe pour la recherche d'etudiants par nom et prenom
+ */
 package swing;
 
 import java.awt.Dimension;
@@ -14,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+
+import controller.InputValidationErrorDialog;
 
 public class FormPanelRechercheNomsEtudiant extends JPanel {
 	private static final long serialVersionUID = 1L;

@@ -1,3 +1,6 @@
+/*
+ * UI pour la recherche d'enseignant par domaine 
+ */
 package swing;
 
 import java.awt.Dimension;
@@ -13,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+
+import controller.InputValidationErrorDialog;
 
 public class FormPanelRechercheDomaineEnseignant extends JPanel {
 

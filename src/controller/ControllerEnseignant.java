@@ -1,3 +1,6 @@
+/*
+ * distribue les methodes CRUD enseignant dans l'ORB de CORBA
+ */
 package controller;
 
 import java.sql.SQLException;

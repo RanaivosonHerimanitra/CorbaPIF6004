@@ -1,3 +1,6 @@
+/*
+ * la classe qui sert à démarrer le serveur
+ */
 package serveur;
 
 import java.util.Properties;

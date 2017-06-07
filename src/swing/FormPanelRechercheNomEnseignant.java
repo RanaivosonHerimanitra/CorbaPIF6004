@@ -1,3 +1,6 @@
+/*
+ * UI pour la recherche d'enseignant par nom et prenom
+ */
 package swing;
 
 import java.awt.Dimension;
@@ -16,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import controller.ControllerEnseignant;
+import controller.InputValidationErrorDialog;
 
 public class FormPanelRechercheNomEnseignant extends JPanel {
 	/**
@@ -30,7 +34,7 @@ public class FormPanelRechercheNomEnseignant extends JPanel {
 
 	private JTextField nomField;
 	private JTextField prenomField;
-	//JButton
+	
 	//JButton
 	private JButton searchBtn;
 	private JButton cancelBtn;
