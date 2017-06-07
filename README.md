@@ -37,5 +37,16 @@ Run login as Java application and enter the following credentials:
  * Admin: `admin` , `admin`
   
  * User: `user` , `user`
-  
+ 
+ ## Distribution as an executable jar:
+ 
+ * Right click on the project then go to export as a runnable jar:
+ 
+ <img src="img/exe.png" >
+ 
+ * Select login.java class, specify destination then enter finish:
+ 
+ <img src="img/exe-detail.png" >
+ 
+ 
  
