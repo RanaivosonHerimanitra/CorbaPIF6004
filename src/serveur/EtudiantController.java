@@ -36,7 +36,8 @@ public class EtudiantController {
 	}
 
 	public void update(Etudiant oldE, Etudiant modifE) throws SQLException {
-		String sql = "UPDATE etudiant SET nom_et=?, prenom_et=?, matricule_et=?, courriel_et=?, domaine_act_et=? WHERE nom_et=?";
+		String sql = "UPDATE etudiant SET nom_et=?, prenom_et=?, matricule_et=?, courriel_et=?,"
+				+ " domaine_act_et=? WHERE nom_et=? AND prenom_et=?";
 
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, modifE.p.nom);
@@ -45,6 +46,7 @@ public class EtudiantController {
 		statement.setString(4, modifE.p.mail);
 		statement.setString(5, modifE.p.domain);
 		statement.setString(6, oldE.p.nom);
+		statement.setString(7, oldE.p.prenom);
 
 		int rowsUpdated = statement.executeUpdate();
 		if (rowsUpdated > 0) 
@@ -52,9 +54,10 @@ public class EtudiantController {
 	}
 
 	public void delete(Etudiant e) throws SQLException{
-		String sql = "DELETE FROM etudiant WHERE nom_et=?";
+		String sql = "DELETE FROM etudiant WHERE nom_et=? AND prenom_et=?";
 		PreparedStatement statement = conn.prepareStatement(sql);
 		statement.setString(1, e.p.nom);
+		statement.setString(2, e.p.prenom);
 
 		int rowsDeleted = statement.executeUpdate();
 		if (rowsDeleted > 0) 
