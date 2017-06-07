@@ -1,3 +1,6 @@
+/*
+ * classe qui nous a servi pour tester le fonctionnement de nos methodes
+ */
 package serveur;
 import java.sql.SQLException;
 import java.util.ArrayList;
