@@ -1,3 +1,7 @@
+/*
+ * Fenetre de connexion
+ * point d'entree à l'application
+ */
 package swing;
 
 import java.awt.EventQueue;
