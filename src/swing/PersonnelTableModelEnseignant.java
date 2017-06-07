@@ -1,3 +1,7 @@
+/*
+ * Binding entre les colonnes de l'UI et la BD MySQL pour Enseignant
+ */
+
 package swing;
 
 import javax.swing.table.AbstractTableModel;

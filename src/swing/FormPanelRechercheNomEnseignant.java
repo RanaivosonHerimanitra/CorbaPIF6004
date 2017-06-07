@@ -1,3 +1,6 @@
+/*
+ * UI pour la recherche d'enseignant par nom et prenom
+ */
 package swing;
 
 import java.awt.Dimension;

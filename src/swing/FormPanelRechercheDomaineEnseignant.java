@@ -1,3 +1,6 @@
+/*
+ * UI pour la recherche d'enseignant par domaine 
+ */
 package swing;
 
 import java.awt.Dimension;

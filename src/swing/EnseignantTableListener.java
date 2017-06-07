@@ -1,3 +1,6 @@
+/*
+ * interface pour l'implementation de la suppression/modification par click droit
+ */
 package swing;
 
 public interface EnseignantTableListener {

@@ -1,3 +1,6 @@
+/*
+ * classe pour la recherche d'etudiants par nom et prenom
+ */
 package swing;
 
 import java.awt.Dimension;
