@@ -201,10 +201,8 @@ public class FrameRechercheEtudiant extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				int action = JOptionPane.showConfirmDialog(FrameRechercheEtudiant.this, 
 						"Désirez-vous fermer cette fenetre?", "Confirmer", JOptionPane.OK_CANCEL_OPTION);
-				if (action == JOptionPane.OK_OPTION){
-					FrameRechercheEtudiant.this.controllerEtudiant.shutDown();
+				if (action == JOptionPane.OK_OPTION)
 					FrameRechercheEtudiant.this.dispose();
-				}
 			}
 		});
 		return menuBar;
