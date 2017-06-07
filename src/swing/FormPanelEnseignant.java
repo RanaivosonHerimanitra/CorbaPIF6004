@@ -45,7 +45,8 @@ public class FormPanelEnseignant extends JPanel{
 	private JButton updateBtn;
 	private JButton cancelBtn;
 	private FormListenerEnseignant formListener;
-
+	
+	//constructeur
 	public FormPanelEnseignant(){
 		Dimension dim = getPreferredSize();
 		dim.width=250;

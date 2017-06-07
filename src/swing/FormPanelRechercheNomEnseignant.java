@@ -34,7 +34,7 @@ public class FormPanelRechercheNomEnseignant extends JPanel {
 
 	private JTextField nomField;
 	private JTextField prenomField;
-	//JButton
+	
 	//JButton
 	private JButton searchBtn;
 	private JButton cancelBtn;
